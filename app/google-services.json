@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "277061429134",
+    "project_id": "betterus-project",
+    "storage_bucket": "betterus-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277061429134:android:d45f25ba3d9808a4b866df",
+        "android_client_info": {
+          "package_name": "com.example.betterus_tutorial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTasbnr2s6OeKJOZAj40nxrHyngEKLkUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
