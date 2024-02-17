@@ -205,6 +205,6 @@ public class MainActivity extends AppCompatActivity {
         this.methodBindDo();
         this.checkAndLoadData();
         this.checkUserTutorial();
-        // Test
+
     }
 }
