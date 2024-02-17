@@ -65,76 +65,76 @@ public class MainActivity extends AppCompatActivity {
                             .setValue(tutorialPage.WELCOME);
 
                     // -- Health info -- \\
-                    MainActivity.this.userRef.child("healthInfo").child("weight");
-                    MainActivity.this.userRef.child("healthInfo").child("height");
-                    MainActivity.this.userRef.child("healthInfo").child("age");
-                    MainActivity.this.userRef.child("healthInfo").child("gender");
+                    MainActivity.this.userRef.child("healthInfo").child("weight").setValue(-1);
+                    MainActivity.this.userRef.child("healthInfo").child("height").setValue(-1);
+                    MainActivity.this.userRef.child("healthInfo").child("age").setValue(-1);
+                    MainActivity.this.userRef.child("healthInfo").child("gender").setValue("none");
 
                     // -- Sleep info -- \\
-                    MainActivity.this.userRef.child("sleepInfo").child("wakeUpTime").child("time");
-                    MainActivity.this.userRef.child("sleepInfo").child("wakeUpTime").child("amPm");
-                    MainActivity.this.userRef.child("sleepInfo").child("sleepTime").child("time");
-                    MainActivity.this.userRef.child("sleepInfo").child("sleepTIme").child("amPm");
+                    MainActivity.this.userRef.child("sleepInfo").child("wakeUpTime").child("time").setValue(-1);
+                    MainActivity.this.userRef.child("sleepInfo").child("wakeUpTime").child("amPm").setValue("none");
+                    MainActivity.this.userRef.child("sleepInfo").child("sleepTime").child("time").setValue(-1);
+                    MainActivity.this.userRef.child("sleepInfo").child("sleepTime").child("amPm").setValue("none");
 
                     // -- Meditation info -- \\
                     // -- Activity 1 -- \\
-                    MainActivity.this.userRef.child("meditationInfo").child("activity1").child("name");
+                    MainActivity.this.userRef.child("meditationInfo").child("activity1").child("name").setValue("none");
                     MainActivity.this.userRef.child("meditationInfo").child("activity1")
-                            .child("schedTime").child("time");
+                            .child("schedTime").child("time").setValue(-1);
                     MainActivity.this.userRef.child("meditationInfo").child("activity1")
-                            .child("schedTime").child("amPm");
+                            .child("schedTime").child("amPm").setValue("none");
                     MainActivity.this.userRef.child("meditationInfo").child("activity1")
-                            .child("goal").child("currentDays");
+                            .child("goal").child("currentDays").setValue(-1);
                     MainActivity.this.userRef.child("meditationInfo").child("activity1")
-                            .child("goal").child("totalDays");
+                            .child("goal").child("totalDays").setValue(-1);
 
                     // -- Activity 2 -- \\
-                    MainActivity.this.userRef.child("meditationInfo").child("activity2").child("name");
+                    MainActivity.this.userRef.child("meditationInfo").child("activity2").child("name").setValue("none");
                     MainActivity.this.userRef.child("meditationInfo").child("activity2")
-                            .child("schedTime").child("time");
+                            .child("schedTime").child("time").setValue(-1);
                     MainActivity.this.userRef.child("meditationInfo").child("activity2")
-                            .child("schedTime").child("amPm");
+                            .child("schedTime").child("amPm").setValue("none");
                     MainActivity.this.userRef.child("meditationInfo").child("activity2")
-                            .child("goal").child("currentDays");
+                            .child("goal").child("currentDays").setValue(-1);
                     MainActivity.this.userRef.child("meditationInfo").child("activity2")
-                            .child("goal").child("totalDays");
+                            .child("goal").child("totalDays").setValue(-1);
 
                     // -- Activity 3 -- \\
-                    MainActivity.this.userRef.child("meditationInfo").child("activity3").child("name");
+                    MainActivity.this.userRef.child("meditationInfo").child("activity3").child("name").setValue("none");
                     MainActivity.this.userRef.child("meditationInfo").child("activity3")
-                            .child("schedTime").child("time");
+                            .child("schedTime").child("time").setValue(-1);
                     MainActivity.this.userRef.child("meditationInfo").child("activity3")
-                            .child("schedTime").child("amPm");
+                            .child("schedTime").child("amPm").setValue("none");
                     MainActivity.this.userRef.child("meditationInfo").child("activity3")
-                            .child("goal").child("currentDays");
+                            .child("goal").child("currentDays").setValue(-1);
                     MainActivity.this.userRef.child("meditationInfo").child("activity3")
-                            .child("goal").child("totalDays");
+                            .child("goal").child("totalDays").setValue(-1);
 
                     // -- Exercise info -- \\
                     // -- Activity 1 -- \\
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity1").child("name");
+                    MainActivity.this.userRef.child("exerciseInfo").child("activity1").child("name").setValue("none");
                     MainActivity.this.userRef.child("exerciseInfo").child("activity1")
-                            .child("schedTime").child("time");
+                            .child("schedTime").child("time").setValue(-1);
                     MainActivity.this.userRef.child("exerciseInfo").child("activity1")
-                            .child("schedTime").child("amPm");
+                            .child("schedTime").child("amPm").setValue("none");
                     MainActivity.this.userRef.child("exerciseInfo").child("activity1")
-                            .child("goal").child("currentDays");
+                            .child("goal").child("currentDays").setValue(-1);
                     MainActivity.this.userRef.child("exerciseInfo").child("activity1")
-                            .child("goal").child("totalDays");
+                            .child("goal").child("totalDays").setValue(-1);
 
                     // -- Activity 2 -- \\
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity2").child("name");
+                    MainActivity.this.userRef.child("exerciseInfo").child("activity2").child("name").setValue("none");
                     MainActivity.this.userRef.child("exerciseInfo").child("activity2")
-                            .child("schedTime").child("time");
+                            .child("schedTime").child("time").setValue(-1);
                     MainActivity.this.userRef.child("exerciseInfo").child("activity2")
-                            .child("schedTime").child("amPm");
+                            .child("schedTime").child("amPm").setValue("none");
                     MainActivity.this.userRef.child("exerciseInfo").child("activity2")
-                            .child("goal").child("currentDays");
+                            .child("goal").child("currentDays").setValue(-1);
                     MainActivity.this.userRef.child("exerciseInfo").child("activity2")
-                            .child("goal").child("totalDays");
+                            .child("goal").child("totalDays").setValue(-1);
 
                     // -- Food info -- \\
-                    MainActivity.this.userRef.child("foodInfo"); // Not sure what to put here .~.
+                    MainActivity.this.userRef.child("foodInfo").setValue("none"); // Not sure what to put here .~.
                 }
             }
 
