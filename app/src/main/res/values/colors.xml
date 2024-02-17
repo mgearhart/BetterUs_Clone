@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="tutorial_page_background">#70A7FF</color>
+    <color name="button_disabled">#EBEBE4</color>
+    <color name="button_enabled">#2196F3</color>
+    <color name="button_disabled_text">#666666</color>
+    <color name="button_previous">#4CAF50</color>
+    <color name="orange">#FF5722</color>
+</resources>
