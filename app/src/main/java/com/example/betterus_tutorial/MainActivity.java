@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    // ---- VARIABLES ---- \\
+    // ---- VARIABLES ----  \\
     private Button tutorialButton;
     private enum tutorialPage{
         WELCOME,
