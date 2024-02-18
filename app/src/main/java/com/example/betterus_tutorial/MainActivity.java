@@ -18,8 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     // ---- VARIABLES ---- \\
-    private Button tutorialButton;
-    private enum TutorialPage{
+    public enum TutorialPage{
         WELCOME,
         HEALTH,
         SLEEP,
@@ -28,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
         FOOD,
         FINISHED
     };
+    private Button tutorialButton;
     private Button logoutButton;
     private DatabaseReference userRef;
 
     // ---- METHODS ---- \\
     private void checkLogin(){ // GOOD
-        // -- Getting all Firebase resources -- \\
         FirebaseDatabase fireDB = FirebaseDatabase.getInstance();
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.userRef.child("healthInfo").child("weight").setValue(-1);
                     MainActivity.this.userRef.child("healthInfo").child("height").setValue(-1);
                     MainActivity.this.userRef.child("healthInfo").child("age").setValue(-1);
-                    MainActivity.this.userRef.child("healthInfo").child("gender").setValue("none");
+                    MainActivity.this.userRef.child("healthInfo").child("gender").setValue(0);
 
                     // -- Sleep info -- \\
                     MainActivity.this.userRef.child("sleepInfo").child("wakeUpTime").child("time").setValue(-1);
@@ -201,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { // GOOD
-        // -- Initializations -- \\
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_main);
         this.tutorialButton = this.findViewById(R.id.buttonToTutorial);

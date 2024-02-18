@@ -27,7 +27,6 @@ public class Login extends AppCompatActivity {
 
     // ---- METHODS ---- \\
     public void onStart() { // GOOD
-        // Might remove
         super.onStart();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if(currentUser != null){
@@ -83,7 +82,6 @@ public class Login extends AppCompatActivity {
     }
 
     protected void onCreate(Bundle savedInstanceState) { // GOOD
-        // -- Initializations -- \\
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_login);
         this.emailInput = this.findViewById(R.id.emailInput);

@@ -70,7 +70,6 @@ public class Registration extends AppCompatActivity {
     }
 
     protected void onCreate(Bundle savedInstanceState) { // GOOD
-        // -- Initializations -- \\
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_registration);
         this.emailInput = this.findViewById(R.id.emailInput);
