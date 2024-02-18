@@ -1,7 +1,6 @@
 package com.example.betterus_tutorial;
 
 import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -20,38 +19,32 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
     // ---- VARIABLES ---- \\
     private Button tutorialButton;
-    private enum tutorialPage{
+    private enum TutorialPage{
         WELCOME,
         HEALTH,
-        MENTAL_HEALTH,
         SLEEP,
         MEDITATION,
         EXERCISE,
-        FOOD
+        FOOD,
+        FINISHED
     };
     private Button logoutButton;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase fireDB;
     private DatabaseReference userRef;
-    private FirebaseUser firebaseUser;
-    private String userID;
 
     // ---- METHODS ---- \\
     private void checkLogin(){ // GOOD
         // -- Getting all Firebase resources -- \\
-        this.fireDB = FirebaseDatabase.getInstance();
-        this.firebaseAuth = FirebaseAuth.getInstance();
-        this.firebaseUser = firebaseAuth.getCurrentUser();
+        FirebaseDatabase fireDB = FirebaseDatabase.getInstance();
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
         if(firebaseUser == null){ // User is not logged in, move to login page!
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
         }
-        else{ // User is logged in, load their data!
-            this.userID = this.firebaseUser.getUid();
-            this.userRef = this.fireDB.getReference("users").child(this.userID);
-        }
+        else // User is logged in, load their data!
+            this.userRef = fireDB.getReference("users").child(firebaseUser.getUid());
     }
 
     private void checkAndLoadData(){ // GOOD
@@ -60,9 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 if(!data.exists()){
                     // -- Creating user nodes -- \\
                     // -- Tutorial info -- \\
-                    MainActivity.this.userRef.child("tutorialInfo").child("finishedTutorial").setValue(false);
                     MainActivity.this.userRef.child("tutorialInfo").child("tutorialPage")
-                            .setValue(tutorialPage.WELCOME);
+                            .setValue(TutorialPage.WELCOME);
 
                     // -- Health info -- \\
                     MainActivity.this.userRef.child("healthInfo").child("weight").setValue(-1);
@@ -156,46 +148,59 @@ public class MainActivity extends AppCompatActivity {
 
         this.tutorialButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), tutorial_1.class);
+                Intent intent = new Intent(getApplicationContext(), Tutorial_1.class);
                 startActivity(intent);
                 finish();
             }
         });
     }
 
-    private void checkUserTutorial(){ // WIP
-//        if(checkIfNotFinishedTutorial){
-//            switch(getTutorialPage){
-//                case tutorialPage.WELCOME:
-//                    goToWelcome;
-//                    break;
-//                case tutorialPage.HEALTH:
-//                    goToHealth;
-//                    break;
-//                case tutorialPage.MENTAL_HEALTH:
-//                    goToMentalHealth;
-//                    break;
-//                case tutorialPage.SLEEP:
-//                    goToSleep;
-//                    break;
-//                case tutorialPage.MEDITATION:
-//                    goToMeditation;
-//                    break;
-//                case tutorialPage.EXERCISE:
-//                    goToExercise;
-//                    break;
-//                case tutorialPage.FOOD:
-//                    goToFood;
-//                    break;
-//                default:
-//                    Log.e(TAG, "Something went wrong while trying to go a tutorial page!");
-//                    break;
-//            }
-//        }
+    private void checkUserTutorial(){ // GOOD
+        this.userRef.child("tutorialInfo").child("tutorialPage").addListenerForSingleValueEvent(new ValueEventListener(){
+            public void onDataChange(@NonNull DataSnapshot dataSnap){
+                if(dataSnap.exists()){
+                    TutorialPage pageValue = dataSnap.getValue(TutorialPage.class);
+
+                    if(pageValue!= null){
+                        if(pageValue != TutorialPage.FINISHED){
+                            Intent newIntent = null;
+
+                            switch(pageValue){
+                                case WELCOME:
+                                    newIntent = new Intent(getApplicationContext(), Tutorial_0.class);
+                                    break;
+                                case HEALTH:
+                                    newIntent = new Intent(getApplicationContext(), Tutorial_1.class);
+                                    break;
+                                case SLEEP:
+                                    newIntent = new Intent(getApplicationContext(), Tutorial_2.class);
+                                    break;
+                                case MEDITATION:
+                                    newIntent = new Intent(getApplicationContext(), Tutorial_3.class);
+                                    break;
+                                case EXERCISE:
+                                    newIntent = new Intent(getApplicationContext(), Tutorial_4.class);
+                                    break;
+                                case FOOD:
+                                    newIntent = new Intent(getApplicationContext(), Tutorial_5.class);
+                                    break;
+                            }
+
+                            startActivity(newIntent);
+                            finish();
+                        }
+                    }
+                    else Log.e(TAG, "User 'tutorialPage' was found null!");
+                }
+                else Log.e(TAG, "Did not find value for user's 'finishedTutorial'");
+            }
+
+            public void onCancelled(@NonNull DatabaseError dbError){}
+        });
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { // WIP
+    protected void onCreate(Bundle savedInstanceState) { // GOOD
         // -- Initializations -- \\
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_main);
@@ -206,5 +211,6 @@ public class MainActivity extends AppCompatActivity {
         this.checkAndLoadData();
         this.checkUserTutorial();
 
+        // Other stuff
     }
 }

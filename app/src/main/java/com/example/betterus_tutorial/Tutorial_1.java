@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
-public class tutorial_1 extends AppCompatActivity {
+public class Tutorial_1 extends AppCompatActivity {
     // ---- VARIABLES ---- \\
     private Button continueButton;
     @SuppressLint({"MissingInflatedId", "LocalSuppress"})
