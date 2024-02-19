@@ -1,11 +1,13 @@
 package user.dataObjects;
 
 public class HealthInfo {
+    public enum BioSex{NONE, FEMALE, MALE};
     private float height, weight;
-    private int sex, age;
+    private int age;
+    private BioSex sex;
 
-    public HealthInfo(int sex, float height, float weight, int age){
-        this.sex = sex; // 0 = None; 1 = Female; 2 = Male
+    public HealthInfo(BioSex sex, float height, float weight, int age){
+        this.sex = sex;
         this.height = height;
         this.weight = weight;
         this.age = age;
@@ -13,7 +15,7 @@ public class HealthInfo {
 
     public HealthInfo(){}
 
-    public void setSex(int sex){
+    public void setSex(BioSex sex){
         this.sex = sex;
     }
 
@@ -29,7 +31,7 @@ public class HealthInfo {
         this.age = age;
     }
 
-    public int getSex(){return this.sex;}
+    public BioSex getSex(){return this.sex;}
 
     public float getHeight(){return this.height;}
 

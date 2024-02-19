@@ -50,8 +50,8 @@ public class Tutorial_1 extends AppCompatActivity {
                     HealthInfo healthInfo = dataSnap.getValue(HealthInfo.class);
 
                     if(healthInfo != null){
-                        if(healthInfo.getAge() > 0) ageInput.setText(healthInfo.getAge());
-                        if(healthInfo.getSex() != 0) sexSelect.setSelection(healthInfo.getSex());
+                        if(healthInfo.getAge() > 0) ageInput.setText(String.valueOf(healthInfo.getAge()));
+                        if(healthInfo.getSex() != HealthInfo.BioSex.NONE) sexSelect.setSelection(healthInfo.getSex().ordinal());
                         if(healthInfo.getHeight() > 0) heightInput.setText(String.valueOf(healthInfo.getHeight()));
                         if(healthInfo.getWeight() > 0) weightInput.setText(String.valueOf(healthInfo.getWeight()));
 
@@ -101,11 +101,13 @@ public class Tutorial_1 extends AppCompatActivity {
         this.continueButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 if(continueEnabled){
-                    HealthInfo healthInfo = new HealthInfo(sexSelect.getSelectedItemPosition(),
+                    HealthInfo healthInfo = new HealthInfo(HealthInfo.BioSex.values()[sexSelect.getSelectedItemPosition()],
                             Float.parseFloat(heightInput.getText().toString()), Float.parseFloat(weightInput.getText().toString()),
                             Integer.parseInt(ageInput.getText().toString()));
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class); // Change to next page!
+                    Intent intent = new Intent(getApplicationContext(), Tutorial_2.class); // Change to next page!
 
+                    userRef.child("tutorialInfo").child("tutorialPage")
+                            .setValue(MainActivity.TutorialPage.SLEEP);
                     userRef.child("healthInfo").setValue(healthInfo);
                     startActivity(intent);
                     finish();
@@ -126,19 +128,8 @@ public class Tutorial_1 extends AppCompatActivity {
     }
 
     private void checkAndEnableContinue(){ // GOOD
-        if(ageInput.getText().toString().isEmpty()){
-            this.continueButtonChange(false);
-            this.continueEnabled = false;
-        }
-        else if(heightInput.getText().toString().isEmpty()){
-            this.continueButtonChange(false);
-            this.continueEnabled = false;
-        }
-        else if(weightInput.getText().toString().isEmpty()){
-            this.continueButtonChange(false);
-            this.continueEnabled = false;
-        }
-        else if(sexSelect.getSelectedItemPosition() != 0){ // 0 = None
+        if(ageInput.getText().toString().isEmpty() || heightInput.getText().toString().isEmpty() ||
+                weightInput.getText().toString().isEmpty() || (sexSelect.getSelectedItemPosition() == 0)){
             this.continueButtonChange(false);
             this.continueEnabled = false;
         }
@@ -149,7 +140,7 @@ public class Tutorial_1 extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { // [Almost done]
+    protected void onCreate(Bundle savedInstanceState) { // GOOD
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_tutorial1);
         this.continueButton = this.findViewById(R.id.continueButton);

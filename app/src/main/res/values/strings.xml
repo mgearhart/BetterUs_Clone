@@ -23,4 +23,9 @@
     <string name="tutorialBeginInfo">Before we start, let\'s get some basic info from you. The following pages
         will ask for some basic info regarding your health and activities. Remember to input honestly for accurate recommendations.
     </string>
+    <string name="sleepTime">Sleep Time</string>
+    <string name="wakeUpTime">Wake Up Time:</string>
+    <string name="sleepTimeText">Sleep Time:</string>
+    <string name="ten">10</string>
+    <string name="twelve">12</string>
 </resources>
