@@ -1,7 +1,6 @@
 package com.example.betterus_tutorial;
 
 import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -15,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,7 +23,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
-import user.dataObjects.HealthInfo;
 import user.dataObjects.SleepInfo;
 import user.dataObjects.TimeInfo;
 
@@ -68,7 +65,7 @@ public class Tutorial_2 extends AppCompatActivity {
         });
     }
 
-    private void methodBindDo(){ // [Almost done]
+    private void methodBindDo(){ // GOOD
         this.previousButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), Tutorial_1.class);
@@ -80,11 +77,22 @@ public class Tutorial_2 extends AppCompatActivity {
             }
         });
 
-        this.continueButton.setOnClickListener(new View.OnClickListener(){ // [Almost done]
+        this.continueButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 if(continueEnabled){
-                    SleepInfo sleepInfo = new SleepInfo();
                     Intent intent = new Intent(getApplicationContext(), Tutorial_3.class);
+                    TimeInfo wakeUpTime = new TimeInfo();
+                    TimeInfo sleepTime = new TimeInfo();
+                    SleepInfo sleepInfo = new SleepInfo();
+
+                    wakeUpTime.setTime(Integer.parseInt(wakeUpTimeInput.getText().toString()));
+                    wakeUpTime.setAmPm(TimeInfo.AmPm.values()[wakeupAmPm.getSelectedItemPosition()]);
+
+                    sleepTime.setTime(Integer.parseInt(sleepTimeInput.getText().toString()));
+                    sleepTime.setAmPm(TimeInfo.AmPm.values()[sleepTimeAmPm.getSelectedItemPosition()]);
+
+                    sleepInfo.setWakeUpTime(wakeUpTime);
+                    sleepInfo.setSleepTime(sleepTime);
 
                     userRef.child("tutorialInfo").child("tutorialPage")
                             .setValue(MainActivity.TutorialPage.MEDITATION);
@@ -107,7 +115,7 @@ public class Tutorial_2 extends AppCompatActivity {
         }
     }
 
-    private void checkAndEnableContinue(){ // WIP
+    private void checkAndEnableContinue(){ // GOOD
         if(wakeUpTimeInput.getText().toString().isEmpty() || sleepTimeInput.getText().toString().isEmpty()){
             this.continueButtonChange(false);
             this.continueEnabled = false;
@@ -116,12 +124,9 @@ public class Tutorial_2 extends AppCompatActivity {
             int wakeUpTime = Integer.parseInt(wakeUpTimeInput.getText().toString());
             int sleepTime = Integer.parseInt(sleepTimeInput.getText().toString());
 
-            if(wakeUpTime > 12){
+            if((wakeUpTime > 12) || (sleepTime > 12)){
                 this.continueButtonChange(false);
                 this.continueEnabled = false;
-            }
-            else if(sleepTime > 12){
-
             }
             else{
                 this.continueButtonChange(true);
@@ -162,6 +167,7 @@ public class Tutorial_2 extends AppCompatActivity {
                 new ArrayAdapter<>(this, R.layout.custom_dropdown_item, R.id.textView1, sleepTimeAmPmOptions);
 
         this.sleepTimeAmPm.setAdapter(sleepTimeAmPmAdapter);
+        this.sleepTimeAmPm.setSelection(1); // PM by default
 
         // GIF setup
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})

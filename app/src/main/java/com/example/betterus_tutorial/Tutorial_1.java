@@ -101,7 +101,7 @@ public class Tutorial_1 extends AppCompatActivity {
         this.continueButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 if(continueEnabled){
-                    HealthInfo healthInfo = new HealthInfo(HealthInfo.BioSex.values()[sexSelect.getSelectedItemPosition()],
+                    HealthInfo healthInfo = new HealthInfo((HealthInfo.BioSex) HealthInfo.BioSex.values()[sexSelect.getSelectedItemPosition()],
                             Float.parseFloat(heightInput.getText().toString()), Float.parseFloat(weightInput.getText().toString()),
                             Integer.parseInt(ageInput.getText().toString()));
                     Intent intent = new Intent(getApplicationContext(), Tutorial_2.class); // Change to next page!

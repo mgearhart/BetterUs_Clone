@@ -16,6 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import user.dataObjects.HealthInfo;
+import user.dataObjects.SleepInfo;
+import user.dataObjects.TimeInfo;
+
 public class MainActivity extends AppCompatActivity {
     // ---- VARIABLES ---- \\
     public enum TutorialPage{
@@ -56,16 +60,14 @@ public class MainActivity extends AppCompatActivity {
                             .setValue(TutorialPage.WELCOME);
 
                     // -- Health info -- \\
-                    MainActivity.this.userRef.child("healthInfo").child("weight").setValue(-1);
-                    MainActivity.this.userRef.child("healthInfo").child("height").setValue(-1);
-                    MainActivity.this.userRef.child("healthInfo").child("age").setValue(-1);
-                    MainActivity.this.userRef.child("healthInfo").child("gender").setValue(0);
+                    HealthInfo healthInfo = new HealthInfo(HealthInfo.BioSex.NONE, -1, -1, -1);
+                    MainActivity.this.userRef.child("healthInfo").setValue(healthInfo);
 
                     // -- Sleep info -- \\
-                    MainActivity.this.userRef.child("sleepInfo").child("wakeUpTime").child("time").setValue(-1);
-                    MainActivity.this.userRef.child("sleepInfo").child("wakeUpTime").child("amPm").setValue("none");
-                    MainActivity.this.userRef.child("sleepInfo").child("sleepTime").child("time").setValue(-1);
-                    MainActivity.this.userRef.child("sleepInfo").child("sleepTime").child("amPm").setValue("none");
+                    TimeInfo wakeUpTime = new TimeInfo(TimeInfo.AmPm.NONE, -1);
+                    TimeInfo sleepTime = new TimeInfo(TimeInfo.AmPm.NONE, -1);
+                    SleepInfo sleepInfo = new SleepInfo(wakeUpTime, sleepTime);
+                    MainActivity.this.userRef.child("sleepInfo").setValue(sleepInfo);
 
                     // -- Meditation info -- \\
                     // -- Activity 1 -- \\
@@ -191,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else Log.e(TAG, "User 'tutorialPage' was found null!");
                 }
-                else Log.e(TAG, "Did not find value for user's 'finishedTutorial'");
+                else Log.e(TAG, "Did not find user's 'tutorialPage'!");
             }
 
             public void onCancelled(@NonNull DatabaseError dbError){}

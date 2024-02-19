@@ -1,5 +1,8 @@
 package user.dataObjects;
 
+import static android.content.ContentValues.TAG;
+import android.util.Log;
+
 public class HealthInfo {
     public enum BioSex{NONE, FEMALE, MALE};
     private float height, weight;
