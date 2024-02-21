@@ -1,4 +1,4 @@
-package user.dataObjects;
+package com.example.betterus_tutorial.user.dataObjects;
 
 public class SleepInfo {
     private TimeInfo wakeUpTime, sleepTime;

@@ -28,4 +28,20 @@
     <string name="sleepTimeText">Sleep Time:</string>
     <string name="ten">10</string>
     <string name="twelve">12</string>
+    <string name="meditation">Meditation</string>
+    <string name="activity1Title">Activity 1</string>
+    <string name="activity2Title">Activity 2</string>
+    <string name="activity3Title">Activity 3</string>
+    <string name="activity1Text">Activity 1:</string>
+    <string name="activity2Text">Activity 2:</string>
+    <string name="activity3Text">Activity 3:</string>
+    <string name="editActivity1">Edit Activity 1</string>
+    <string name="editActivity2">Edit Activity 2</string>
+    <string name="editActivity3">Edit Activity 3</string>
+    <string name="mindfulWalking">Mindful Walking</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="activityTimeText">Activity Time:</string>
+    <string name="activityNameText">Activity Name:</string>
+    <string name="activityTitle">Activity %d</string>
 </resources>

@@ -1,4 +1,4 @@
-package user.dataObjects;
+package com.example.betterus_tutorial.user.dataObjects;
 
 public class TimeInfo {
     public enum AmPm {NONE, AM, PM};

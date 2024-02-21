@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Tutorial_2"
+    tools:context=".tutorial.Tutorial_2"
     android:background="@color/tutorial_page_background"
     >
 
@@ -72,6 +72,7 @@
         android:inputType="number"
         android:singleLine="true"
         android:gravity="center"
+        android:maxLength="2"
     />
 
     <Spinner
@@ -111,6 +112,7 @@
         android:inputType="number"
         android:singleLine="true"
         android:gravity="center"
+        android:maxLength="2"
     />
 
     <Spinner

@@ -8,6 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.betterus_tutorial.tutorial.Tutorial_0;
+import com.example.betterus_tutorial.tutorial.Tutorial_1;
+import com.example.betterus_tutorial.tutorial.Tutorial_2;
+import com.example.betterus_tutorial.tutorial.Tutorial_3;
+import com.example.betterus_tutorial.tutorial.Tutorial_4;
+import com.example.betterus_tutorial.tutorial.Tutorial_5;
+import com.example.betterus_tutorial.user.authentication.Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -16,9 +24,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import user.dataObjects.HealthInfo;
-import user.dataObjects.SleepInfo;
-import user.dataObjects.TimeInfo;
+import com.example.betterus_tutorial.user.dataObjects.HealthInfo;
+import com.example.betterus_tutorial.user.dataObjects.SleepInfo;
+import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
 
 public class MainActivity extends AppCompatActivity {
     // ---- VARIABLES ---- \\

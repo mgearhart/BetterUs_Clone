@@ -1,7 +1,4 @@
-package user.dataObjects;
-
-import static android.content.ContentValues.TAG;
-import android.util.Log;
+package com.example.betterus_tutorial.user.dataObjects;
 
 public class HealthInfo {
     public enum BioSex{NONE, FEMALE, MALE};

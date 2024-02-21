@@ -1,4 +1,4 @@
-package com.example.betterus_tutorial;
+package com.example.betterus_tutorial.tutorial;
 
 import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.example.betterus_tutorial.MainActivity;
+import com.example.betterus_tutorial.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
-import user.dataObjects.HealthInfo;
+import com.example.betterus_tutorial.user.dataObjects.HealthInfo;
 
 public class Tutorial_1 extends AppCompatActivity {
     // ---- VARIABLES ---- \\

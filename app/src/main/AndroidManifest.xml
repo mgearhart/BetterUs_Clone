@@ -13,28 +13,28 @@
         android:theme="@style/Theme.BetterUs_Tutorial"
         tools:targetApi="31">
         <activity
-            android:name=".Tutorial_5"
+            android:name=".tutorial.Tutorial_5"
             android:exported="false" />
         <activity
-            android:name=".Tutorial_4"
+            android:name=".tutorial.Tutorial_4"
             android:exported="false" />
         <activity
-            android:name=".Tutorial_3"
+            android:name=".tutorial.Tutorial_3"
             android:exported="false" />
         <activity
-            android:name=".Tutorial_2"
+            android:name=".tutorial.Tutorial_2"
             android:exported="false" />
         <activity
-            android:name=".Tutorial_0"
+            android:name=".tutorial.Tutorial_0"
             android:exported="false" />
         <activity
-            android:name=".Registration"
+            android:name=".user.authentication.Registration"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".user.authentication.Login"
             android:exported="false" />
         <activity
-            android:name=".Tutorial_1"
+            android:name=".tutorial.Tutorial_1"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

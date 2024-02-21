@@ -1,4 +1,4 @@
-package com.example.betterus_tutorial;
+package com.example.betterus_tutorial.tutorial;
 
 import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import com.bumptech.glide.Glide;
+import com.example.betterus_tutorial.MainActivity;
+import com.example.betterus_tutorial.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,8 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
-import user.dataObjects.SleepInfo;
-import user.dataObjects.TimeInfo;
+import com.example.betterus_tutorial.user.dataObjects.SleepInfo;
+import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
 
 public class Tutorial_2 extends AppCompatActivity {
     // ---- VARIABLES ---- \\
@@ -66,7 +68,7 @@ public class Tutorial_2 extends AppCompatActivity {
     }
 
     private void methodBindDo(){ // GOOD
-        this.previousButton.setOnClickListener(new View.OnClickListener(){
+        this.previousButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), Tutorial_1.class);
 
