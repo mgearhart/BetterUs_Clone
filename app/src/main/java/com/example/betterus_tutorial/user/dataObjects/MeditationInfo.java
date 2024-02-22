@@ -1,7 +1,8 @@
 package com.example.betterus_tutorial.user.dataObjects;
 
 public class MeditationInfo {
-    private ActivityInfo actInfoArray[];
+    public final static int NUM_ACTIVITIES = 3;
+    private final ActivityInfo actInfoArray[];
 
     public MeditationInfo(int size){
         this.actInfoArray = new ActivityInfo[size];

@@ -44,4 +44,6 @@
     <string name="activityTimeText">Activity Time:</string>
     <string name="activityNameText">Activity Name:</string>
     <string name="activityTitle">Activity %d</string>
+    <string name="duration">Duration:</string>
+    <string name="twelveDays">12 days</string>
 </resources>

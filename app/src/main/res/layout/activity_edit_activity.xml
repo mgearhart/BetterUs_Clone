@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
+    android:layout_width="380dp"
     android:layout_height="400dp"
     android:layout_gravity="center"
     android:background="@drawable/pop_up_edit_activity"
@@ -72,6 +72,7 @@
         android:inputType="number"
         android:singleLine="true"
         android:gravity="center"
+        android:maxLength="2"
     />
 
     <Spinner
@@ -83,6 +84,35 @@
         android:textStyle="bold"
         android:layout_marginStart="225dp"
         android:layout_marginTop="83dp"
+    />
+
+    <TextView
+        android:id="@+id/numDaysText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/duration"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@+id/activityTitle"
+        android:layout_marginTop="130dp"
+        android:layout_marginStart="35dp"
+    />
+
+    <EditText
+        android:id="@+id/durationInput"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activityTitle"
+        android:hint="@string/twelveDays"
+        android:textSize="20sp"
+        android:layout_marginStart="175dp"
+        android:textStyle="bold"
+        android:layout_marginTop="120dp"
+        android:inputType="number"
+        android:singleLine="true"
+        android:gravity="center"
+        android:maxLength="20"
     />
 
     <Button
@@ -98,7 +128,7 @@
         android:textSize="20sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="230dp"
     />
 
     <Button
@@ -114,6 +144,6 @@
         android:textSize="20sp"
         android:textAllCaps="false"
         android:textColor="@color/button_disabled_text"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="285dp"
     />
 </RelativeLayout>

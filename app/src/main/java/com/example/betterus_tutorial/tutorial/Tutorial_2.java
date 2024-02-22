@@ -118,13 +118,13 @@ public class Tutorial_2 extends AppCompatActivity {
     }
 
     private void checkAndEnableContinue(){ // GOOD
-        if(wakeUpTimeInput.getText().toString().isEmpty() || sleepTimeInput.getText().toString().isEmpty()){
+        if(this.wakeUpTimeInput.getText().toString().isEmpty() || this.sleepTimeInput.getText().toString().isEmpty()){
             this.continueButtonChange(false);
             this.continueEnabled = false;
         }
         else{
-            int wakeUpTime = Integer.parseInt(wakeUpTimeInput.getText().toString());
-            int sleepTime = Integer.parseInt(sleepTimeInput.getText().toString());
+            int wakeUpTime = Integer.parseInt(this.wakeUpTimeInput.getText().toString());
+            int sleepTime = Integer.parseInt(this.sleepTimeInput.getText().toString());
 
             if((wakeUpTime > 12) || (sleepTime > 12)){
                 this.continueButtonChange(false);
