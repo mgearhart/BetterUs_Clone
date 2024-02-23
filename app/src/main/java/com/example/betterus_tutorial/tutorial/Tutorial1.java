@@ -1,13 +1,11 @@
 package com.example.betterus_tutorial.tutorial;
 
-import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -31,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import com.example.betterus_tutorial.user.dataObjects.HealthInfo;
 
-public class Tutorial_1 extends AppCompatActivity {
+public class Tutorial1 extends AppCompatActivity {
     // ---- VARIABLES ---- \\
     private Button continueButton;
     private Spinner sexSelect;
@@ -104,7 +102,7 @@ public class Tutorial_1 extends AppCompatActivity {
                     HealthInfo healthInfo = new HealthInfo((HealthInfo.BioSex) HealthInfo.BioSex.values()[sexSelect.getSelectedItemPosition()],
                             Float.parseFloat(heightInput.getText().toString()), Float.parseFloat(weightInput.getText().toString()),
                             Integer.parseInt(ageInput.getText().toString()));
-                    Intent intent = new Intent(getApplicationContext(), Tutorial_2.class); // Change to next page!
+                    Intent intent = new Intent(getApplicationContext(), Tutorial2.class); // Change to next page!
 
                     userRef.child("tutorialInfo").child("tutorialPage")
                             .setValue(MainActivity.TutorialPage.SLEEP);

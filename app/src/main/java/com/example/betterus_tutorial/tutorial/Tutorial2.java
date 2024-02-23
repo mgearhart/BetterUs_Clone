@@ -1,13 +1,11 @@
 package com.example.betterus_tutorial.tutorial;
 
-import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -17,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.betterus_tutorial.MainActivity;
 import com.example.betterus_tutorial.R;
@@ -32,7 +29,7 @@ import java.util.ArrayList;
 import com.example.betterus_tutorial.user.dataObjects.SleepInfo;
 import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
 
-public class Tutorial_2 extends AppCompatActivity {
+public class Tutorial2 extends AppCompatActivity {
     // ---- VARIABLES ---- \\
     private Button continueButton, previousButton;
     private Spinner wakeupAmPm, sleepTimeAmPm;
@@ -56,9 +53,9 @@ public class Tutorial_2 extends AppCompatActivity {
 
                     if(wakeUpTime.getTime() > 0){
                         wakeUpTimeInput.setText(String.valueOf(wakeUpTime.getTime()));
-                        wakeupAmPm.setSelection(wakeUpTime.getAmPm().ordinal());
+                        wakeupAmPm.setSelection(wakeUpTime.getAmPm().ordinal()-1);
                         sleepTimeInput.setText(String.valueOf(sleepTime.getTime()));
-                        sleepTimeAmPm.setSelection(sleepTime.getAmPm().ordinal());
+                        sleepTimeAmPm.setSelection(sleepTime.getAmPm().ordinal()-1);
                         continueButtonChange(true);
                     }
                 }
@@ -87,7 +84,7 @@ public class Tutorial_2 extends AppCompatActivity {
 
         this.previousButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), Tutorial_1.class);
+                Intent intent = new Intent(getApplicationContext(), Tutorial1.class);
 
                 userRef.child("tutorialInfo").child("tutorialPage")
                         .setValue(MainActivity.TutorialPage.HEALTH);
@@ -99,16 +96,16 @@ public class Tutorial_2 extends AppCompatActivity {
         this.continueButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 if(continueEnabled){
-                    Intent intent = new Intent(getApplicationContext(), Tutorial_3.class);
+                    Intent intent = new Intent(getApplicationContext(), Tutorial3.class);
                     TimeInfo wakeUpTime = new TimeInfo();
                     TimeInfo sleepTime = new TimeInfo();
                     SleepInfo sleepInfo = new SleepInfo();
 
                     wakeUpTime.setTime(Integer.parseInt(wakeUpTimeInput.getText().toString()));
-                    wakeUpTime.setAmPm(TimeInfo.AmPm.values()[wakeupAmPm.getSelectedItemPosition()]);
+                    wakeUpTime.setAmPm(TimeInfo.AmPm.values()[wakeupAmPm.getSelectedItemPosition() + 1]);
 
                     sleepTime.setTime(Integer.parseInt(sleepTimeInput.getText().toString()));
-                    sleepTime.setAmPm(TimeInfo.AmPm.values()[sleepTimeAmPm.getSelectedItemPosition()]);
+                    sleepTime.setAmPm(TimeInfo.AmPm.values()[sleepTimeAmPm.getSelectedItemPosition() + 1]);
 
                     sleepInfo.setWakeUpTime(wakeUpTime);
                     sleepInfo.setSleepTime(sleepTime);

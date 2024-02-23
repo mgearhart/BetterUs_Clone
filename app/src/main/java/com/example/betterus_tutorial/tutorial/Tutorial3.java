@@ -1,12 +1,9 @@
 package com.example.betterus_tutorial.tutorial;
 
-import static android.content.ContentValues.TAG;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -33,7 +30,7 @@ import com.example.betterus_tutorial.user.dataObjects.MeditationInfo;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
-public class Tutorial_3 extends AppCompatActivity {
+public class Tutorial3 extends AppCompatActivity {
     private Button continueButton, previousButton, act1Button, act2Button, act3Button;
     private DatabaseReference userRef;
     private MeditationInfo meditationInfo;
@@ -88,7 +85,7 @@ public class Tutorial_3 extends AppCompatActivity {
             activityTimeInput.setText(String.valueOf(this.meditationInfo.getActivity("activity" + activity).getActivityTime().getTime()));
             duration.setText(String.valueOf(this.meditationInfo.getActivity("activity" + activity).getGoalInfo().getTotalDays()));
             activityTimeAMPM.setSelection(this.meditationInfo.getActivity("activity" + activity)
-                    .getActivityTime().getAmPm().ordinal());
+                    .getActivityTime().getAmPm().ordinal()-1);
         }
 
         submit.setOnClickListener(new View.OnClickListener(){ // GOOD
@@ -97,7 +94,7 @@ public class Tutorial_3 extends AppCompatActivity {
                        || duration.getText().toString().isEmpty())){ // Check for missing inputs
                    // Setup info objects
                    String activityName = activityNameInput.getText().toString();
-                   TimeInfo actTimeInfo = new TimeInfo(TimeInfo.AmPm.values()[activityTimeAMPM.getSelectedItemPosition()],
+                   TimeInfo actTimeInfo = new TimeInfo(TimeInfo.AmPm.values()[activityTimeAMPM.getSelectedItemPosition() + 1],
                            Integer.parseInt(activityTimeInput.getText().toString()));
                    GoalInfo goalInfo = new GoalInfo(0, Integer.parseInt(duration.getText().toString()));
 
@@ -118,7 +115,7 @@ public class Tutorial_3 extends AppCompatActivity {
     private void methodBindDo(){ // GOOD
         this.previousButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), Tutorial_2.class);
+                Intent intent = new Intent(getApplicationContext(), Tutorial2.class);
 
                 userRef.child("tutorialInfo").child("tutorialPage")
                         .setValue(MainActivity.TutorialPage.SLEEP);
@@ -130,7 +127,7 @@ public class Tutorial_3 extends AppCompatActivity {
         this.continueButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 if(continueEnabled){
-                    Intent intent = new Intent(getApplicationContext(), Tutorial_4.class);
+                    Intent intent = new Intent(getApplicationContext(), Tutorial4.class);
 
                     userRef.child("tutorialInfo").child("tutorialPage")
                             .setValue(MainActivity.TutorialPage.EXERCISE);

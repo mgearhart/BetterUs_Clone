@@ -9,12 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.betterus_tutorial.tutorial.Tutorial_0;
-import com.example.betterus_tutorial.tutorial.Tutorial_1;
-import com.example.betterus_tutorial.tutorial.Tutorial_2;
-import com.example.betterus_tutorial.tutorial.Tutorial_3;
-import com.example.betterus_tutorial.tutorial.Tutorial_4;
-import com.example.betterus_tutorial.tutorial.Tutorial_5;
+import com.example.betterus_tutorial.tutorial.Tutorial0;
+import com.example.betterus_tutorial.tutorial.Tutorial1;
+import com.example.betterus_tutorial.tutorial.Tutorial2;
+import com.example.betterus_tutorial.tutorial.Tutorial3;
+import com.example.betterus_tutorial.tutorial.Tutorial4;
+import com.example.betterus_tutorial.tutorial.Tutorial5;
 import com.example.betterus_tutorial.user.authentication.Login;
 import com.example.betterus_tutorial.user.dataObjects.ActivityInfo;
 import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
@@ -122,7 +122,13 @@ public class MainActivity extends AppCompatActivity {
 
                     // -- Food info -- \\
                     MainActivity.this.userRef.child("foodInfo").setValue("none"); // Not sure what to put here .~.
+
+                    // Sending user to tutorial page!
+                    Intent intent = new Intent(getApplicationContext(), Tutorial0.class);
+                    startActivity(intent);
+                    finish();
                 }
+                else checkUserTutorial();
             }
 
             public void onCancelled(@NonNull DatabaseError dbError){
@@ -143,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.tutorialButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), Tutorial_1.class);
+                Intent intent = new Intent(getApplicationContext(), Tutorial1.class);
                 startActivity(intent);
                 finish();
             }
@@ -162,22 +168,22 @@ public class MainActivity extends AppCompatActivity {
 
                             switch(pageValue){
                                 case WELCOME:
-                                    newIntent = new Intent(getApplicationContext(), Tutorial_0.class);
+                                    newIntent = new Intent(getApplicationContext(), Tutorial0.class);
                                     break;
                                 case HEALTH:
-                                    newIntent = new Intent(getApplicationContext(), Tutorial_1.class);
+                                    newIntent = new Intent(getApplicationContext(), Tutorial1.class);
                                     break;
                                 case SLEEP:
-                                    newIntent = new Intent(getApplicationContext(), Tutorial_2.class);
+                                    newIntent = new Intent(getApplicationContext(), Tutorial2.class);
                                     break;
                                 case MEDITATION:
-                                    newIntent = new Intent(getApplicationContext(), Tutorial_3.class);
+                                    newIntent = new Intent(getApplicationContext(), Tutorial3.class);
                                     break;
                                 case EXERCISE:
-                                    newIntent = new Intent(getApplicationContext(), Tutorial_4.class);
+                                    newIntent = new Intent(getApplicationContext(), Tutorial4.class);
                                     break;
                                 case FOOD:
-                                    newIntent = new Intent(getApplicationContext(), Tutorial_5.class);
+                                    newIntent = new Intent(getApplicationContext(), Tutorial5.class);
                                     break;
                             }
 
@@ -203,7 +209,6 @@ public class MainActivity extends AppCompatActivity {
         this.checkLogin();
         this.methodBindDo();
         this.checkAndLoadData();
-        this.checkUserTutorial();
 
         // Other stuff
     }

@@ -46,4 +46,8 @@
     <string name="activityTitle">Activity %d</string>
     <string name="duration">Duration:</string>
     <string name="twelveDays">12 days</string>
+    <string name="exercises">Physical Exercises</string>
+    <string name="food">Food</string>
+    <string name="finishedTutorialTitle">You\'re All Set!</string>
+    <string name="finishedTutorialInfo">You\'re all set, you may now use the app for a better future!</string>
 </resources>
