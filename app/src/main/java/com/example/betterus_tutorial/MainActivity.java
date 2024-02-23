@@ -16,6 +16,9 @@ import com.example.betterus_tutorial.tutorial.Tutorial_3;
 import com.example.betterus_tutorial.tutorial.Tutorial_4;
 import com.example.betterus_tutorial.tutorial.Tutorial_5;
 import com.example.betterus_tutorial.user.authentication.Login;
+import com.example.betterus_tutorial.user.dataObjects.ActivityInfo;
+import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
+import com.example.betterus_tutorial.user.dataObjects.MeditationInfo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkAndLoadData(){ // GOOD
         this.userRef.addListenerForSingleValueEvent(new ValueEventListener(){
             public void onDataChange(@NonNull DataSnapshot data){
-                if(!data.exists()){
+                if(!data.exists()){ // Sets use's nodes to default values if they're new
                     // -- Creating user nodes -- \\
                     // -- Tutorial info -- \\
                     MainActivity.this.userRef.child("tutorialInfo").child("tutorialPage")
@@ -78,38 +81,21 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.userRef.child("sleepInfo").setValue(sleepInfo);
 
                     // -- Meditation info -- \\
-                    // -- Activity 1 -- \\
-                    MainActivity.this.userRef.child("meditationInfo").child("activity1").child("name").setValue("none");
-                    MainActivity.this.userRef.child("meditationInfo").child("activity1")
-                            .child("schedTime").child("time").setValue(-1);
-                    MainActivity.this.userRef.child("meditationInfo").child("activity1")
-                            .child("schedTime").child("amPm").setValue("none");
-                    MainActivity.this.userRef.child("meditationInfo").child("activity1")
-                            .child("goal").child("currentDays").setValue(-1);
-                    MainActivity.this.userRef.child("meditationInfo").child("activity1")
-                            .child("goal").child("totalDays").setValue(-1);
+                    MeditationInfo meditationInfo = new MeditationInfo();
 
-                    // -- Activity 2 -- \\
-                    MainActivity.this.userRef.child("meditationInfo").child("activity2").child("name").setValue("none");
-                    MainActivity.this.userRef.child("meditationInfo").child("activity2")
-                            .child("schedTime").child("time").setValue(-1);
-                    MainActivity.this.userRef.child("meditationInfo").child("activity2")
-                            .child("schedTime").child("amPm").setValue("none");
-                    MainActivity.this.userRef.child("meditationInfo").child("activity2")
-                            .child("goal").child("currentDays").setValue(-1);
-                    MainActivity.this.userRef.child("meditationInfo").child("activity2")
-                            .child("goal").child("totalDays").setValue(-1);
+                    // Setting user's activities (defaults)
+                    for(int i = 0; i < MeditationInfo.NUM_ACTIVITIES; i++){
+                        ActivityInfo activity = new ActivityInfo();
+                        TimeInfo timeInfo = new TimeInfo(TimeInfo.AmPm.NONE, -1);
+                        GoalInfo goalInfo = new GoalInfo(-1, -1);
 
-                    // -- Activity 3 -- \\
-                    MainActivity.this.userRef.child("meditationInfo").child("activity3").child("name").setValue("none");
-                    MainActivity.this.userRef.child("meditationInfo").child("activity3")
-                            .child("schedTime").child("time").setValue(-1);
-                    MainActivity.this.userRef.child("meditationInfo").child("activity3")
-                            .child("schedTime").child("amPm").setValue("none");
-                    MainActivity.this.userRef.child("meditationInfo").child("activity3")
-                            .child("goal").child("currentDays").setValue(-1);
-                    MainActivity.this.userRef.child("meditationInfo").child("activity3")
-                            .child("goal").child("totalDays").setValue(-1);
+                        activity.setActivityName("");
+                        activity.setActivityTime(timeInfo);
+                        activity.setGoalInfo(goalInfo);
+                        meditationInfo.setActivity("activity" + (i+1), activity);
+                    }
+
+                    MainActivity.this.userRef.child("meditationInfo").setValue(meditationInfo);
 
                     // -- Exercise info -- \\
                     // -- Activity 1 -- \\

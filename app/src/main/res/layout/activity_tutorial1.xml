@@ -99,7 +99,7 @@
         android:layout_marginTop="50dp"
         android:inputType="numberDecimal"
         android:singleLine="true"
-        android:maxLength="3"
+        android:maxLength="5"
     />
 
     <TextView
@@ -127,7 +127,7 @@
         android:layout_marginTop="90dp"
         android:inputType="numberDecimal"
         android:singleLine="true"
-        android:maxLength="3"
+        android:maxLength="5"
     />
 
     <TextView

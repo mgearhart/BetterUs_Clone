@@ -1,16 +1,23 @@
 package com.example.betterus_tutorial.user.dataObjects;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MeditationInfo {
     public final static int NUM_ACTIVITIES = 3;
-    private final ActivityInfo actInfoArray[];
+    private final HashMap<String, ActivityInfo> activities;
 
-    public MeditationInfo(int size){
-        this.actInfoArray = new ActivityInfo[size];
+    public MeditationInfo(){
+        this.activities = new HashMap<>();
     }
 
-    public void setActivity(ActivityInfo actInfo, int pos){
-        this.actInfoArray[pos] = actInfo;
+    public void setActivity(String name, ActivityInfo actInfo){
+        this.activities.put(name, actInfo);
     }
 
-    public ActivityInfo getActivity(int pos){return this.actInfoArray[pos];}
+    public HashMap<String, ActivityInfo> getActivities(){
+        return this.activities;
+    }
+
+    public ActivityInfo getActivity(String name){return this.activities.get(name);}
 }

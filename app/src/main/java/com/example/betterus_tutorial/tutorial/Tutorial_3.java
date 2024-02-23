@@ -1,9 +1,12 @@
 package com.example.betterus_tutorial.tutorial;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -43,6 +46,15 @@ public class Tutorial_3 extends AppCompatActivity {
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         this.userRef = fireDB.getReference("users").child(firebaseUser.getUid());
 
+        userRef.child("meditationInfo").addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
+            public void onDataChange(@NonNull DataSnapshot dataSnap){
+                meditationInfo = dataSnap.getValue(MeditationInfo.class);
+                Log.d(TAG,"Activity name:" + meditationInfo.getActivity("activity" + 1).getActivityName());
+            }
+
+            public void onCancelled(@NonNull DatabaseError dbError){}
+        });
+
         checkAndEnableContinue();
     }
 
@@ -51,44 +63,35 @@ public class Tutorial_3 extends AppCompatActivity {
         Button submit, cancel;
         TextView titleText;
         Spinner activityTimeAMPM;
-        Dialog activityDialog = new Dialog(getApplicationContext());
+        Dialog activityDialog = new Dialog(this);
         ArrayList<String> activityAmPmOptions = new ArrayList<>();
         ArrayAdapter<String> activityAmPmAdapter =
                 new ArrayAdapter<>(getApplicationContext(), R.layout.custom_dropdown_item, R.id.textView1, activityAmPmOptions);
 
         activityDialog.setContentView(R.layout.activity_edit_activity);
+        activityDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         activityDialog.setCancelable(false);
+        activityDialog.show();
         activityAmPmOptions.add("AM");
         activityAmPmOptions.add("PM");
 
-        submit = this.findViewById(R.id.submitButton);
-        cancel = this.findViewById(R.id.cancelButton);
-        titleText = this.findViewById(R.id.activityTitle);
-        activityNameInput = this.findViewById(R.id.activityNameInput);
-        activityTimeInput = this.findViewById(R.id.activityTimeInput);
-        activityTimeAMPM = this.findViewById(R.id.activityAmPm);
-        duration = this.findViewById(R.id.durationInput);
+        submit = activityDialog.findViewById(R.id.submitButton);
+        cancel = activityDialog.findViewById(R.id.cancelButton);
+        titleText = activityDialog.findViewById(R.id.activityTitle);
+        activityNameInput = activityDialog.findViewById(R.id.activityNameInput);
+        activityTimeInput = activityDialog.findViewById(R.id.activityTimeInput);
+        activityTimeAMPM = activityDialog.findViewById(R.id.activityAmPm);
+        duration = activityDialog.findViewById(R.id.durationInput);
         activityTimeAMPM.setAdapter(activityAmPmAdapter);
         titleText.setText(this.getString(R.string.activityTitle, activity));
 
-        userRef.child("meditationInfo").child("activity" + activity).addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
-            public void onDataChange(@NonNull DataSnapshot dataSnap){
-                if(dataSnap.exists()){
-                    ActivityInfo activityInfo = dataSnap.getValue(ActivityInfo.class);
-
-                    if(activityInfo.getActivityName() != null) activityNameInput.setText(activityInfo.getActivityName());
-
-                    if(activityInfo.getActivityTime() != null){
-                        activityTimeInput.setText(activityInfo.getActivityTime().getTime());
-                        activityTimeAMPM.setSelection(activityInfo.getActivityTime().getAmPm().ordinal());
-                    }
-
-                    if(activityInfo.getGoalInfo() != null) duration.setText(activityInfo.getGoalInfo().getTotalDays());
-                }
-            }
-
-            public void onCancelled(@NonNull DatabaseError dbError){}
-        });
+        if(!this.meditationInfo.getActivity("activity" + activity).getActivityName().equals("")){
+            activityNameInput.setText(this.meditationInfo.getActivity("activity" + activity).getActivityName());
+            activityTimeInput.setText(this.meditationInfo.getActivity("activity" + activity).getActivityTime().getTime());
+            duration.setText(this.meditationInfo.getActivity("activity" + activity).getGoalInfo().getTotalDays());
+            activityTimeAMPM.setSelection(this.meditationInfo.getActivity("activity" + activity)
+                    .getActivityTime().getAmPm().ordinal());
+        }
 
         submit.setOnClickListener(new View.OnClickListener(){ // GOOD
            public void onClick(View v){
@@ -100,7 +103,8 @@ public class Tutorial_3 extends AppCompatActivity {
                            Integer.parseInt(activityTimeInput.getText().toString()));
                    GoalInfo goalInfo = new GoalInfo(0, Integer.parseInt(duration.getText().toString()));
 
-                   meditationInfo.setActivity(new ActivityInfo(activityName, actTimeInfo, goalInfo), activity); // Set to corresponding activity
+                   meditationInfo.setActivity("activity" + activity, new ActivityInfo(activityName, actTimeInfo, goalInfo)); // Set to corresponding activity
+                   activityDialog.dismiss(); // Simply closes the dialog
                }
            }
         });
@@ -159,7 +163,7 @@ public class Tutorial_3 extends AppCompatActivity {
 
     private Boolean activitiesFilled(){ // GOOD
         for(int i = 0; i < MeditationInfo.NUM_ACTIVITIES; i++){
-            if(meditationInfo.getActivity(i) == null) return false;
+            if(this.meditationInfo.getActivity("activity" + (i+1)).getActivityName().equals("")) return false;
         }
         return true;
     }
@@ -196,7 +200,6 @@ public class Tutorial_3 extends AppCompatActivity {
         this.act1Button = this.findViewById(R.id.activity1Button);
         this.act2Button = this.findViewById(R.id.activity2Button);
         this.act3Button = this.findViewById(R.id.activity3Button);
-        this.meditationInfo = new MeditationInfo(MeditationInfo.NUM_ACTIVITIES);
         this.setupAndLoadInfo();
         this.methodBindDo();
 
