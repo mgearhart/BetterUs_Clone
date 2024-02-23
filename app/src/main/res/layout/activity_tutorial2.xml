@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tutorial.Tutorial1"
+    tools:context=".tutorial.Tutorial2"
     android:background="@color/tutorial_page_background"
     >
 
@@ -29,15 +29,15 @@
             android:id="@+id/gifImage"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/medicine"
-    />
+            android:src="@drawable/sleep"
+        />
     </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/yourHealth"
+        android:text="@string/sleepTime"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/white"
@@ -47,128 +47,100 @@
     />
 
     <TextView
-        android:id="@+id/ageInputText"
+        android:id="@+id/wakeUpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/age"
+        android:text="@string/wakeUpTime"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:layout_below="@+id/title"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="115dp"
+        android:layout_marginStart="55dp"
     />
 
     <EditText
-        android:id="@+id/ageInput"
-        android:layout_width="wrap_content"
+        android:id="@+id/wakeUpInput"
+        android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:hint="@string/years"
+        android:hint="@string/ten"
         android:textSize="20sp"
-        android:layout_marginStart="260dp"
+        android:layout_marginStart="200dp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:inputType="number"
         android:singleLine="true"
-        android:maxLength="3"
+        android:gravity="center"
+        android:maxLength="2"
+    />
+
+    <Spinner
+        android:id="@+id/wakeUpAmPm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="253dp"
+        android:layout_marginTop="20dp"
     />
 
     <TextView
-        android:id="@+id/weightInputText"
+        android:id="@+id/sleepTimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/weight"
+        android:text="@string/sleepTimeText"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:layout_below="@+id/title"
         android:layout_marginTop="60dp"
-        android:layout_marginStart="115dp"
+        android:layout_marginStart="55dp"
     />
 
     <EditText
-        android:id="@+id/weightInput"
-        android:layout_width="wrap_content"
+        android:id="@+id/sleepTimeInput"
+        android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:hint="@string/pounds"
+        android:hint="@string/twelve"
         android:textSize="20sp"
-        android:layout_marginStart="260dp"
+        android:layout_marginStart="200dp"
         android:textStyle="bold"
         android:layout_marginTop="50dp"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:singleLine="true"
-        android:maxLength="5"
-    />
-
-    <TextView
-        android:id="@+id/heightInputText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/height"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_below="@+id/title"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="115dp"
-    />
-
-    <EditText
-        android:id="@+id/heightInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:hint="@string/inches"
-        android:textSize="20sp"
-        android:layout_marginStart="260dp"
-        android:textStyle="bold"
-        android:layout_marginTop="90dp"
-        android:inputType="numberDecimal"
-        android:singleLine="true"
-        android:maxLength="5"
-    />
-
-    <TextView
-        android:id="@+id/sexInputText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bioSex"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_below="@+id/title"
-        android:layout_marginTop="140dp"
-        android:layout_marginStart="115dp"
+        android:gravity="center"
+        android:maxLength="2"
     />
 
     <Spinner
-        android:id="@+id/sexInput"
+        android:id="@+id/sleepTimeAmPm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginStart="253dp"
+        android:layout_marginTop="60dp"
     />
 
-<!--    <Button-->
-<!--        android:id="@+id/prevButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:paddingLeft="72dp"-->
-<!--        android:paddingRight="72dp"-->
-<!--        android:background="@drawable/button_soft_enabled_2"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:text="@string/previous"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:layout_marginTop="545dp"-->
-<!--    />-->
+    <Button
+        android:id="@+id/previousButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="72dp"
+        android:paddingRight="72dp"
+        android:background="@drawable/button_soft_enabled_2"
+        android:layout_marginStart="20dp"
+        android:text="@string/previous"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginTop="545dp"
+    />
 
     <Button
         android:id="@+id/continueButton"
