@@ -1,0 +1,111 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "URLHERE",
+    "title": "user",
+    "description": "schema for a single user",
+    "type": "object",
+    "properties": {
+        "Name": {
+            "description": "The name of our user",
+            "type": "object",
+            "properties": {
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "first_name",
+                "last_name"
+            ]
+        },
+        "ActivitiesLogs": {
+            "description": "The price of the product",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "start_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "duration": {
+                        "type": "number",
+                        "description": "in seconds"
+                    },
+                    "activity_name": ""
+                }
+            }
+        },
+        "HeartRateLogs": {
+            "description": "array of heartrate logs",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "start_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "hear_rate": {
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        "LocationLogs": {
+            "description": "array of location logs",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "start_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "number",
+                        "minimum": -90,
+                        "maximum": 90
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "minimum": -180,
+                        "maximum": 180
+                    }
+                }
+            }
+        },
+        "MealLogs": {
+            "description": "array of meals",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "items": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "food": {
+                        "type": "array",
+                        "items": {
+                            "description": "name of the food item",
+                            "type": "string"
+                        }
+                    },
+                    "start_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "Name"
+    ]
+}
