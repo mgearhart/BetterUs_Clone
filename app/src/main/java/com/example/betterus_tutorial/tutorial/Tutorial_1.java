@@ -51,15 +51,13 @@ public class Tutorial_1 extends AppCompatActivity {
                 if(dataSnap.exists()){
                     HealthInfo healthInfo = dataSnap.getValue(HealthInfo.class);
 
-                    if(healthInfo != null){
-                        if(healthInfo.getAge() > 0) ageInput.setText(String.valueOf(healthInfo.getAge()));
-                        if(healthInfo.getSex() != HealthInfo.BioSex.NONE) sexSelect.setSelection(healthInfo.getSex().ordinal());
-                        if(healthInfo.getHeight() > 0) heightInput.setText(String.valueOf(healthInfo.getHeight()));
-                        if(healthInfo.getWeight() > 0) weightInput.setText(String.valueOf(healthInfo.getWeight()));
-
-                        checkAndEnableContinue();
+                    if(healthInfo.getAge() > 0){
+                        ageInput.setText(String.valueOf(healthInfo.getAge()));
+                        sexSelect.setSelection(healthInfo.getSex().ordinal());
+                        heightInput.setText(String.valueOf(healthInfo.getHeight()));
+                        weightInput.setText(String.valueOf(healthInfo.getWeight()));
+                        continueButtonChange(true);
                     }
-                    else Log.e(TAG, "Something went wrong while attempting to grab user healthInfo");
                 }
             }
 
@@ -122,23 +120,18 @@ public class Tutorial_1 extends AppCompatActivity {
         if(enable){
             this.continueButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_soft_enabled));
             this.continueButton.setTextColor(ContextCompat.getColor(this, R.color.white));
+            this.continueEnabled = true;
         }
         else{
             this.continueButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_soft_disabled));
             this.continueButton.setTextColor(ContextCompat.getColor(this, R.color.button_disabled_text));
+            this.continueEnabled = false;
         }
     }
 
     private void checkAndEnableContinue(){ // GOOD
-        if(ageInput.getText().toString().isEmpty() || heightInput.getText().toString().isEmpty() ||
-                weightInput.getText().toString().isEmpty() || (sexSelect.getSelectedItemPosition() == 0)){
-            this.continueButtonChange(false);
-            this.continueEnabled = false;
-        }
-        else{
-            this.continueButtonChange(true);
-            this.continueEnabled = true;
-        }
+        this.continueButtonChange(!(ageInput.getText().toString().isEmpty() || heightInput.getText().toString().isEmpty() ||
+                weightInput.getText().toString().isEmpty() || (sexSelect.getSelectedItemPosition() == 0)));
     }
 
     @Override

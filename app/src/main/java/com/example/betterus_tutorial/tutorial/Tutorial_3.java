@@ -49,13 +49,11 @@ public class Tutorial_3 extends AppCompatActivity {
         userRef.child("meditationInfo").addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
             public void onDataChange(@NonNull DataSnapshot dataSnap){
                 meditationInfo = dataSnap.getValue(MeditationInfo.class);
-                Log.d(TAG,"Activity name:" + meditationInfo.getActivity("activity" + 1).getActivityName());
+                continueButtonChange(activitiesFilled());
             }
 
             public void onCancelled(@NonNull DatabaseError dbError){}
         });
-
-        checkAndEnableContinue();
     }
 
     private void createEditActivityDialog(int activity){ // GOOD
@@ -87,16 +85,16 @@ public class Tutorial_3 extends AppCompatActivity {
 
         if(!this.meditationInfo.getActivity("activity" + activity).getActivityName().equals("")){
             activityNameInput.setText(this.meditationInfo.getActivity("activity" + activity).getActivityName());
-            activityTimeInput.setText(this.meditationInfo.getActivity("activity" + activity).getActivityTime().getTime());
-            duration.setText(this.meditationInfo.getActivity("activity" + activity).getGoalInfo().getTotalDays());
+            activityTimeInput.setText(String.valueOf(this.meditationInfo.getActivity("activity" + activity).getActivityTime().getTime()));
+            duration.setText(String.valueOf(this.meditationInfo.getActivity("activity" + activity).getGoalInfo().getTotalDays()));
             activityTimeAMPM.setSelection(this.meditationInfo.getActivity("activity" + activity)
                     .getActivityTime().getAmPm().ordinal());
         }
 
         submit.setOnClickListener(new View.OnClickListener(){ // GOOD
            public void onClick(View v){
-               if(!activityNameInput.getText().toString().isEmpty() && !activityTimeInput.getText().toString().isEmpty()
-                       && !duration.getText().toString().isEmpty()){ // Check for missing inputs
+               if(!(activityNameInput.getText().toString().isEmpty() || activityTimeInput.getText().toString().isEmpty()
+                       || duration.getText().toString().isEmpty())){ // Check for missing inputs
                    // Setup info objects
                    String activityName = activityNameInput.getText().toString();
                    TimeInfo actTimeInfo = new TimeInfo(TimeInfo.AmPm.values()[activityTimeAMPM.getSelectedItemPosition()],
@@ -104,6 +102,7 @@ public class Tutorial_3 extends AppCompatActivity {
                    GoalInfo goalInfo = new GoalInfo(0, Integer.parseInt(duration.getText().toString()));
 
                    meditationInfo.setActivity("activity" + activity, new ActivityInfo(activityName, actTimeInfo, goalInfo)); // Set to corresponding activity
+                   continueButtonChange(activitiesFilled());
                    activityDialog.dismiss(); // Simply closes the dialog
                }
            }
@@ -135,7 +134,7 @@ public class Tutorial_3 extends AppCompatActivity {
 
                     userRef.child("tutorialInfo").child("tutorialPage")
                             .setValue(MainActivity.TutorialPage.EXERCISE);
-                    userRef.child("sleepInfo").setValue(meditationInfo);
+                    userRef.child("meditationInfo").setValue(meditationInfo);
                     startActivity(intent);
                     finish();
                 }
@@ -172,21 +171,12 @@ public class Tutorial_3 extends AppCompatActivity {
         if(enable){
             this.continueButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_soft_enabled));
             this.continueButton.setTextColor(ContextCompat.getColor(this, R.color.white));
+            this.continueEnabled = true;
         }
         else{
             this.continueButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_soft_disabled));
             this.continueButton.setTextColor(ContextCompat.getColor(this, R.color.button_disabled_text));
-        }
-    }
-
-    private void checkAndEnableContinue(){ // GOOD
-        if(!this.activitiesFilled()){
-            this.continueButtonChange(false);
             this.continueEnabled = false;
-        }
-        else{
-            this.continueButtonChange(true);
-            this.continueEnabled = true;
         }
     }
 

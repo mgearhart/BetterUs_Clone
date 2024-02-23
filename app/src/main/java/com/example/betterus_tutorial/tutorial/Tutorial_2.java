@@ -8,12 +8,16 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.example.betterus_tutorial.MainActivity;
 import com.example.betterus_tutorial.R;
@@ -47,19 +51,16 @@ public class Tutorial_2 extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnap){
                 if(dataSnap.exists()){
                     SleepInfo sleepInfo = dataSnap.getValue(SleepInfo.class);
+                    TimeInfo wakeUpTime = sleepInfo.getWakeUpTime();
+                    TimeInfo sleepTime = sleepInfo.getSleepTime();
 
-                    if((sleepInfo.getWakeUpTime() != null) && (sleepInfo.getSleepTime() != null)){
-                        TimeInfo wakeUpTime = sleepInfo.getWakeUpTime();
-                        TimeInfo sleepTime = sleepInfo.getSleepTime();
-
-                        if(wakeUpTime.getTime() > 0) wakeUpTimeInput.setText(String.valueOf(wakeUpTime.getTime()));
-                        if(wakeUpTime.getAmPm() != TimeInfo.AmPm.NONE) wakeupAmPm.setSelection(wakeUpTime.getAmPm().ordinal());
-                        if(sleepTime.getTime() > 0) sleepTimeInput.setText(String.valueOf(sleepTime.getTime()));
-                        if(sleepTime.getAmPm() != TimeInfo.AmPm.NONE) sleepTimeAmPm.setSelection(sleepTime.getAmPm().ordinal());
-
-                        checkAndEnableContinue();
+                    if(wakeUpTime.getTime() > 0){
+                        wakeUpTimeInput.setText(String.valueOf(wakeUpTime.getTime()));
+                        wakeupAmPm.setSelection(wakeUpTime.getAmPm().ordinal());
+                        sleepTimeInput.setText(String.valueOf(sleepTime.getTime()));
+                        sleepTimeAmPm.setSelection(sleepTime.getAmPm().ordinal());
+                        continueButtonChange(true);
                     }
-                    else Log.e(TAG, "Something went wrong while attempting to grab user sleepInfo");
                 }
             }
 
@@ -68,6 +69,22 @@ public class Tutorial_2 extends AppCompatActivity {
     }
 
     private void methodBindDo(){ // GOOD
+        this.wakeUpTimeInput.setOnEditorActionListener(new TextView.OnEditorActionListener(){ // GOOD
+            public boolean onEditorAction(TextView textView, int actionID, KeyEvent keyEvent){
+                if(actionID == EditorInfo.IME_ACTION_DONE)
+                    checkAndEnableContinue();
+                return false;
+            }
+        });
+
+        this.sleepTimeInput.setOnEditorActionListener(new TextView.OnEditorActionListener(){ // GOOD
+            public boolean onEditorAction(TextView textView, int actionID, KeyEvent keyEvent){
+                if(actionID == EditorInfo.IME_ACTION_DONE)
+                    checkAndEnableContinue();
+                return false;
+            }
+        });
+
         this.previousButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), Tutorial_1.class);
@@ -110,30 +127,24 @@ public class Tutorial_2 extends AppCompatActivity {
         if(enable){
             this.continueButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_soft_enabled));
             this.continueButton.setTextColor(ContextCompat.getColor(this, R.color.white));
+            this.continueEnabled = true;
         }
         else{
             this.continueButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_soft_disabled));
             this.continueButton.setTextColor(ContextCompat.getColor(this, R.color.button_disabled_text));
+            this.continueEnabled = false;
         }
     }
 
     private void checkAndEnableContinue(){ // GOOD
         if(this.wakeUpTimeInput.getText().toString().isEmpty() || this.sleepTimeInput.getText().toString().isEmpty()){
             this.continueButtonChange(false);
-            this.continueEnabled = false;
         }
         else{
             int wakeUpTime = Integer.parseInt(this.wakeUpTimeInput.getText().toString());
             int sleepTime = Integer.parseInt(this.sleepTimeInput.getText().toString());
 
-            if((wakeUpTime > 12) || (sleepTime > 12)){
-                this.continueButtonChange(false);
-                this.continueEnabled = false;
-            }
-            else{
-                this.continueButtonChange(true);
-                this.continueEnabled = true;
-            }
+            this.continueButtonChange((wakeUpTime <= 12) && (sleepTime <= 12));
         }
     }
 
@@ -147,8 +158,6 @@ public class Tutorial_2 extends AppCompatActivity {
         this.sleepTimeInput = this.findViewById(R.id.sleepTimeInput);
         this.wakeupAmPm = this.findViewById(R.id.wakeUpAmPm);
         this.sleepTimeAmPm = this.findViewById(R.id.sleepTimeAmPm);
-        this.setupAndLoadInfo();
-        this.methodBindDo();
 
         // Wake up Time AM/PM
         ArrayList<String> wakeUpTimeAmPmOptions = new ArrayList<>();
@@ -170,6 +179,9 @@ public class Tutorial_2 extends AppCompatActivity {
 
         this.sleepTimeAmPm.setAdapter(sleepTimeAmPmAdapter);
         this.sleepTimeAmPm.setSelection(1); // PM by default
+
+        this.setupAndLoadInfo();
+        this.methodBindDo();
 
         // GIF setup
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})

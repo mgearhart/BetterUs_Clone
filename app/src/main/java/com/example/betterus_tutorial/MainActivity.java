@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     // Setting user's activities (defaults)
                     for(int i = 0; i < MeditationInfo.NUM_ACTIVITIES; i++){
                         ActivityInfo activity = new ActivityInfo();
-                        TimeInfo timeInfo = new TimeInfo(TimeInfo.AmPm.NONE, -1);
+                        TimeInfo timeInfo = new TimeInfo(TimeInfo.AmPm.AM, -1);
                         GoalInfo goalInfo = new GoalInfo(-1, -1);
 
                         activity.setActivityName("");
