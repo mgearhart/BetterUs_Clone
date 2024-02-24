@@ -215,18 +215,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) { // GOOD
         super.onCreate(savedInstanceState);
 
-        LayoutInflater inflater = LayoutInflater.from(this);
-        LinearLayout rootLayout = (LinearLayout) inflater.inflate(R.layout.activity_main, null);
+        //The following lines start it at first fragment if uncommented
+        //LayoutInflater inflater = LayoutInflater.from(this);
+        //LinearLayout rootLayout = (LinearLayout) inflater.inflate(R.layout.activity_main, null);
         // Set the content view of the activity to the inflated layout
-        setContentView(rootLayout);
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        //setContentView(rootLayout);
+        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
-        //this.setContentView(R.layout.activity_main);
-        //this.tutorialButton = this.findViewById(R.id.buttonToTutorial);
-        //this.logoutButton = this.findViewById(R.id.logoutButton);
-        ///this.checkLogin();
-        //this.methodBindDo();
-        //this.checkAndLoadData();
+        this.setContentView(R.layout.activity_main);
+        this.tutorialButton = this.findViewById(R.id.buttonToTutorial);
+        this.logoutButton = this.findViewById(R.id.logoutButton);
+        this.checkLogin();
+        this.methodBindDo();
+        this.checkAndLoadData();
 
         // Other stuff
     }
