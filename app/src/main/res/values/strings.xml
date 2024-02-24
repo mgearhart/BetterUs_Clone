@@ -21,7 +21,8 @@
     <string name="betterUsTitle">BetterUs</string>
     <string name="started">Let\'s Get Started!</string>
     <string name="tutorialBeginInfo">Before we start, let\'s get some basic info from you. The following pages
-        will ask for some basic info regarding your health and activities. Remember to input honestly for accurate recommendations.
+        will ask for some basic info regarding your health and activities. Remember to input honestly for accurate
+        recommendations.
     </string>
     <string name="sleepTime">Sleep Time</string>
     <string name="wakeUpTime">Wake Up Time:</string>
@@ -50,4 +51,6 @@
     <string name="food">Food</string>
     <string name="finishedTutorialTitle">You\'re All Set!</string>
     <string name="finishedTutorialInfo">You\'re all set, you may now use the app for a better future!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

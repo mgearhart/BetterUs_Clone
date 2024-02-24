@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:context=".SixthFragment" android:backgroundTint="#73F3AB" android:foregroundTint="#EF5454">
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp" android:background="@drawable/gradient">
+
+
+        <EditText
+                android:layout_width="213dp"
+                android:layout_height="46dp"
+                android:inputType="text"
+                android:text="Enter Email Here"
+                android:ems="10"
+                android:id="@+id/editTextText"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="152dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="92dp"/>
+        <TextView
+                android:text="Email:"
+                android:layout_width="71dp"
+                android:layout_height="40dp" android:id="@+id/textView9"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="160dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"/>
+        <Button
+                android:text="Back"
+                android:layout_width="107dp"
+                android:layout_height="57dp" android:id="@+id/button"
+                android:backgroundTint="#3F51B5"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="632dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="124dp"/>
+        <EditText
+                android:layout_width="220dp"
+                android:layout_height="41dp"
+                android:inputType="text"
+                android:text="Enter Name Here"
+                android:ems="10"
+                android:id="@+id/editTextText2"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="108dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="92dp"/>
+        <TextView
+                android:text="Name:"
+                android:layout_width="71dp"
+                android:layout_height="40dp" android:id="@+id/textView11"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="112dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"/>
+        <TextView
+                android:text="Account Settings"
+                android:layout_width="271dp"
+                android:layout_height="58dp" android:id="@+id/textView10"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

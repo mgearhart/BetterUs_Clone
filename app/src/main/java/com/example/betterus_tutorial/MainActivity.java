@@ -31,7 +31,17 @@ import com.example.betterus_tutorial.user.dataObjects.HealthInfo;
 import com.example.betterus_tutorial.user.dataObjects.SleepInfo;
 import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
 
+import androidx.navigation.Navigation;
+import androidx.navigation.NavController;
+import com.example.betterus_tutorial.databinding.ActivityMainBinding;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
+
+
+
 public class MainActivity extends AppCompatActivity {
+
+
     // ---- VARIABLES ---- \\
     public enum TutorialPage{
         WELCOME,
@@ -200,15 +210,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) { // GOOD
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_main);
-        this.tutorialButton = this.findViewById(R.id.buttonToTutorial);
-        this.logoutButton = this.findViewById(R.id.logoutButton);
-        this.checkLogin();
-        this.methodBindDo();
-        this.checkAndLoadData();
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        LinearLayout rootLayout = (LinearLayout) inflater.inflate(R.layout.activity_main, null);
+        // Set the content view of the activity to the inflated layout
+        setContentView(rootLayout);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
+        //this.setContentView(R.layout.activity_main);
+        //this.tutorialButton = this.findViewById(R.id.buttonToTutorial);
+        //this.logoutButton = this.findViewById(R.id.logoutButton);
+        ///this.checkLogin();
+        //this.methodBindDo();
+        //this.checkAndLoadData();
 
         // Other stuff
     }
