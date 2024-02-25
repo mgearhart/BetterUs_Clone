@@ -22,7 +22,7 @@
             ]
         },
         "ActivitiesLogs": {
-            "description": "The price of the product",
+            "description": "an array of activity objects",
             "type": "array",
             "items": {
                 "type": "object",
@@ -86,14 +86,13 @@
             "type": "array",
             "items": {
                 "type": "object",
-                "items": {
-                    "id": {
-                        "type": "number"
+                "properties": {
+                    "name": {
+                        "type": "string"
                     },
                     "food": {
                         "type": "array",
                         "items": {
-                            "description": "name of the food item",
                             "type": "string"
                         }
                     },
@@ -101,6 +100,20 @@
                         "type": "string",
                         "format": "date-time"
                     }
+                }
+            }
+        },
+        "ProgressPictures": {
+            "description": "array of image file locations",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "file_location": {
+                    "type": "string"
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time"
                 }
             }
         }
