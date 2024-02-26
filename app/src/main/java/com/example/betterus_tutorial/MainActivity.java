@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-
 import com.example.betterus_tutorial.tutorial.Tutorial0;
 import com.example.betterus_tutorial.tutorial.Tutorial1;
 import com.example.betterus_tutorial.tutorial.Tutorial2;
@@ -26,11 +24,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import com.example.betterus_tutorial.user.dataObjects.HealthInfo;
 import com.example.betterus_tutorial.user.dataObjects.SleepInfo;
 import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 import androidx.navigation.NavController;
 import com.example.betterus_tutorial.databinding.ActivityMainBinding;
@@ -40,8 +39,6 @@ import android.widget.LinearLayout;
 
 
 public class MainActivity extends AppCompatActivity {
-
-
     // ---- VARIABLES ---- \\
     public enum TutorialPage{
         WELCOME,
@@ -147,25 +144,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void methodBindDo(){ // GOOD
-        this.logoutButton.setOnClickListener(new View.OnClickListener(){ // GOOD
-            public void onClick(View v){
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        this.tutorialButton.setOnClickListener(new View.OnClickListener(){ // GOOD
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), Tutorial1.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-    }
-
     private void checkUserTutorial(){ // GOOD
         this.userRef.child("tutorialInfo").child("tutorialPage").addListenerForSingleValueEvent(new ValueEventListener(){
             public void onDataChange(@NonNull DataSnapshot dataSnap){
@@ -210,25 +188,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) { // GOOD
         super.onCreate(savedInstanceState);
-
-        //The following lines start it at first fragment if uncommented
-        //LayoutInflater inflater = LayoutInflater.from(this);
-        //LinearLayout rootLayout = (LinearLayout) inflater.inflate(R.layout.activity_main, null);
-        // Set the content view of the activity to the inflated layout
-        //setContentView(rootLayout);
-        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-
         this.setContentView(R.layout.activity_main);
-        this.tutorialButton = this.findViewById(R.id.buttonToTutorial);
-        this.logoutButton = this.findViewById(R.id.logoutButton);
         this.checkLogin();
-        this.methodBindDo();
         this.checkAndLoadData();
 
-        // Other stuff
+
+//        // Other stuff
+        // Obtain the NavController
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
+        // Navigate to the desired destination fragment
+        navController.navigate(R.id.FirstFragment);
     }
 }

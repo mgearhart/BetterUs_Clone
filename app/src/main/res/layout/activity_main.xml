@@ -11,24 +11,4 @@
 
 
     <include layout="@layout/content_main"/>
-
-
-
-    <Button
-        android:id="@+id/buttonToTutorial"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Go to tutorial"
-        android:textSize="20sp"
-        android:textStyle="bold"
-    />
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:textSize="20sp"
-        android:textStyle="bold"
-    />
 </LinearLayout>

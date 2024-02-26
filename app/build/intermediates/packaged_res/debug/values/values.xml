@@ -41,6 +41,7 @@
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDTasbnr2s6OeKJOZAj40nxrHyngEKLkUw</string>
     <string name="google_storage_bucket" translatable="false">betterus-project.appspot.com</string>
     <string name="height">Height:</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="inches">75 in.</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
@@ -59,7 +60,8 @@
     <string name="submit">Submit</string>
     <string name="ten">10</string>
     <string name="tutorialBeginInfo">Before we start, let\'s get some basic info from you. The following pages
-        will ask for some basic info regarding your health and activities. Remember to input honestly for accurate recommendations.
+        will ask for some basic info regarding your health and activities. Remember to input honestly for accurate
+        recommendations.
     </string>
     <string name="twelve">12</string>
     <string name="twelveDays">12 days</string>
