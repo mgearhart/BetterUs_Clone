@@ -1,0 +1,109 @@
+[
+    {
+        "name": "Cauliflower Chicken Breast",
+        "food": [
+            "Blueberries",
+            "Salmon (cooked)",
+            "Spinach (raw)",
+            "Cauliflower (cooked)",
+            "Almonds",
+            "Chicken Breast (cooked)"
+        ],
+        "start_time": "2024-08-04 05:34:55"
+    },
+    {
+        "name": "Broccoli Cauliflower",
+        "food": [
+            "Ground Beef (cooked, 90% lean)",
+            "Cauliflower (cooked)",
+            "Chickpeas (cooked)",
+            "Broccoli (cooked)",
+            "Quinoa (cooked)"
+        ],
+        "start_time": "2024-10-07 02:55:30"
+    },
+    {
+        "name": "Black Beans Brown Rice",
+        "food": [
+            "Tofu (firm, cooked)",
+            "Black Beans (cooked)",
+            "Brown Rice (cooked)",
+            "Salmon (cooked)"
+        ],
+        "start_time": "2024-07-20 13:45:11"
+    },
+    {
+        "name": "Avocado Tofu",
+        "food": [
+            "Greek Yogurt (plain, non-fat)",
+            "Black Beans (cooked)",
+            "Oats (cooked)",
+            "Ground Beef (cooked, 90% lean)",
+            "Tofu (firm, cooked)",
+            "Avocado"
+        ],
+        "start_time": "2024-09-09 20:52:18"
+    },
+    {
+        "name": "Greek Yogurt Salmon",
+        "food": [
+            "Chickpeas (cooked)",
+            "Blueberries",
+            "Cauliflower (cooked)",
+            "Greek Yogurt (plain, non-fat)",
+            "Eggs (boiled)",
+            "Salmon (cooked)"
+        ],
+        "start_time": "2024-04-20 12:35:12"
+    },
+    {
+        "name": "Eggs Chicken Breast",
+        "food": [
+            "Eggs (boiled)",
+            "Chicken Breast (cooked)",
+            "Black Beans (cooked)"
+        ],
+        "start_time": "2024-07-01 06:45:09"
+    },
+    {
+        "name": "Brown Rice Eggs",
+        "food": [
+            "Chickpeas (cooked)",
+            "Black Beans (cooked)",
+            "Brown Rice (cooked)",
+            "Eggs (boiled)"
+        ],
+        "start_time": "2024-08-07 01:02:42"
+    },
+    {
+        "name": "Tofu Salmon",
+        "food": [
+            "Salmon (cooked)",
+            "Greek Yogurt (plain, non-fat)",
+            "Tofu (firm, cooked)"
+        ],
+        "start_time": "2024-12-14 17:17:39"
+    },
+    {
+        "name": "Oats Brown Rice",
+        "food": [
+            "Oats (cooked)",
+            "Greek Yogurt (plain, non-fat)",
+            "Tofu (firm, cooked)",
+            "Brown Rice (cooked)",
+            "Sweet Potato (baked)",
+            "Eggs (boiled)"
+        ],
+        "start_time": "2024-11-19 06:51:33"
+    },
+    {
+        "name": "Ground Beef Chicken Breast",
+        "food": [
+            "Ground Beef (cooked, 90% lean)",
+            "Almonds",
+            "Brown Rice (cooked)",
+            "Chicken Breast (cooked)"
+        ],
+        "start_time": "2024-09-24 10:21:35"
+    }
+]

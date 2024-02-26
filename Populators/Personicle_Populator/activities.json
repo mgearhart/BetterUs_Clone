@@ -1,0 +1,88 @@
+{
+    "activities": [
+        {
+            "name": "Brisk Walking",
+            "calories_per_hour": 314
+        },
+        {
+            "name": "Swimming (laps)",
+            "calories_per_hour": 590
+        },
+        {
+            "name": "Running (jogging)",
+            "calories_per_hour": 606
+        },
+        {
+            "name": "Cycling (moderate pace)",
+            "calories_per_hour": 472
+        },
+        {
+            "name": "Aerobic Dancing",
+            "calories_per_hour": 413
+        },
+        {
+            "name": "Yoga",
+            "calories_per_hour": 236
+        },
+        {
+            "name": "Jump Rope",
+            "calories_per_hour": 708
+        },
+        {
+            "name": "Hiking",
+            "calories_per_hour": 413
+        },
+        {
+            "name": "Tennis (singles)",
+            "calories_per_hour": 472
+        },
+        {
+            "name": "Basketball (competitive)",
+            "calories_per_hour": 590
+        },
+        {
+            "name": "Weightlifting",
+            "calories_per_hour": 236
+        },
+        {
+            "name": "Gardening",
+            "calories_per_hour": 354
+        },
+        {
+            "name": "Pilates",
+            "calories_per_hour": 236
+        },
+        {
+            "name": "Rock Climbing",
+            "calories_per_hour": 590
+        },
+        {
+            "name": "Zumba",
+            "calories_per_hour": 472
+        },
+        {
+            "name": "Rowing (moderate pace)",
+            "calories_per_hour": 472
+        },
+        {
+            "name": "Kickboxing",
+            "calories_per_hour": 708
+        },
+        {
+            "name": "Skiing (downhill)",
+            "calories_per_hour": 472
+        },
+        {
+            "name": "Paddleboarding",
+            "calories_per_hour": 354
+        },
+        {
+            "name": "Dancing (fast ballroom)",
+            "calories_per_hour": 413
+        },
+		{
+			"name": "Meditation",
+			"calories_per_hour": 100
+		}
+    ]
+}
