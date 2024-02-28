@@ -51,6 +51,6 @@
     <string name="food">Food</string>
     <string name="finishedTutorialTitle">You\'re All Set!</string>
     <string name="finishedTutorialInfo">You\'re all set, you may now use the app for a better future!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="calPerHour">Cal. Per Hour: </string>
+    <string name="calPerHourEx">250 cal.</string>
 </resources>

@@ -108,10 +108,6 @@
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\drawable\\button_soft_enabled_2.xml"
     },
     {
-        "merged": "com.example.betterus_tutorial.app-merged_res-56:/layout_activity_main.xml.flat",
-        "source": "com.example.betterus_tutorial.app-main-58:/layout/activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\drawable_exercise.gif.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\drawable\\exercise.gif"
     },
@@ -140,6 +136,10 @@
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "com.example.betterus_tutorial.app-merged_res-56:/layout_activity_edit2_activity.xml.flat",
+        "source": "com.example.betterus_tutorial.app-main-58:/layout/activity_edit2_activity.xml"
+    },
+    {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\drawable_salad.png.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\drawable\\salad.png"
     },
@@ -148,12 +148,20 @@
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
+        "merged": "com.example.betterus_tutorial.app-merged_res-56:/layout_food_temp.xml.flat",
+        "source": "com.example.betterus_tutorial.app-main-58:/layout/food_temp.xml"
+    },
+    {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_activity_tutorial0.xml.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\layout\\activity_tutorial0.xml"
     },
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\drawable_button_soft_enabled.xml.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\drawable\\button_soft_enabled.xml"
+    },
+    {
+        "merged": "com.example.betterus_tutorial.app-merged_res-56:/layout_activity_tutorial5.xml.flat",
+        "source": "com.example.betterus_tutorial.app-main-58:/layout/activity_tutorial5.xml"
     },
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\drawable_button_soft_blue.xml.flat",

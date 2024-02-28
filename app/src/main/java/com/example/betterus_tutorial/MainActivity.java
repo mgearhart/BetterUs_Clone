@@ -12,11 +12,10 @@ import com.example.betterus_tutorial.tutorial.Tutorial1;
 import com.example.betterus_tutorial.tutorial.Tutorial2;
 import com.example.betterus_tutorial.tutorial.Tutorial3;
 import com.example.betterus_tutorial.tutorial.Tutorial4;
-import com.example.betterus_tutorial.tutorial.Tutorial5;
 import com.example.betterus_tutorial.user.authentication.Login;
+import com.example.betterus_tutorial.user.dataObjects.ActivityHolder;
 import com.example.betterus_tutorial.user.dataObjects.ActivityInfo;
 import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
-import com.example.betterus_tutorial.user.dataObjects.MeditationInfo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,16 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.example.betterus_tutorial.user.dataObjects.HealthInfo;
 import com.example.betterus_tutorial.user.dataObjects.SleepInfo;
 import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
-
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 import androidx.navigation.NavController;
-import com.example.betterus_tutorial.databinding.ActivityMainBinding;
-import android.view.LayoutInflater;
-import android.widget.LinearLayout;
-
-
 
 public class MainActivity extends AppCompatActivity {
     // ---- VARIABLES ---- \\
@@ -46,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         SLEEP,
         MEDITATION,
         EXERCISE,
-        FOOD,
         FINISHED
     };
     private Button tutorialButton;
@@ -88,14 +78,15 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.userRef.child("sleepInfo").setValue(sleepInfo);
 
                     // -- Meditation info -- \\
-                    MeditationInfo meditationInfo = new MeditationInfo();
+                    ActivityHolder meditationInfo = new ActivityHolder();
 
                     // Setting user's activities (defaults)
-                    for(int i = 0; i < MeditationInfo.NUM_ACTIVITIES; i++){
+                    for(int i = 0; i < ActivityHolder.NUM_ACTIVITIES; i++){
                         ActivityInfo activity = new ActivityInfo();
                         TimeInfo timeInfo = new TimeInfo(TimeInfo.AmPm.AM, -1);
                         GoalInfo goalInfo = new GoalInfo(-1, -1);
 
+                        activity.setCalPerHour(-1);
                         activity.setActivityName("");
                         activity.setActivityTime(timeInfo);
                         activity.setGoalInfo(goalInfo);
@@ -170,9 +161,6 @@ public class MainActivity extends AppCompatActivity {
                                 case EXERCISE:
                                     newIntent = new Intent(getApplicationContext(), Tutorial4.class);
                                     break;
-                                case FOOD:
-                                    newIntent = new Intent(getApplicationContext(), Tutorial5.class);
-                                    break;
                             }
 
                             startActivity(newIntent);
@@ -195,12 +183,8 @@ public class MainActivity extends AppCompatActivity {
         this.checkLogin();
         this.checkAndLoadData();
 
-
-//        // Other stuff
-        // Obtain the NavController
+        // Move on to fragments
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-
-        // Navigate to the desired destination fragment
-        navController.navigate(R.id.FirstFragment);
+        navController.navigate(R.id.FirstFragment); // Navigate to the desired destination fragment
     }
 }

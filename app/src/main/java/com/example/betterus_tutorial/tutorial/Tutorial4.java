@@ -1,40 +1,26 @@
 package com.example.betterus_tutorial.tutorial;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.betterus_tutorial.MainActivity;
 import com.example.betterus_tutorial.R;
-import com.example.betterus_tutorial.user.dataObjects.ActivityInfo;
-import com.example.betterus_tutorial.user.dataObjects.ExerciseInfo;
-import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
-import com.example.betterus_tutorial.user.dataObjects.MeditationInfo;
-import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
+import com.example.betterus_tutorial.user.dataObjects.ActivityHolder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import java.util.ArrayList;
 
 public class Tutorial4 extends AppCompatActivity {
     private Button continueButton, previousButton, act1Button, act2Button;
     private DatabaseReference userRef;
-    private ExerciseInfo exerciseInfo;
+    private ActivityHolder exerciseInfo;
     private Boolean continueEnabled;
 
     // ---- METHODS ---- \\
@@ -132,7 +118,7 @@ public class Tutorial4 extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), Tutorial5.class);
 
                     userRef.child("tutorialInfo").child("tutorialPage")
-                            .setValue(MainActivity.TutorialPage.FOOD);
+                            .setValue(MainActivity.TutorialPage.FINISHED);
 //                    userRef.child("exerciseInfo").setValue(exerciseInfo);
                     startActivity(intent);
                     finish();

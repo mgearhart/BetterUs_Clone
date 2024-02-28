@@ -1,39 +1,31 @@
 package com.example.betterus_tutorial.tutorial;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import com.bumptech.glide.Glide;
 import com.example.betterus_tutorial.MainActivity;
 import com.example.betterus_tutorial.R;
-import com.example.betterus_tutorial.user.dataObjects.ActivityInfo;
-import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
-import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
+import com.example.betterus_tutorial.ui.DialogManager;
+import com.example.betterus_tutorial.user.dataObjects.ActivityHolder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.example.betterus_tutorial.user.dataObjects.MeditationInfo;
 import com.google.firebase.database.ValueEventListener;
-import java.util.ArrayList;
 
 public class Tutorial3 extends AppCompatActivity {
     private Button continueButton, previousButton, act1Button, act2Button, act3Button;
     private DatabaseReference userRef;
-    private MeditationInfo meditationInfo;
+    private ActivityHolder meditationInfo;
     private Boolean continueEnabled;
 
     // ---- METHODS ---- \\
@@ -45,70 +37,11 @@ public class Tutorial3 extends AppCompatActivity {
 
         userRef.child("meditationInfo").addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
             public void onDataChange(@NonNull DataSnapshot dataSnap){
-                meditationInfo = dataSnap.getValue(MeditationInfo.class);
+                meditationInfo = dataSnap.getValue(ActivityHolder.class);
                 continueButtonChange(activitiesFilled());
             }
 
             public void onCancelled(@NonNull DatabaseError dbError){}
-        });
-    }
-
-    private void createEditActivityDialog(int activity){ // GOOD
-        EditText activityNameInput, activityTimeInput, duration;
-        Button submit, cancel;
-        TextView titleText;
-        Spinner activityTimeAMPM;
-        Dialog activityDialog = new Dialog(this);
-        ArrayList<String> activityAmPmOptions = new ArrayList<>();
-        ArrayAdapter<String> activityAmPmAdapter =
-                new ArrayAdapter<>(getApplicationContext(), R.layout.custom_dropdown_item, R.id.textView1, activityAmPmOptions);
-
-        activityDialog.setContentView(R.layout.activity_edit_activity);
-        activityDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        activityDialog.setCancelable(false);
-        activityDialog.show();
-        activityAmPmOptions.add("AM");
-        activityAmPmOptions.add("PM");
-
-        submit = activityDialog.findViewById(R.id.submitButton);
-        cancel = activityDialog.findViewById(R.id.cancelButton);
-        titleText = activityDialog.findViewById(R.id.activityTitle);
-        activityNameInput = activityDialog.findViewById(R.id.activityNameInput);
-        activityTimeInput = activityDialog.findViewById(R.id.activityTimeInput);
-        activityTimeAMPM = activityDialog.findViewById(R.id.activityAmPm);
-        duration = activityDialog.findViewById(R.id.durationInput);
-        activityTimeAMPM.setAdapter(activityAmPmAdapter);
-        titleText.setText(this.getString(R.string.activityTitle, activity));
-
-        if(!this.meditationInfo.getActivity("activity" + activity).getActivityName().equals("")){
-            activityNameInput.setText(this.meditationInfo.getActivity("activity" + activity).getActivityName());
-            activityTimeInput.setText(String.valueOf(this.meditationInfo.getActivity("activity" + activity).getActivityTime().getTime()));
-            duration.setText(String.valueOf(this.meditationInfo.getActivity("activity" + activity).getGoalInfo().getTotalDays()));
-            activityTimeAMPM.setSelection(this.meditationInfo.getActivity("activity" + activity)
-                    .getActivityTime().getAmPm().ordinal()-1);
-        }
-
-        submit.setOnClickListener(new View.OnClickListener(){ // GOOD
-           public void onClick(View v){
-               if(!(activityNameInput.getText().toString().isEmpty() || activityTimeInput.getText().toString().isEmpty()
-                       || duration.getText().toString().isEmpty())){ // Check for missing inputs
-                   // Setup info objects
-                   String activityName = activityNameInput.getText().toString();
-                   TimeInfo actTimeInfo = new TimeInfo(TimeInfo.AmPm.values()[activityTimeAMPM.getSelectedItemPosition() + 1],
-                           Integer.parseInt(activityTimeInput.getText().toString()));
-                   GoalInfo goalInfo = new GoalInfo(0, Integer.parseInt(duration.getText().toString()));
-
-                   meditationInfo.setActivity("activity" + activity, new ActivityInfo(activityName, actTimeInfo, goalInfo)); // Set to corresponding activity
-                   continueButtonChange(activitiesFilled());
-                   activityDialog.dismiss(); // Simply closes the dialog
-               }
-           }
-        });
-
-        cancel.setOnClickListener(new View.OnClickListener(){ // GOOD
-            public void onClick(View v){
-                activityDialog.dismiss();
-            } // Simply closes the dialog
         });
     }
 
@@ -140,25 +73,28 @@ public class Tutorial3 extends AppCompatActivity {
 
         this.act1Button.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                createEditActivityDialog(1);
+                DialogManager.getInstance().createActivityDialog(Tutorial3.this, meditationInfo, 1, false,
+                        ()-> continueButtonChange(activitiesFilled()));
             }
         });
 
         this.act2Button.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                createEditActivityDialog(2);
+                DialogManager.getInstance().createActivityDialog(Tutorial3.this, meditationInfo, 2, false,
+                        ()-> continueButtonChange(activitiesFilled()));
             }
         });
 
         this.act3Button.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                createEditActivityDialog(3);
+                DialogManager.getInstance().createActivityDialog(Tutorial3.this, meditationInfo, 3, false,
+                        ()-> continueButtonChange(activitiesFilled()));
             }
         });
     }
 
     private Boolean activitiesFilled(){ // GOOD
-        for(int i = 0; i < MeditationInfo.NUM_ACTIVITIES; i++){
+        for(int i = 0; i < ActivityHolder.NUM_ACTIVITIES; i++){
             if(this.meditationInfo.getActivity("activity" + (i+1)).getActivityName().equals("")) return false;
         }
         return true;

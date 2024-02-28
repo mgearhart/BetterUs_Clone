@@ -13,9 +13,6 @@
         android:theme="@style/Theme.BetterUs_Tutorial"
         tools:targetApi="31">
         <activity
-            android:name=".tutorial.Tutorial6"
-            android:exported="false" />
-        <activity
             android:name=".tutorial.Tutorial5"
             android:exported="false" />
         <activity
