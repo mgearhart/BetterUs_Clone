@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.betterus_tutorial.MainActivity;
 import com.example.betterus_tutorial.R;
 import com.google.android.gms.tasks.OnCompleteListener;

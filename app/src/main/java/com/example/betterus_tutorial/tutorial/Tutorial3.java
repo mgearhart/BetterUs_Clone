@@ -38,7 +38,7 @@ public class Tutorial3 extends AppCompatActivity {
         userRef.child("meditationInfo").addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
             public void onDataChange(@NonNull DataSnapshot dataSnap){
                 meditationInfo = dataSnap.getValue(ActivityHolder.class);
-                continueButtonChange(activitiesFilled());
+                continueButtonChange(meditationInfo.activitiesFilled());
             }
 
             public void onCancelled(@NonNull DatabaseError dbError){}
@@ -74,30 +74,23 @@ public class Tutorial3 extends AppCompatActivity {
         this.act1Button.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 DialogManager.getInstance().createActivityDialog(Tutorial3.this, meditationInfo, 1, false,
-                        ()-> continueButtonChange(activitiesFilled()));
+                        ()-> continueButtonChange(meditationInfo.activitiesFilled()));
             }
         });
 
         this.act2Button.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 DialogManager.getInstance().createActivityDialog(Tutorial3.this, meditationInfo, 2, false,
-                        ()-> continueButtonChange(activitiesFilled()));
+                        ()-> continueButtonChange(meditationInfo.activitiesFilled()));
             }
         });
 
         this.act3Button.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
                 DialogManager.getInstance().createActivityDialog(Tutorial3.this, meditationInfo, 3, false,
-                        ()-> continueButtonChange(activitiesFilled()));
+                        ()-> continueButtonChange(meditationInfo.activitiesFilled()));
             }
         });
-    }
-
-    private Boolean activitiesFilled(){ // GOOD
-        for(int i = 0; i < ActivityHolder.NUM_ACTIVITIES; i++){
-            if(this.meditationInfo.getActivity("activity" + (i+1)).getActivityName().equals("")) return false;
-        }
-        return true;
     }
 
     private void continueButtonChange(Boolean enable){ // GOOD

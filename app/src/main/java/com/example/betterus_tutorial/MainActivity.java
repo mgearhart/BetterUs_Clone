@@ -14,8 +14,6 @@ import com.example.betterus_tutorial.tutorial.Tutorial3;
 import com.example.betterus_tutorial.tutorial.Tutorial4;
 import com.example.betterus_tutorial.user.authentication.Login;
 import com.example.betterus_tutorial.user.dataObjects.ActivityHolder;
-import com.example.betterus_tutorial.user.dataObjects.ActivityInfo;
-import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -61,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkAndLoadData(){ // GOOD
         this.userRef.addListenerForSingleValueEvent(new ValueEventListener(){
             public void onDataChange(@NonNull DataSnapshot data){
-                if(!data.exists()){ // Sets use's nodes to default values if they're new
-                    // -- Creating user nodes -- \\
+                if(!data.exists()){ // Sets the user's node profile info to default values if they're new
                     // -- Tutorial info -- \\
                     MainActivity.this.userRef.child("tutorialInfo").child("tutorialPage")
                             .setValue(TutorialPage.WELCOME);
@@ -78,48 +75,13 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.userRef.child("sleepInfo").setValue(sleepInfo);
 
                     // -- Meditation info -- \\
-                    ActivityHolder meditationInfo = new ActivityHolder();
-
-                    // Setting user's activities (defaults)
-                    for(int i = 0; i < ActivityHolder.NUM_ACTIVITIES; i++){
-                        ActivityInfo activity = new ActivityInfo();
-                        TimeInfo timeInfo = new TimeInfo(TimeInfo.AmPm.AM, -1);
-                        GoalInfo goalInfo = new GoalInfo(-1, -1);
-
-                        activity.setCalPerHour(-1);
-                        activity.setActivityName("");
-                        activity.setActivityTime(timeInfo);
-                        activity.setGoalInfo(goalInfo);
-                        meditationInfo.setActivity("activity" + (i+1), activity);
-                    }
-
-                    MainActivity.this.userRef.child("meditationInfo").setValue(meditationInfo);
+                    MainActivity.this.userRef.child("meditationInfo").setValue(new ActivityHolder());
 
                     // -- Exercise info -- \\
-                    // -- Activity 1 -- \\
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity1").child("name").setValue("none");
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity1")
-                            .child("schedTime").child("time").setValue(-1);
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity1")
-                            .child("schedTime").child("amPm").setValue("none");
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity1")
-                            .child("goal").child("currentDays").setValue(-1);
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity1")
-                            .child("goal").child("totalDays").setValue(-1);
+                    MainActivity.this.userRef.child("exerciseInfo").setValue(new ActivityHolder());
 
-                    // -- Activity 2 -- \\
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity2").child("name").setValue("none");
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity2")
-                            .child("schedTime").child("time").setValue(-1);
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity2")
-                            .child("schedTime").child("amPm").setValue("none");
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity2")
-                            .child("goal").child("currentDays").setValue(-1);
-                    MainActivity.this.userRef.child("exerciseInfo").child("activity2")
-                            .child("goal").child("totalDays").setValue(-1);
-
-                    // -- Food info -- \\
-                    MainActivity.this.userRef.child("foodInfo").setValue("none"); // Not sure what to put here .~.
+                    // -- Meal log -- \\
+                    // N/A
 
                     // Sending user to tutorial page!
                     Intent intent = new Intent(getApplicationContext(), Tutorial0.class);

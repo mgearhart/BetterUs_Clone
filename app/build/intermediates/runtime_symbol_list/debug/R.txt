@@ -3326,6 +3326,8 @@ int id button_first 0x7f08008b
 int id button_second 0x7f08008c
 int id button_third 0x7f08008d
 int id cache_measures 0x7f08008e
+int id calPerHourInput 0x7f08025b
+int id calPerHourText 0x7f08025c
 int id callMeasure 0x7f08008f
 int id cancelButton 0x7f080090
 int id cancel_button 0x7f080091
@@ -3901,6 +3903,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_edit2_activity 0x7f0b007e
 int layout activity_edit_activity 0x7f0b001c
 int layout activity_login 0x7f0b001d
 int layout activity_main 0x7f0b001e
@@ -3911,7 +3914,6 @@ int layout activity_tutorial2 0x7f0b0022
 int layout activity_tutorial3 0x7f0b0023
 int layout activity_tutorial4 0x7f0b0024
 int layout activity_tutorial5 0x7f0b0025
-int layout activity_tutorial6 0x7f0b0026
 int layout browser_actions_context_menu_page 0x7f0b0027
 int layout browser_actions_context_menu_row 0x7f0b0028
 int layout content_main 0x7f0b0029
@@ -3932,6 +3934,7 @@ int layout design_navigation_menu 0x7f0b0037
 int layout design_navigation_menu_item 0x7f0b0038
 int layout design_text_input_end_icon 0x7f0b0039
 int layout design_text_input_start_icon 0x7f0b003a
+int layout food_temp 0x7f0b007f
 int layout fragment_fifth 0x7f0b003b
 int layout fragment_first 0x7f0b003c
 int layout fragment_fourth 0x7f0b003d
@@ -4053,6 +4056,8 @@ int string bottomsheet_action_expand 0x7f11002d
 int string bottomsheet_action_expand_halfway 0x7f11002e
 int string bottomsheet_drag_handle_clicked 0x7f11002f
 int string bottomsheet_drag_handle_content_description 0x7f110030
+int string calPerHour 0x7f1100f0
+int string calPerHourEx 0x7f1100f1
 int string cancel 0x7f110031
 int string character_counter_content_description 0x7f110032
 int string character_counter_overflowed_content_description 0x7f110033
@@ -4102,7 +4107,6 @@ int string google_app_id 0x7f11005e
 int string google_crash_reporting_api_key 0x7f11005f
 int string google_storage_bucket 0x7f110060
 int string height 0x7f110061
-int string hello_blank_fragment 0x7f110062
 int string hide_bottom_view_on_scroll_behavior 0x7f110063
 int string icon_content_description 0x7f110064
 int string inches 0x7f110065

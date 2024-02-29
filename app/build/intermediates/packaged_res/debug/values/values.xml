@@ -24,6 +24,8 @@
     <string name="app_name">BetterUs_Tutorial</string>
     <string name="betterUsTitle">BetterUs</string>
     <string name="bioSex">Biological Sex:</string>
+    <string name="calPerHour">Cal. Per Hour: </string>
+    <string name="calPerHourEx">250 cal.</string>
     <string name="cancel">Cancel</string>
     <string name="continue_">Continue</string>
     <string name="duration">Duration:</string>
@@ -32,7 +34,7 @@
     <string name="editActivity3">Edit Activity 3</string>
     <string name="email">Email:</string>
     <string name="exercises">Physical Exercises</string>
-    <string name="finishedTutorialInfo">You\'re all set, you may now use the app for a better future!</string>
+    <string name="finishedTutorialInfo">You\'re all set, you may now use the app for a better you!</string>
     <string name="finishedTutorialTitle">You\'re All Set!</string>
     <string name="food">Food</string>
     <string name="gcm_defaultSenderId" translatable="false">277061429134</string>
@@ -41,7 +43,6 @@
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDTasbnr2s6OeKJOZAj40nxrHyngEKLkUw</string>
     <string name="google_storage_bucket" translatable="false">betterus-project.appspot.com</string>
     <string name="height">Height:</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="inches">75 in.</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>

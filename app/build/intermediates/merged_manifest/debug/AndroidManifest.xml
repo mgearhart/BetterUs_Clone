@@ -32,9 +32,6 @@
         android:testOnly="true"
         android:theme="@style/Theme.BetterUs_Tutorial" >
         <activity
-            android:name="com.example.betterus_tutorial.tutorial.Tutorial6"
-            android:exported="false" />
-        <activity
             android:name="com.example.betterus_tutorial.tutorial.Tutorial5"
             android:exported="false" />
         <activity

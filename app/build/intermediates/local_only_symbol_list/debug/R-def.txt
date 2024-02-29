@@ -64,6 +64,8 @@ id button
 id button_first
 id button_second
 id button_third
+id calPerHourInput
+id calPerHourText
 id cancelButton
 id continueButton
 id durationInput
@@ -115,6 +117,7 @@ id wakeUpInput
 id wakeUpText
 id weightInput
 id weightInputText
+layout activity_edit2_activity
 layout activity_edit_activity
 layout activity_login
 layout activity_main
@@ -125,9 +128,9 @@ layout activity_tutorial2
 layout activity_tutorial3
 layout activity_tutorial4
 layout activity_tutorial5
-layout activity_tutorial6
 layout content_main
 layout custom_dropdown_item
+layout food_temp
 layout fragment_fifth
 layout fragment_first
 layout fragment_fourth
@@ -151,6 +154,8 @@ string alreadyAccount
 string app_name
 string betterUsTitle
 string bioSex
+string calPerHour
+string calPerHourEx
 string cancel
 string continue_
 string duration
@@ -168,7 +173,6 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string height
-string hello_blank_fragment
 string inches
 string login
 string logout
