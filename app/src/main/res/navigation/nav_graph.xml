@@ -26,6 +26,9 @@
         <action
                 android:id="@+id/action_FirstFragment_to_SixthFragment"
                 app:destination = "@id/SixthFragment"/>
+        <action
+                android:id="@+id/action_FirstFragment_to_SeventhFragment"
+                app:destination = "@id/SeventhFragment"/>
 
     </fragment>
 
@@ -81,6 +84,17 @@
 
         <action
                 android:id="@+id/action_SixthFragment_to_FirstFragment"
+                app:destination="@id/FirstFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/SeventhFragment"
+            android:name="com.example.betterus_tutorial.SeventhFragment"
+            android:label="Fun"
+            tools:layout="@layout/fragment_seventh">
+
+        <action
+                android:id="@+id/action_SeventhFragment_to_FirstFragment"
                 app:destination="@id/FirstFragment"/>
     </fragment>
 
