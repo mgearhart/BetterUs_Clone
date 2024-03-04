@@ -2,38 +2,24 @@ package com.example.betterus_tutorial.user.dataObjects;
 
 public class ActivityInfo {
     private String activityName;
-    private TimeInfo activityTime;
-    private GoalInfo goalInfo;
     private int caloriesPerHour;
 
-    public ActivityInfo(String activityName, TimeInfo activityTime, GoalInfo goalInfo, int calPerHour){
+    public ActivityInfo(String activityName, int calPerHour){ // GOOD
         this.activityName = activityName;
-        this.activityTime = activityTime;
-        this.goalInfo = goalInfo;
         this.caloriesPerHour = calPerHour;
     }
 
-    public ActivityInfo(){}
+    public ActivityInfo(){} // GOOD
 
     public void setActivityName(String actName){
         this.activityName = actName;
-    }
-
-    public void setActivityTime(TimeInfo timeInfo){
-        this.activityTime = timeInfo;
-    }
-
-    public void setGoalInfo(GoalInfo goalInfo){this.goalInfo = goalInfo;}
+    } // GOOD
 
     public void setCalPerHour(int calPerHour){
         this.caloriesPerHour = calPerHour;
-    }
+    } // GOOD
 
-    public String getActivityName(){return this.activityName;}
+    public String getActivityName(){return this.activityName;} // GOOD
 
-    public TimeInfo getActivityTime(){return this.activityTime;}
-
-    public GoalInfo getGoalInfo(){return this.goalInfo;}
-
-    public int getCalPerHour(){return this.caloriesPerHour;}
+    public int getCalPerHour(){return this.caloriesPerHour;} // GOOD
 }

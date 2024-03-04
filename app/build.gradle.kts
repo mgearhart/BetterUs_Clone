@@ -57,5 +57,6 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:4.14.1")
     implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.7")
-    implementation ("androidx.lifecycle:lifecycle-common:2.5.1")
+    implementation ("androidx.lifecycle:lifecycle-common:2.7.0")
+    implementation ("com.google.code.gson:gson:2.10")
 }

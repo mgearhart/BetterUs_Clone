@@ -4,12 +4,12 @@
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_activity_tutorial6.xml.flat",
-        "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\layout\\activity_tutorial6.xml"
-    },
-    {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\drawable_mental_health.gif.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\drawable\\mental_health.gif"
+    },
+    {
+        "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_food_temp.xml.flat",
+        "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\layout\\food_temp.xml"
     },
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\xml_data_extraction_rules.xml.flat",
@@ -22,6 +22,10 @@
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\mipmap-hdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.betterus_tutorial.app-merged_res-56:/layout_activity_edit_activity.xml.flat",
+        "source": "com.example.betterus_tutorial.app-main-58:/layout/activity_edit_activity.xml"
     },
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_activity_tutorial2.xml.flat",
@@ -38,6 +42,10 @@
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_fragment_fourth.xml.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\layout\\fragment_fourth.xml"
+    },
+    {
+        "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_activity_edit2_activity.xml.flat",
+        "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\layout\\activity_edit2_activity.xml"
     },
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\drawable_ic_launcher_foreground.xml.flat",
@@ -128,6 +136,10 @@
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\drawable\\sleep.gif"
     },
     {
+        "merged": "com.example.betterus_tutorial.app-merged_res-56:/drawable_goals.gif.flat",
+        "source": "com.example.betterus_tutorial.app-main-58:/drawable/goals.gif"
+    },
+    {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_activity_tutorial4.xml.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\layout\\activity_tutorial4.xml"
     },
@@ -148,10 +160,6 @@
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.example.betterus_tutorial.app-merged_res-56:/layout_food_temp.xml.flat",
-        "source": "com.example.betterus_tutorial.app-main-58:/layout/food_temp.xml"
-    },
-    {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_activity_tutorial0.xml.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\layout\\activity_tutorial0.xml"
     },
@@ -160,16 +168,12 @@
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\drawable\\button_soft_enabled.xml"
     },
     {
-        "merged": "com.example.betterus_tutorial.app-merged_res-56:/layout_activity_tutorial5.xml.flat",
-        "source": "com.example.betterus_tutorial.app-main-58:/layout/activity_tutorial5.xml"
+        "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\navigation\\nav_graph.xml"
     },
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\drawable_button_soft_blue.xml.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\drawable\\button_soft_blue.xml"
-    },
-    {
-        "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\navigation_nav_graph.xml.flat",
-        "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\navigation\\nav_graph.xml"
     },
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\drawable_button_soft_enabled_3.xml.flat",
@@ -198,6 +202,10 @@
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_fragment_seventh.xml.flat",
+        "source": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-main-58:\\layout\\fragment_seventh.xml"
     },
     {
         "merged": "C:\\Users\\AFrie\\.gradle\\daemon\\8.2\\com.example.betterus_tutorial.app-merged_res-56:\\layout_fragment_sixth.xml.flat",

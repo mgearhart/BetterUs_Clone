@@ -5,26 +5,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class HeartRateInfo {
-    public static DateFormat formatter = SimpleDateFormat.getDateTimeInstance();
+    private final static DateFormat formatter = SimpleDateFormat.getDateTimeInstance();
     private int heartRate;
     private String dateTime;
 
-    public HeartRateInfo(int heartRate, Date dateTime){
+    public HeartRateInfo(int heartRate, Date dateTime){ // GOOD
         this.heartRate = heartRate;
         this.dateTime = formatter.format(dateTime);
     }
 
-    public HeartRateInfo(){}
+    public HeartRateInfo(){} // GOOD
 
     public void setHeartRate(int heartRate){
         this.heartRate = heartRate;
-    }
+    } // GOOD
 
     public void setDateTime(Date dateTime){
         this.dateTime = formatter.format(dateTime);
-    }
+    } // GOOD
 
-    public int getHeartRate(){return this.heartRate;}
+    public int getHeartRate(){return this.heartRate;} // GOOD
 
-    public String getDateTime(){return this.dateTime;}
+    public String getDateTime(){return this.dateTime;} // GOOD
 }

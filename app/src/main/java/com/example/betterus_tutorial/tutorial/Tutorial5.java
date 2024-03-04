@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import com.example.betterus_tutorial.MainActivity;
 import com.example.betterus_tutorial.R;
+import com.example.betterus_tutorial.user.dataObjects.ActivitiesInfo;
 
 public class Tutorial5 extends AppCompatActivity {
     // ---- VARIABLES ---- \\

@@ -5,22 +5,22 @@ public class TimeInfo {
     private AmPm amPm;
     private int time;
 
-    public TimeInfo(AmPm amPm, int time){
+    public TimeInfo(AmPm amPm, int time){ // GOOD
         this.amPm = amPm;
         this.time = time;
     }
 
-    public TimeInfo(){}
+    public TimeInfo(){} // GOOD
 
     public void setAmPm(AmPm amPm){
         this.amPm = amPm;
-    }
+    } // GOOD
 
     public void setTime(int time){
         this.time = time;
-    }
+    } // GOOD
 
-    public AmPm getAmPm(){return this.amPm;}
+    public AmPm getAmPm(){return this.amPm;} // GOOD
 
-    public int getTime(){return this.time;}
+    public int getTime(){return this.time;} // GOOD
 }

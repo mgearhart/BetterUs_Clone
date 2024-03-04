@@ -46,74 +46,74 @@
         android:maxLength="100"
     />
 
-    <TextView
-        android:id="@+id/activityTimeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/activityTimeText"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_below="@+id/activityTitle"
-        android:layout_marginTop="80dp"
-        android:layout_marginStart="35dp"
-    />
+<!--    <TextView-->
+<!--        android:id="@+id/activityTimeText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/activityTimeText"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_below="@+id/activityTitle"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--    />-->
 
-    <EditText
-        android:id="@+id/activityTimeInput"
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/activityTitle"
-        android:hint="@string/ten"
-        android:textSize="20sp"
-        android:layout_marginStart="175dp"
-        android:textStyle="bold"
-        android:layout_marginTop="70dp"
-        android:inputType="number"
-        android:singleLine="true"
-        android:gravity="center"
-        android:maxLength="2"
-    />
+<!--    <EditText-->
+<!--        android:id="@+id/activityTimeInput"-->
+<!--        android:layout_width="48dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/activityTitle"-->
+<!--        android:hint="@string/ten"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_marginStart="175dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_marginTop="70dp"-->
+<!--        android:inputType="number"-->
+<!--        android:singleLine="true"-->
+<!--        android:gravity="center"-->
+<!--        android:maxLength="2"-->
+<!--    />-->
 
-    <Spinner
-        android:id="@+id/activityAmPm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/activityTitle"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginStart="225dp"
-        android:layout_marginTop="83dp"
-    />
+<!--    <Spinner-->
+<!--        android:id="@+id/activityAmPm"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/activityTitle"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_marginStart="225dp"-->
+<!--        android:layout_marginTop="83dp"-->
+<!--    />-->
 
-    <TextView
-        android:id="@+id/numDaysText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/duration"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_below="@+id/activityTitle"
-        android:layout_marginTop="130dp"
-        android:layout_marginStart="35dp"
-    />
+<!--    <TextView-->
+<!--        android:id="@+id/numDaysText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/duration"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_below="@+id/activityTitle"-->
+<!--        android:layout_marginTop="130dp"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--    />-->
 
-    <EditText
-        android:id="@+id/durationInput"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/activityTitle"
-        android:hint="@string/twelveDays"
-        android:textSize="20sp"
-        android:layout_marginStart="175dp"
-        android:textStyle="bold"
-        android:layout_marginTop="120dp"
-        android:inputType="number"
-        android:singleLine="true"
-        android:gravity="center"
-        android:maxLength="20"
-    />
+<!--    <EditText-->
+<!--        android:id="@+id/durationInput"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/activityTitle"-->
+<!--        android:hint="@string/twelveDays"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_marginStart="175dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_marginTop="120dp"-->
+<!--        android:inputType="number"-->
+<!--        android:singleLine="true"-->
+<!--        android:gravity="center"-->
+<!--        android:maxLength="20"-->
+<!--    />-->
 
     <Button
         android:id="@+id/submitButton"
@@ -128,7 +128,7 @@
         android:textSize="20sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="150dp"
     />
 
     <Button
@@ -144,6 +144,6 @@
         android:textSize="20sp"
         android:textAllCaps="false"
         android:textColor="@color/button_disabled_text"
-        android:layout_marginTop="285dp"
+        android:layout_marginTop="205dp"
     />
 </RelativeLayout>

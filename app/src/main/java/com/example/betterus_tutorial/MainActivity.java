@@ -26,6 +26,7 @@ import com.example.betterus_tutorial.user.dataObjects.SleepInfo;
 import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
 import androidx.navigation.Navigation;
 import androidx.navigation.NavController;
+import com.example.betterus_tutorial.user.dataObjects.ActivitiesInfo;
 
 public class MainActivity extends AppCompatActivity {
     // ---- VARIABLES ---- \\
@@ -35,8 +36,10 @@ public class MainActivity extends AppCompatActivity {
         SLEEP,
         MEDITATION,
         EXERCISE,
+        GOALS,
         FINISHED
     };
+
     private Button tutorialButton;
     private Button logoutButton;
     private DatabaseReference userRef;
@@ -81,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.userRef.child("exerciseInfo").setValue(new ActivityHolder());
 
                     // -- Meal log -- \\
+                    // N/A
+
+
+                    // -- Heart rate log -- \\
                     // N/A
 
                     // Sending user to tutorial page!
@@ -139,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { // GOOD
+    protected void onCreate(Bundle savedInstanceState) { // [Almost done]
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_main);
         this.checkLogin();
