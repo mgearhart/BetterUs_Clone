@@ -53,4 +53,13 @@
     <string name="finishedTutorialInfo">You\'re all set, you may now use the app for a better future!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="activitySelect">Activity:</string>
+    <string name="caloriesBurned">Calories Burned:</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="calories">Calories:</string>
+    <string name="foodInput">Food:</string>
+    <string name="heartRateCheck">Let\'s check your heart rate!</string>
+    <string name="heartRateGood">Your heart rate looks good!</string>
+    <string name="heartRateBad">Your heart rate is abnormally high, seek professional opinion!</string>
+    <string name="recommendation">Recommendation</string>
 </resources>
