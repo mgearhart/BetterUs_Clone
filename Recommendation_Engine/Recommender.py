@@ -2,12 +2,16 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+import Meal_recommender
 
 
-# this program takes in new logs and adds it to the array
+# need to rethink as a lookup tool rather than a solution finder
+# the goal setting needs to be hardcoded and then the meal suggested or activity type can use ML
+
+
+# this program takes in new logs, and goals
 # returns one suggestion (activity, meal, meditation, sleep)
-
-def recommender():
+def recommender(new_logs, goals):
     # Training data
     # here's how to read it, each key has an array, and each index of that array is a column
 
@@ -53,6 +57,18 @@ def recommender():
 
     recommendation = clf.predict(new_user_data)[0]
     print(f"Recommendation for the new user: {recommendation}")
+
+    match recommendation:
+        case 'activity':
+            print("Activity_recommender()")
+        case 'meal':
+            Meal_recommender()
+        case 'meditation':
+            return 'meditation'
+        case 'sleep':
+            return 'sleep'
+
+
 
 # I was seeing the different results to understand
 for i in range(1):
