@@ -53,9 +53,7 @@ class FirstFragment : Fragment() {
         binding.button.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_FourthFragment)
         }
-        binding.buttonThird.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_FifthFragment)
-        }
+
         binding.buttonFourth.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SeventhFragment)
         }
