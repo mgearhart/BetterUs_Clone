@@ -66,24 +66,21 @@ public class Tutorial1 extends AppCompatActivity {
     private void methodBindDo(){ // GOOD
         this.ageInput.setOnEditorActionListener(new TextView.OnEditorActionListener(){ // GOOD
             public boolean onEditorAction(TextView textView, int actionID, KeyEvent keyEvent){
-                if(actionID == EditorInfo.IME_ACTION_DONE)
-                    checkAndEnableContinue();
+                if(actionID == EditorInfo.IME_ACTION_DONE) checkAndEnableContinue();
                 return false;
             }
         });
 
         this.heightInput.setOnEditorActionListener(new TextView.OnEditorActionListener(){ // GOOD
             public boolean onEditorAction(TextView textView, int actionID, KeyEvent keyEvent){
-                if(actionID == EditorInfo.IME_ACTION_DONE)
-                    checkAndEnableContinue();
+                if(actionID == EditorInfo.IME_ACTION_DONE) checkAndEnableContinue();
                 return false;
             }
         });
 
         this.weightInput.setOnEditorActionListener(new TextView.OnEditorActionListener(){ // GOOD
             public boolean onEditorAction(TextView textView, int actionID, KeyEvent keyEvent){
-                if(actionID == EditorInfo.IME_ACTION_DONE)
-                    checkAndEnableContinue();
+                if(actionID == EditorInfo.IME_ACTION_DONE) checkAndEnableContinue();
                 return false;
             }
         });

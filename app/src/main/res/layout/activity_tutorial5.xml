@@ -8,31 +8,175 @@
     android:background="@color/tutorial_page_background"
     >
 
+    <ImageView
+        android:id="@+id/blueBlob"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/blue_blob"
+        android:layout_centerHorizontal="true"
+    />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/gifRoundCard"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="160dp"
+        app:cardCornerRadius="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/gifImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/goal"
+        />
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/finishedTutorialTitle"
-        android:textSize="40sp"
+        android:text="@string/dailyGoals"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        />
+        android:layout_marginTop="-10dp"
+        android:layout_below="@+id/blueBlob"
+    />
 
     <TextView
-        android:id="@+id/info"
+        android:id="@+id/calBurntText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/finishedTutorialInfo"
-        android:textSize="25sp"
+        android:text="@string/caloriesBurnt"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginStart="20dp"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="70dp"
+    />
+
+    <EditText
+        android:id="@+id/calBurntInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:hint="@string/calPerHourEx"
+        android:textSize="20sp"
+        android:layout_marginStart="260dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:inputType="number"
+        android:singleLine="true"
+        android:maxLength="3"
         android:gravity="center"
-        />
+    />
+
+    <TextView
+        android:id="@+id/calGainedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/caloriesGained"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="70dp"
+    />
+
+    <EditText
+        android:id="@+id/calGainedInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:hint="@string/calPerHourEx"
+        android:textSize="20sp"
+        android:layout_marginStart="260dp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:maxLength="5"
+        android:gravity="center"
+    />
+
+    <TextView
+        android:id="@+id/numMedActivitiesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numMeditationActivities"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="70dp"
+    />
+
+    <EditText
+        android:id="@+id/numMedActivitiesInput"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:hint="@string/three"
+        android:textSize="20sp"
+        android:layout_marginStart="260dp"
+        android:textStyle="bold"
+        android:layout_marginTop="90dp"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:maxLength="5"
+        android:gravity="center"
+    />
+
+    <TextView
+        android:id="@+id/numExerciseActivitiesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numExerciseActivities"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="140dp"
+        android:layout_marginStart="70dp"
+    />
+
+    <EditText
+        android:id="@+id/numExerciseActivitiesInput"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:hint="@string/three"
+        android:textSize="20sp"
+        android:layout_marginStart="260dp"
+        android:textStyle="bold"
+        android:layout_marginTop="130dp"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:maxLength="5"
+        android:gravity="center"
+    />
+
+    <Button
+        android:id="@+id/prevButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="72dp"
+        android:paddingRight="72dp"
+        android:background="@drawable/button_soft_enabled_2"
+        android:layout_marginStart="20dp"
+        android:text="@string/previous"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginTop="545dp"
+    />
 
     <Button
         android:id="@+id/continueButton"
@@ -41,12 +185,12 @@
         android:layout_centerHorizontal="true"
         android:paddingLeft="70dp"
         android:paddingRight="70dp"
-        android:background="@drawable/button_soft_enabled"
+        android:background="@drawable/button_soft_disabled"
         android:layout_marginStart="20dp"
         android:text="@string/continue_"
         android:textSize="20sp"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/button_disabled_text"
         android:layout_marginTop="600dp"
-        />
+    />
 </RelativeLayout>

@@ -6,14 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import com.example.betterus_tutorial.tutorial.Tutorial0;
 import com.example.betterus_tutorial.tutorial.Tutorial1;
 import com.example.betterus_tutorial.tutorial.Tutorial2;
 import com.example.betterus_tutorial.tutorial.Tutorial3;
 import com.example.betterus_tutorial.tutorial.Tutorial4;
+import com.example.betterus_tutorial.tutorial.Tutorial5;
 import com.example.betterus_tutorial.user.authentication.Login;
 import com.example.betterus_tutorial.user.dataObjects.ActivityHolder;
+import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +27,6 @@ import com.example.betterus_tutorial.user.dataObjects.SleepInfo;
 import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
 import androidx.navigation.Navigation;
 import androidx.navigation.NavController;
-import com.example.betterus_tutorial.user.dataObjects.ActivitiesInfo;
 
 public class MainActivity extends AppCompatActivity {
     // ---- VARIABLES ---- \\
@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         FINISHED
     };
 
-    private Button tutorialButton;
-    private Button logoutButton;
     private DatabaseReference userRef;
 
     // ---- METHODS ---- \\
@@ -64,11 +62,13 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot data){
                 if(!data.exists()){ // Sets the user's node profile info to default values if they're new
                     // -- Tutorial info -- \\
-                    MainActivity.this.userRef.child("tutorialInfo").child("tutorialPage")
+                    MainActivity.this.userRef.child("tutorialInfo")
+                            .child("tutorialPage")
                             .setValue(TutorialPage.WELCOME);
 
                     // -- Health info -- \\
-                    HealthInfo healthInfo = new HealthInfo(HealthInfo.BioSex.NONE, -1, -1, -1);
+                    HealthInfo healthInfo = new HealthInfo(HealthInfo.BioSex.NONE,
+                            -1, -1, -1);
                     MainActivity.this.userRef.child("healthInfo").setValue(healthInfo);
 
                     // -- Sleep info -- \\
@@ -78,10 +78,17 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.userRef.child("sleepInfo").setValue(sleepInfo);
 
                     // -- Meditation info -- \\
-                    MainActivity.this.userRef.child("meditationInfo").setValue(new ActivityHolder());
+                    MainActivity.this.userRef.child("meditationInfo")
+                            .setValue(new ActivityHolder());
 
                     // -- Exercise info -- \\
-                    MainActivity.this.userRef.child("exerciseInfo").setValue(new ActivityHolder());
+                    MainActivity.this.userRef.child("exerciseInfo")
+                            .setValue(new ActivityHolder());
+
+                    // -- Goal info -- \\
+                    MainActivity.this.userRef.child("goalInfo")
+                                    .setValue(new GoalInfo(-1, -1,
+                                            -1, -1));
 
                     // -- Meal log -- \\
                     // N/A
@@ -105,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkUserTutorial(){ // GOOD
-        this.userRef.child("tutorialInfo").child("tutorialPage").addListenerForSingleValueEvent(new ValueEventListener(){
+        this.userRef.child("tutorialInfo").child("tutorialPage").
+                addListenerForSingleValueEvent(new ValueEventListener(){
             public void onDataChange(@NonNull DataSnapshot dataSnap){
                 if(dataSnap.exists()){
                     TutorialPage pageValue = dataSnap.getValue(TutorialPage.class);
@@ -127,6 +135,9 @@ public class MainActivity extends AppCompatActivity {
                                 case MEDITATION:
                                     newIntent = new Intent(getApplicationContext(), Tutorial3.class);
                                     break;
+                                case GOALS:
+                                    newIntent = new Intent(getApplicationContext(), Tutorial5.class);
+                                    break;
                                 case EXERCISE:
                                     newIntent = new Intent(getApplicationContext(), Tutorial4.class);
                                     break;
@@ -146,14 +157,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { // [Almost done]
+    protected void onCreate(Bundle savedInstanceState) { // GOOD
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_main);
         this.checkLogin();
         this.checkAndLoadData();
 
         // Move on to fragments
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavController navController = Navigation.findNavController(this,
+                R.id.nav_host_fragment_content_main);
         navController.navigate(R.id.FirstFragment); // Navigate to the desired destination fragment
     }
 }

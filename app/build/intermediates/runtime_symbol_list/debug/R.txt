@@ -3084,7 +3084,7 @@ int drawable design_password_eye 0x7f07009e
 int drawable design_snackbar_background 0x7f07009f
 int drawable exercise 0x7f0700a0
 int drawable food 0x7f0700a1
-int drawable goals 0x7f070106
+int drawable goal 0x7f070107
 int drawable googleg_disabled_color_18 0x7f0700a2
 int drawable googleg_standard_color_18 0x7f0700a3
 int drawable gradient 0x7f0700a4
@@ -3328,6 +3328,10 @@ int id button_fourth 0x7f08008e
 int id button_second 0x7f08008f
 int id button_third 0x7f080090
 int id cache_measures 0x7f080091
+int id calBurntInput 0x7f080262
+int id calBurntText 0x7f080263
+int id calGainedInput 0x7f080264
+int id calGainedText 0x7f080265
 int id calPerHourInput 0x7f080092
 int id calPerHourText 0x7f080093
 int id callMeasure 0x7f080094
@@ -3573,6 +3577,10 @@ int id north 0x7f080184
 int id notification_background 0x7f080185
 int id notification_main_column 0x7f080186
 int id notification_main_column_container 0x7f080187
+int id numExerciseActivitiesInput 0x7f080266
+int id numExerciseActivitiesText 0x7f080267
+int id numMedActivitiesInput 0x7f080268
+int id numMedActivitiesText 0x7f080269
 int id off 0x7f080189
 int id on 0x7f08018a
 int id onAttachStateChangeListener 0x7f08018b
@@ -3611,6 +3619,7 @@ int id pin 0x7f0801ab
 int id position 0x7f0801ac
 int id postLayout 0x7f0801ad
 int id pressed 0x7f0801ae
+int id prevButton 0x7f080261
 int id previousButton 0x7f0801af
 int id progressBar 0x7f0801b0
 int id progressBar1 0x7f0801b1
@@ -3916,6 +3925,7 @@ int layout activity_tutorial2 0x7f0b0023
 int layout activity_tutorial3 0x7f0b0024
 int layout activity_tutorial4 0x7f0b0025
 int layout activity_tutorial5 0x7f0b0026
+int layout activity_tutorial6 0x7f0b0080
 int layout browser_actions_context_menu_page 0x7f0b0027
 int layout browser_actions_context_menu_row 0x7f0b0028
 int layout content_main 0x7f0b0029
@@ -4010,6 +4020,8 @@ int mipmap ic_launcher_round 0x7f0d0001
 int navigation nav_graph 0x7f0e0000
 int plurals mtrl_badge_content_description 0x7f0f0000
 int raw firebase_common_keep 0x7f100000
+int raw foods 0x7f100001
+int raw meals 0x7f100002
 int string abc_action_bar_home_description 0x7f110000
 int string abc_action_bar_up_description 0x7f110001
 int string abc_action_menu_overflow_description 0x7f110002
@@ -4061,6 +4073,8 @@ int string bottomsheet_drag_handle_clicked 0x7f11002f
 int string bottomsheet_drag_handle_content_description 0x7f110030
 int string calPerHour 0x7f110031
 int string calPerHourEx 0x7f110032
+int string caloriesBurnt 0x7f1100f1
+int string caloriesGained 0x7f1100f2
 int string cancel 0x7f110033
 int string character_counter_content_description 0x7f110034
 int string character_counter_overflowed_content_description 0x7f110035
@@ -4086,6 +4100,7 @@ int string common_signin_button_text 0x7f110048
 int string common_signin_button_text_long 0x7f110049
 int string continue_ 0x7f11004a
 int string copy_toast_msg 0x7f11004b
+int string dailyGoals 0x7f1100f4
 int string dest_title 0x7f11004c
 int string duration 0x7f11004d
 int string editActivity1 0x7f11004e
@@ -4221,6 +4236,8 @@ int string mtrl_timepicker_confirm 0x7f1100cf
 int string nav_app_bar_navigate_up_description 0x7f1100d0
 int string nav_app_bar_open_drawer_description 0x7f1100d1
 int string noAccount 0x7f1100d2
+int string numExerciseActivities 0x7f1100f5
+int string numMeditationActivities 0x7f1100f6
 int string password 0x7f1100d3
 int string password_toggle_content_description 0x7f1100d4
 int string path_password_eye 0x7f1100d5
@@ -4244,6 +4261,7 @@ int string started 0x7f1100e6
 int string status_bar_notification_info_overflow 0x7f1100e7
 int string submit 0x7f1100e8
 int string ten 0x7f1100e9
+int string three 0x7f1100f7
 int string tutorialBeginInfo 0x7f1100ea
 int string twelve 0x7f1100eb
 int string twelveDays 0x7f1100ec

@@ -26,8 +26,11 @@
     <string name="bioSex">Biological Sex:</string>
     <string name="calPerHour">Cal. Per Hour: </string>
     <string name="calPerHourEx">250 cal.</string>
+    <string name="caloriesBurnt">Calories Burnt:</string>
+    <string name="caloriesGained">Calories Gained:</string>
     <string name="cancel">Cancel</string>
     <string name="continue_">Continue</string>
+    <string name="dailyGoals">Your Daily Goals</string>
     <string name="duration">Duration:</string>
     <string name="editActivity1">Edit Activity 1</string>
     <string name="editActivity2">Edit Activity 2</string>
@@ -49,6 +52,8 @@
     <string name="meditation">Meditation</string>
     <string name="mindfulWalking">Mindful Walking</string>
     <string name="noAccount">Don\'t have an account?</string>
+    <string name="numExerciseActivities"># Exer. Activities:</string>
+    <string name="numMeditationActivities"># Med. Activities:</string>
     <string name="password">Password:</string>
     <string name="pounds">160 lb.</string>
     <string name="previous">Previous</string>
@@ -60,6 +65,7 @@
     <string name="started">Let\'s Get Started!</string>
     <string name="submit">Submit</string>
     <string name="ten">10</string>
+    <string name="three">3</string>
     <string name="tutorialBeginInfo">Before we start, let\'s get some basic info from you. The following pages
         will ask for some basic info regarding your health and activities. Remember to input honestly for accurate
         recommendations.

@@ -18,7 +18,7 @@ drawable button_soft_enabled_2
 drawable button_soft_enabled_3
 drawable exercise
 drawable food
-drawable goals
+drawable goal
 drawable gradient
 drawable heart
 drawable ic_launcher_background
@@ -66,6 +66,10 @@ id button_first
 id button_fourth
 id button_second
 id button_third
+id calBurntInput
+id calBurntText
+id calGainedInput
+id calGainedText
 id calPerHourInput
 id calPerHourText
 id cancelButton
@@ -87,7 +91,12 @@ id info
 id loginButton
 id nav_graph
 id nav_host_fragment_content_main
+id numExerciseActivitiesInput
+id numExerciseActivitiesText
+id numMedActivitiesInput
+id numMedActivitiesText
 id passwordInput
+id prevButton
 id previousButton
 id progressBar
 id progressBar1
@@ -130,6 +139,7 @@ layout activity_tutorial2
 layout activity_tutorial3
 layout activity_tutorial4
 layout activity_tutorial5
+layout activity_tutorial6
 layout content_main
 layout custom_dropdown_item
 layout food_temp
@@ -143,6 +153,8 @@ layout fragment_third
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
+raw foods
+raw meals
 string activity1Text
 string activity1Title
 string activity2Text
@@ -159,8 +171,11 @@ string betterUsTitle
 string bioSex
 string calPerHour
 string calPerHourEx
+string caloriesBurnt
+string caloriesGained
 string cancel
 string continue_
+string dailyGoals
 string duration
 string editActivity1
 string editActivity2
@@ -182,6 +197,8 @@ string logout
 string meditation
 string mindfulWalking
 string noAccount
+string numExerciseActivities
+string numMeditationActivities
 string password
 string pounds
 string previous
@@ -193,6 +210,7 @@ string sleepTimeText
 string started
 string submit
 string ten
+string three
 string tutorialBeginInfo
 string twelve
 string twelveDays

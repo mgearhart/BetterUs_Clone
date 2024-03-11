@@ -3085,7 +3085,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable exercise
 drawable food
-drawable goals
+drawable goal
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable gradient
@@ -3329,6 +3329,10 @@ id button_fourth
 id button_second
 id button_third
 id cache_measures
+id calBurntInput
+id calBurntText
+id calGainedInput
+id calGainedText
 id calPerHourInput
 id calPerHourText
 id callMeasure
@@ -3574,6 +3578,10 @@ id north
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id numExerciseActivitiesInput
+id numExerciseActivitiesText
+id numMedActivitiesInput
+id numMedActivitiesText
 id off
 id on
 id onAttachStateChangeListener
@@ -3612,6 +3620,7 @@ id pin
 id position
 id postLayout
 id pressed
+id prevButton
 id previousButton
 id progressBar
 id progressBar1
@@ -3917,6 +3926,7 @@ layout activity_tutorial2
 layout activity_tutorial3
 layout activity_tutorial4
 layout activity_tutorial5
+layout activity_tutorial6
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout content_main
@@ -4011,6 +4021,8 @@ mipmap ic_launcher_round
 navigation nav_graph
 plurals mtrl_badge_content_description
 raw firebase_common_keep
+raw foods
+raw meals
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -4062,6 +4074,8 @@ string bottomsheet_drag_handle_clicked
 string bottomsheet_drag_handle_content_description
 string calPerHour
 string calPerHourEx
+string caloriesBurnt
+string caloriesGained
 string cancel
 string character_counter_content_description
 string character_counter_overflowed_content_description
@@ -4087,6 +4101,7 @@ string common_signin_button_text
 string common_signin_button_text_long
 string continue_
 string copy_toast_msg
+string dailyGoals
 string dest_title
 string duration
 string editActivity1
@@ -4222,6 +4237,8 @@ string mtrl_timepicker_confirm
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string noAccount
+string numExerciseActivities
+string numMeditationActivities
 string password
 string password_toggle_content_description
 string path_password_eye
@@ -4245,6 +4262,7 @@ string started
 string status_bar_notification_info_overflow
 string submit
 string ten
+string three
 string tutorialBeginInfo
 string twelve
 string twelveDays

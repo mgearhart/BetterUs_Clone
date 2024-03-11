@@ -8,12 +8,12 @@ import java.util.Date;
 public class MealInfo {
     private final static DateFormat formatter = SimpleDateFormat.getDateTimeInstance();
     private String name;
+    private ArrayList<String> food;
     private String dateTime;
-    private ArrayList<FoodInfo> foods;
 
-    public MealInfo(String name, ArrayList<FoodInfo> foods, Date dateTime){ // GOOD
+    public MealInfo(String name, ArrayList<String> foods, Date dateTime){ // GOOD
         this.name = name;
-        this.foods = foods;
+        this.food = foods;
         this.dateTime = formatter.format(dateTime);
     }
 
@@ -23,12 +23,8 @@ public class MealInfo {
         this.name = name;
     } // GOOD
 
-    public void setFoods(ArrayList<FoodInfo> foods){
-        this.foods = foods;
-    } // GOOD
-
-    public void setFood(FoodInfo food){
-        this.foods.add(food);
+    public void setFoods(ArrayList<String> foods){
+        this.food = foods;
     } // GOOD
 
     public void setDateTime(Date dateTime){
@@ -39,7 +35,7 @@ public class MealInfo {
 
     public String getName(){return this.name;} // GOOD
 
-    public ArrayList<FoodInfo> getFoods(){return this.foods;} // GOOD
+    public ArrayList<String> getFoods(){return this.food;} // GOOD
 
-    public FoodInfo getFood(int pos){return this.foods.get(pos);} // GOOD
+    public String getDateTime(){return this.dateTime;} // GOOD
 }
