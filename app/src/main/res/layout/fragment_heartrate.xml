@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="@color/tutorial_page_background">
+
+
+
+    <TextView
+            android:layout_width="222dp"
+            android:layout_height="90dp"
+            android:id="@+id/heartRateCheck"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:text="@string/heartRateCheck"
+            android:layout_alignParentTop="true" android:layout_marginTop="87dp"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" android:layout_centerInParent="true"/>
+    <ImageView
+            android:id="@+id/heart"
+            android:src="@drawable/heart"
+            android:layout_width="94dp"
+            android:layout_height="84dp" android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true" android:layout_marginTop="5dp"/>
+
+    <Button
+            android:id="@+id/continueButton"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:background="@drawable/button_soft_enabled_2"
+            android:layout_marginStart="20dp"
+            android:text="@string/continue_"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_marginTop="180dp"/>
+
+
+
+    <TextView
+            android:layout_width="222dp"
+            android:layout_height="90dp"
+            android:id="@+id/heartRateResult"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:text=""
+            android:layout_alignParentTop="true" android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" android:layout_centerInParent="true"
+            android:visibility="invisible"/>
+    <TextView
+            android:layout_width="222dp"
+            android:layout_height="90dp"
+            android:id="@+id/goodHeartRate"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:text="@string/heartRateGood"
+            android:layout_alignParentTop="true" android:layout_marginTop="87dp"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" android:layout_centerInParent="true"
+            android:visibility="invisible"/>
+    <Button
+            android:id="@+id/continueButton2"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_soft_enabled_2"
+            android:layout_marginStart="20dp"
+            android:text="@string/continue_"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_marginTop="180dp"
+            android:visibility="invisible"/>
+
+
+
+
+    <TextView
+            android:layout_width="222dp"
+            android:layout_height="90dp"
+            android:id="@+id/badHeartRate"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:text="@string/heartRateBad"
+            android:layout_alignParentTop="true" android:layout_marginTop="87dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" android:layout_centerInParent="true"
+            android:visibility="invisible"/>
+</RelativeLayout>
