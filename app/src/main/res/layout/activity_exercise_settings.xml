@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.settings.ExerciseSettings">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exerciseActivities"
+        android:textColor="@color/navBarButtonUnPressed"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="60dp"
+    />
+
+    <ImageView
+        android:id="@+id/returnButton"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back"
+        app:tint="@color/navBarButtonUnPressed"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="21dp"
+    />
+
+    <FrameLayout
+        android:id="@+id/activitiesSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/activities"
+                android:textColor="@color/navBarButtonUnPressed"
+                android:textStyle="bold"
+                android:textSize="15sp"
+            />
+
+            <Button
+                android:id="@+id/activity1Button"
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:text="@string/activity1Title"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textColor="@color/navBarButtonUnPressed"
+                android:background="@drawable/button_soft_enabled_3"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:paddingTop="20dp"
+                android:paddingStart="10dp"
+            />
+
+            <Button
+                android:id="@+id/activity2Button"
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:text="@string/activity2Title"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textColor="@color/navBarButtonUnPressed"
+                android:background="@drawable/button_soft_enabled_3"
+                android:layout_marginTop="5dp"
+                android:gravity="start"
+                android:paddingTop="20dp"
+                android:paddingStart="10dp"
+            />
+
+            <Button
+                android:id="@+id/activity3Button"
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:text="@string/activity3Title"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textColor="@color/navBarButtonUnPressed"
+                android:background="@drawable/button_soft_enabled_3"
+                android:layout_marginTop="5dp"
+                android:gravity="start"
+                android:paddingTop="20dp"
+                android:paddingStart="10dp"
+            />
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

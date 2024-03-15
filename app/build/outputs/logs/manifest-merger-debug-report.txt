@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:2:1-53:12
+ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:2:1-59:12
 MERGED from [androidx.databinding:databinding-adapters:8.2.1] C:\Users\AFrie\.gradle\caches\transforms-3\64cb6d3f8209b3a157b404252269ae8b\transformed\databinding-adapters-8.2.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-ktx:8.2.1] C:\Users\AFrie\.gradle\caches\transforms-3\9c73efec9a6299f74834bde2a714bde4\transformed\databinding-ktx-8.2.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-runtime:8.2.1] C:\Users\AFrie\.gradle\caches\transforms-3\31a3205fda4c9483b5b6db974d282f7e\transformed\databinding-runtime-8.2.1\AndroidManifest.xml:2:1-7:12
@@ -95,8 +95,8 @@ MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\AFrie\.
 	xmlns:android
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:5:5-51:19
-INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:5:5-51:19
+ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:5:5-57:19
+INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:5:5-57:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\AFrie\.gradle\caches\transforms-3\8675f1bd4115e987444b90e662dfa970\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\AFrie\.gradle\caches\transforms-3\8675f1bd4115e987444b90e662dfa970\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\AFrie\.gradle\caches\transforms-3\65825243e149d6b051793b1577ba0437\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -161,76 +161,88 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\AF
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:13:9-55
 	android:dataExtractionRules
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:7:9-65
-activity#com.example.betterus_tutorial.tutorial.Tutorial6
+activity#com.example.betterus_tutorial.user.settings.ExerciseSettings
 ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:15:9-17:40
 	android:exported
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:17:13-37
 	android:name
-		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:16:13-47
-activity#com.example.betterus_tutorial.tutorial.Tutorial5
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:16:13-59
+activity#com.example.betterus_tutorial.user.settings.Settings
 ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:18:9-20:40
 	android:exported
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:20:13-37
 	android:name
-		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:19:13-47
-activity#com.example.betterus_tutorial.tutorial.Tutorial4
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:19:13-51
+activity#com.example.betterus_tutorial.tutorial.Tutorial6
 ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:21:9-23:40
 	android:exported
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:23:13-37
 	android:name
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:22:13-47
-activity#com.example.betterus_tutorial.tutorial.Tutorial3
+activity#com.example.betterus_tutorial.tutorial.Tutorial5
 ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:24:9-26:40
 	android:exported
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:26:13-37
 	android:name
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:25:13-47
-activity#com.example.betterus_tutorial.tutorial.Tutorial2
+activity#com.example.betterus_tutorial.tutorial.Tutorial4
 ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:27:9-29:40
 	android:exported
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:29:13-37
 	android:name
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:28:13-47
-activity#com.example.betterus_tutorial.tutorial.Tutorial0
+activity#com.example.betterus_tutorial.tutorial.Tutorial3
 ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:30:9-32:40
 	android:exported
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:32:13-37
 	android:name
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:31:13-47
-activity#com.example.betterus_tutorial.user.authentication.Registration
+activity#com.example.betterus_tutorial.tutorial.Tutorial2
 ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:33:9-35:40
 	android:exported
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:35:13-37
 	android:name
-		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:34:13-61
-activity#com.example.betterus_tutorial.user.authentication.Login
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:34:13-47
+activity#com.example.betterus_tutorial.tutorial.Tutorial0
 ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:36:9-38:40
 	android:exported
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:38:13-37
 	android:name
-		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:37:13-54
-activity#com.example.betterus_tutorial.tutorial.Tutorial1
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:37:13-47
+activity#com.example.betterus_tutorial.user.authentication.Registration
 ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:39:9-41:40
 	android:exported
 		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:41:13-37
 	android:name
-		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:40:13-47
-activity#com.example.betterus_tutorial.MainActivity
-ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:42:9-50:20
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:40:13-61
+activity#com.example.betterus_tutorial.user.authentication.Login
+ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:42:9-44:40
 	android:exported
-		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:44:13-36
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:44:13-37
 	android:name
-		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:43:13-41
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:43:13-54
+activity#com.example.betterus_tutorial.tutorial.Tutorial1
+ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:45:9-47:40
+	android:exported
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:46:13-47
+activity#com.example.betterus_tutorial.pages.MainActivity
+ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:48:9-56:20
+	android:exported
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:50:13-36
+	android:name
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:49:13-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:45:13-49:29
+ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:51:13-55:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:46:17-69
+ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:52:17-69
 	android:name
-		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:46:25-66
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:52:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:48:17-77
+ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:54:17-77
 	android:name
-		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:48:27-74
+		ADDED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml:54:27-74
 uses-sdk
 INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\AFrie\AndroidStudioProjects\BetterUs_Tutorial\app\src\main\AndroidManifest.xml

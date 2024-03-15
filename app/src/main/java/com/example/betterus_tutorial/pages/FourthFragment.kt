@@ -1,4 +1,4 @@
-package com.example.betterus_tutorial
+package com.example.betterus_tutorial.pages
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.betterus_tutorial.R
 import com.example.betterus_tutorial.databinding.FragmentFourthBinding
 import com.example.betterus_tutorial.user.dataObjects.ActivityHolder
 import com.google.firebase.auth.FirebaseAuth
@@ -115,7 +116,8 @@ class FourthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val popupFragment: HeartrateFragment = HeartrateFragment()
+        val popupFragment: HeartrateFragment =
+            HeartrateFragment()
         popupFragment.show(childFragmentManager, "fragment_heartrate")
 
         // Navigate to previous fragment

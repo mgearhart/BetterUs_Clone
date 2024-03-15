@@ -4,11 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical" android:fitsSystemWindows="true"
-    android:gravity="center"
+    tools:context=".pages.MainActivity"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     >
 
+    <FrameLayout
+        android:id="@+id/fragmentSection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/pop_up_background"
+    />
 
-    <include layout="@layout/content_main"/>
+    <include layout="@layout/navigation_bar" />
 </LinearLayout>

@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
-import com.example.betterus_tutorial.MainActivity;
+import com.example.betterus_tutorial.pages.MainActivity;
 import com.example.betterus_tutorial.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

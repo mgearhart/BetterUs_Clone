@@ -59,7 +59,6 @@
     <string name="numMeditationActivities"># Med. Activities:</string>
     <string name="numExerciseActivities"># Exer. Activities:</string>
     <string name="three">3</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="activitySelect">Activity:</string>
     <string name="caloriesBurned">Calories Burned:</string>
@@ -70,4 +69,13 @@
     <string name="heartRateGood">Your heart rate looks good!</string>
     <string name="heartRateBad">Your heart rate is abnormally high, seek professional opinion!</string>
     <string name="recommendation">Recommendation</string>
+    <string name="recommend">Recommend</string>
+    <string name="home">Home</string>
+    <string name="activities">Activities</string>
+    <string name="settings">Settings</string>
+    <string name="exerciseActivities">Exercise Activities</string>
+    <string name="meditationActivities">Meditation Activities</string>
+    <string name="dailyGoalsSettings">Daily Goals</string>
+    <string name="health">Health</string>
+    <string name="sleep">Sleep</string>
 </resources>

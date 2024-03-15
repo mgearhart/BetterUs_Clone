@@ -1,11 +1,17 @@
-package com.example.betterus_tutorial;
+package com.example.betterus_tutorial.pages;
 
 import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.example.betterus_tutorial.R;
 import com.example.betterus_tutorial.tutorial.Tutorial0;
 import com.example.betterus_tutorial.tutorial.Tutorial1;
 import com.example.betterus_tutorial.tutorial.Tutorial2;
@@ -15,6 +21,7 @@ import com.example.betterus_tutorial.tutorial.Tutorial5;
 import com.example.betterus_tutorial.user.authentication.Login;
 import com.example.betterus_tutorial.user.dataObjects.ActivityHolder;
 import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
+import com.example.betterus_tutorial.user.settings.Settings;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,21 +32,20 @@ import com.google.firebase.database.ValueEventListener;
 import com.example.betterus_tutorial.user.dataObjects.HealthInfo;
 import com.example.betterus_tutorial.user.dataObjects.SleepInfo;
 import com.example.betterus_tutorial.user.dataObjects.TimeInfo;
-import androidx.navigation.Navigation;
-import androidx.navigation.NavController;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.ImageViewCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public class MainActivity extends AppCompatActivity {
     // ---- VARIABLES ---- \\
-    public enum TutorialPage{
-        WELCOME,
-        HEALTH,
-        SLEEP,
-        MEDITATION,
-        EXERCISE,
-        GOALS,
-        FINISHED
-    };
-
+    public enum TutorialPage{WELCOME, HEALTH, SLEEP, MEDITATION, EXERCISE, GOALS, FINISHED};
+    private enum ButtonWhich {RECOMMEND, EXERCISE, HOME, FOOD, SETTINGS};
+    private FrameLayout recommendButton, exerciseButton, homeButton, foodButton, settingsButton;
+    private ImageView recommendImage, exerciseImage, homeImage, foodImage, settingsImage;
+    private TextView recommendText, exerciseText, homeText, foodText, settingsText;
+    private int PRESSED_COLOR_TINT, UNPRESSED_COLOR_TINT;
+    private ButtonWhich prevPageButton;
     private DatabaseReference userRef;
 
     // ---- METHODS ---- \\
@@ -55,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
         }
         else // User is logged in, load their data!
             this.userRef = fireDB.getReference("users").child(firebaseUser.getUid());
+    }
+
+    protected void onResume(){ // GOOD
+        super.onResume();
+        colorChangeNavDo(prevPageButton);
     }
 
     private void checkAndLoadData(){ // GOOD
@@ -98,8 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     // N/A
 
                     // Sending user to tutorial page!
-                    Intent intent = new Intent(getApplicationContext(), Tutorial0.class);
-                    startActivity(intent);
+                    startActivity(new Intent(getApplicationContext(), Tutorial0.class));
                     finish();
                 }
                 else checkUserTutorial();
@@ -109,6 +119,51 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "Something happened while attempting to load user data!");
             }
         });
+    }
+
+    private void replaceFragmentAndChangeColor(Fragment frag, ButtonWhich color){ // GOOD
+        FragmentManager fragManager = getSupportFragmentManager();
+        fragManager.beginTransaction()
+                .replace(R.id.fragmentSection, frag)
+                .addToBackStack(null)
+                .commit();
+        this.colorChangeNavDo(color);
+//        this.removeFragBackStack();
+    }
+
+    public void colorChangeNavDo(ButtonWhich color){ // GOOD
+        ImageViewCompat.setImageTintList(recommendImage,
+                ColorStateList.valueOf((color == ButtonWhich.RECOMMEND)
+                        ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT));
+        ImageViewCompat.setImageTintList(exerciseImage,
+                ColorStateList.valueOf((color == ButtonWhich.EXERCISE)
+                        ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT));
+        ImageViewCompat.setImageTintList(homeImage,
+                ColorStateList.valueOf((color == ButtonWhich.HOME)
+                        ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT));
+        ImageViewCompat.setImageTintList(foodImage,
+                ColorStateList.valueOf((color == ButtonWhich.FOOD)
+                        ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT));
+        ImageViewCompat.setImageTintList(settingsImage,
+                ColorStateList.valueOf((color == ButtonWhich.SETTINGS)
+                        ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT));
+
+        // Text
+        recommendText.setTextColor((color == ButtonWhich.RECOMMEND)
+                ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT);
+        exerciseText.setTextColor((color == ButtonWhich.EXERCISE)
+                ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT);
+        homeText.setTextColor((color == ButtonWhich.HOME)
+                ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT);
+        foodText.setTextColor((color == ButtonWhich.FOOD)
+                ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT);
+        settingsText.setTextColor((color == ButtonWhich.SETTINGS)
+                ? PRESSED_COLOR_TINT:UNPRESSED_COLOR_TINT);
+    }
+
+    public void removeFragBackStack(){ // FIX
+        FragmentManager fragManager = getSupportFragmentManager();
+        if(fragManager.getBackStackEntryCount() > 0) fragManager.popBackStack();
     }
 
     private void checkUserTutorial(){ // GOOD
@@ -156,16 +211,70 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void methodBindDo(){ // GOOD
+        this.recommendButton.setOnClickListener(new View.OnClickListener(){ // GOOD
+            public void onClick(View view){
+                replaceFragmentAndChangeColor(new SeventhFragment(),
+                        prevPageButton = ButtonWhich.RECOMMEND);
+            }
+        });
+
+        this.exerciseButton.setOnClickListener(new View.OnClickListener(){ // GOOD
+            public void onClick(View view){
+                replaceFragmentAndChangeColor(new SecondFragment(),
+                        prevPageButton = ButtonWhich.EXERCISE);
+            }
+        });
+
+        this.homeButton.setOnClickListener(new View.OnClickListener(){ // GOOD
+            public void onClick(View view){
+                replaceFragmentAndChangeColor(new FirstFragment(),
+                        prevPageButton = ButtonWhich.HOME);
+            }
+        });
+
+        this.foodButton.setOnClickListener(new View.OnClickListener(){ // GOOD
+            public void onClick(View view){
+                replaceFragmentAndChangeColor(new ThirdFragment(),
+                        prevPageButton = ButtonWhich.FOOD);
+            }
+        });
+
+        this.settingsButton.setOnClickListener(new View.OnClickListener(){ // GOOD
+            public void onClick(View view){
+                colorChangeNavDo(ButtonWhich.SETTINGS);
+                startActivity(new Intent(getApplicationContext(), Settings.class));
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) { // GOOD
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_main);
+        this.PRESSED_COLOR_TINT = ContextCompat
+                .getColor(getApplicationContext(), R.color.navBarButtonPressed);
+        this.UNPRESSED_COLOR_TINT = ContextCompat
+                .getColor(getApplicationContext(), R.color.navBarButtonUnPressed);
+        this.setContentView(R.layout.activity_main);
+        this.recommendButton = this.findViewById(R.id.recommendationButton);
+        this.homeButton = this.findViewById(R.id.homeButton);
+        this.exerciseButton = this.findViewById(R.id.exerciseButton);
+        this.foodButton = this.findViewById(R.id.foodButton);
+        this.settingsButton = this.findViewById(R.id.settingsButton);
+        this.recommendImage = this.findViewById(R.id.recoImage);
+        this.exerciseImage = this.findViewById(R.id.actImage);
+        this.homeImage = this.findViewById(R.id.homeImage);
+        this.foodImage = this.findViewById(R.id.foodImage);
+        this.settingsImage = this.findViewById(R.id.settingsImage);
+        this.recommendText = this.findViewById(R.id.recoText);
+        this.exerciseText = this.findViewById(R.id.actText);
+        this.homeText = this.findViewById(R.id.homeText);
+        this.foodText = this.findViewById(R.id.foodText);
+        this.settingsText = this.findViewById(R.id.settingsText);
         this.checkLogin();
         this.checkAndLoadData();
-
-        // Move on to fragments
-        NavController navController = Navigation.findNavController(this,
-                R.id.nav_host_fragment_content_main);
-        navController.navigate(R.id.FirstFragment); // Navigate to the desired destination fragment
+        this.methodBindDo();
+        this.replaceFragmentAndChangeColor(new FirstFragment(), ButtonWhich.HOME);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.betterus_tutorial
+package com.example.betterus_tutorial.pages
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,14 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.betterus_tutorial.databinding.FragmentSeventhBinding
+import com.example.betterus_tutorial.R
+import com.example.betterus_tutorial.databinding.FragmentFifthBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
-class SeventhFragment : Fragment() {
 
-    private var _binding: FragmentSeventhBinding? = null
+
+
+class FifthFragment : Fragment() {
+
+    private var _binding: FragmentFifthBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +25,7 @@ class SeventhFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSeventhBinding.inflate(inflater, container, false)
+        _binding = FragmentFifthBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -32,11 +33,8 @@ class SeventhFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.continueButton.setOnClickListener {
-            findNavController().navigate(R.id.action_SeventhFragment_to_FirstFragment)
-        }
-        binding.previousButton.setOnClickListener {
-            findNavController().navigate(R.id.action_SeventhFragment_to_FirstFragment)
+        binding.button.setOnClickListener {
+            findNavController().navigate(R.id.action_FifthFragment_to_FirstFragment)
         }
     }
 

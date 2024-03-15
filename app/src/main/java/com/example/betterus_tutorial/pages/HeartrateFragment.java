@@ -1,4 +1,4 @@
-package com.example.betterus_tutorial;
+package com.example.betterus_tutorial.pages;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,6 +10,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.annotation.Nullable;
 import android.view.Gravity;
 import androidx.annotation.NonNull;
+
+import com.example.betterus_tutorial.R;
 import com.example.betterus_tutorial.databinding.FragmentHeartrateBinding;
 import androidx.navigation.fragment.NavHostFragment;
 import android.widget.TextView;

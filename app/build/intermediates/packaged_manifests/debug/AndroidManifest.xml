@@ -32,6 +32,12 @@
         android:testOnly="true"
         android:theme="@style/Theme.BetterUs_Tutorial" >
         <activity
+            android:name="com.example.betterus_tutorial.user.settings.ExerciseSettings"
+            android:exported="false" />
+        <activity
+            android:name="com.example.betterus_tutorial.user.settings.Settings"
+            android:exported="false" />
+        <activity
             android:name="com.example.betterus_tutorial.tutorial.Tutorial6"
             android:exported="false" />
         <activity
@@ -59,7 +65,7 @@
             android:name="com.example.betterus_tutorial.tutorial.Tutorial1"
             android:exported="false" />
         <activity
-            android:name="com.example.betterus_tutorial.MainActivity"
+            android:name="com.example.betterus_tutorial.pages.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.betterus_tutorial
+package com.example.betterus_tutorial.pages
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,25 +9,19 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.betterus_tutorial.databinding.FragmentThirdBinding
+import com.example.betterus_tutorial.R
+import com.example.betterus_tutorial.databinding.FragmentSecondBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
-class ThirdFragment : Fragment() {
+class SecondFragment : Fragment() {
 
-    private var _binding: FragmentThirdBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        _binding = FragmentThirdBinding.inflate(inflater, container, false)
+        _binding = FragmentSecondBinding.inflate(inflater, container, false)
         val view = binding.root
 
         // Initialize Spinner
@@ -73,12 +67,12 @@ class ThirdFragment : Fragment() {
 
         // Navigate to previous fragment
         binding.previousButton.setOnClickListener {
-            findNavController().navigate(R.id.action_ThirdFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
 
         // Navigate to next fragment
         binding.submitButton.setOnClickListener {
-            findNavController().navigate(R.id.action_ThirdFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }
 

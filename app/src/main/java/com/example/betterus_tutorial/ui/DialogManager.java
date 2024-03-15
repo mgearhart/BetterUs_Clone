@@ -28,7 +28,8 @@ public class DialogManager {
     }
 
     public void createActivityDialog(Context context, ActivityHolder actHolder, int actNum,
-                                     boolean caloriesInput, MethodArg continueCheck){ // GOOD
+                                     boolean caloriesInput, MethodArg continueCheck,
+                                     boolean settingsAppearance){ // GOOD
         EditText activityNameInput, calPerHourInput;
 //        EditText activityTimeInput, duration;
         Button submit, cancel;
@@ -41,11 +42,15 @@ public class DialogManager {
 //                new ArrayAdapter<>(context, R.layout.custom_dropdown_item, R.id.textView1, activityAmPmOptions);
 
         if(caloriesInput){ // If the activity holder is for exercises
-            activityDialog.setContentView(R.layout.activity_edit2_activity);
+            activityDialog.setContentView(settingsAppearance
+                            ? R.layout.activity_edit2_activity_settings
+                            : R.layout.activity_edit2_activity);
             calPerHourInput = activityDialog.findViewById(R.id.calPerHourInput);
         }
         else {
-            activityDialog.setContentView(R.layout.activity_edit_activity);
+            activityDialog.setContentView(settingsAppearance
+                    ? R.layout.activity_edit_activity_settings
+                    : R.layout.activity_edit_activity);
             calPerHourInput = null; // Just remove the error message
         }
 

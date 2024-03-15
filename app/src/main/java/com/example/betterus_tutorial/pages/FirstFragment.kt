@@ -1,4 +1,4 @@
-package com.example.betterus_tutorial
+package com.example.betterus_tutorial.pages
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 
 import android.widget.TextView
+import com.example.betterus_tutorial.R
 import com.example.betterus_tutorial.databinding.FragmentFirstBinding
 
 /**

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
-import com.example.betterus_tutorial.MainActivity;
+import com.example.betterus_tutorial.pages.MainActivity;
 import com.example.betterus_tutorial.R;
 import com.example.betterus_tutorial.ui.DialogManager;
 import com.example.betterus_tutorial.user.dataObjects.ActivityHolder;
@@ -35,7 +35,8 @@ public class Tutorial4 extends AppCompatActivity {
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         this.userRef = fireDB.getReference("users").child(firebaseUser.getUid());
 
-        userRef.child("exerciseInfo").addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
+        userRef.child("exerciseInfo")
+                .addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
             public void onDataChange(@NonNull DataSnapshot dataSnap){
                 exerciseInfo = dataSnap.getValue(ActivityHolder.class);
                 continueButtonChange(exerciseInfo.activitiesFilled());
@@ -73,35 +74,41 @@ public class Tutorial4 extends AppCompatActivity {
 
         this.act1Button.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                DialogManager.getInstance().createActivityDialog(Tutorial4.this, exerciseInfo, 1, true,
-                        ()-> continueButtonChange(exerciseInfo.activitiesFilled()));
+                DialogManager.getInstance().createActivityDialog(Tutorial4.this,
+                        exerciseInfo, 1, true,
+                        ()-> continueButtonChange(exerciseInfo.activitiesFilled()), false);
             }
         });
 
         this.act2Button.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                DialogManager.getInstance().createActivityDialog(Tutorial4.this, exerciseInfo, 2, true,
-                        ()-> continueButtonChange(exerciseInfo.activitiesFilled()));
+                DialogManager.getInstance().createActivityDialog(Tutorial4.this,
+                        exerciseInfo, 2, true,
+                        ()-> continueButtonChange(exerciseInfo.activitiesFilled()), false);
             }
         });
 
         this.act3Button.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View v){
-                DialogManager.getInstance().createActivityDialog(Tutorial4.this, exerciseInfo, 3, true,
-                        ()-> continueButtonChange(exerciseInfo.activitiesFilled()));
+                DialogManager.getInstance().createActivityDialog(Tutorial4.this,
+                        exerciseInfo, 3, true,
+                        ()-> continueButtonChange(exerciseInfo.activitiesFilled()), false);
             }
         });
     }
 
     private void continueButtonChange(Boolean enable){ // GOOD
         if(enable){
-            this.continueButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_soft_enabled));
+            this.continueButton.setBackground(ContextCompat.getDrawable(this,
+                    R.drawable.button_soft_enabled));
             this.continueButton.setTextColor(ContextCompat.getColor(this, R.color.white));
             this.continueEnabled = true;
         }
         else{
-            this.continueButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_soft_disabled));
-            this.continueButton.setTextColor(ContextCompat.getColor(this, R.color.button_disabled_text));
+            this.continueButton.setBackground(ContextCompat.getDrawable(this,
+                    R.drawable.button_soft_disabled));
+            this.continueButton.setTextColor(ContextCompat.getColor(this,
+                    R.color.button_disabled_text));
             this.continueEnabled = false;
         }
     }

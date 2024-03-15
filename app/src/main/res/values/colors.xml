@@ -10,4 +10,8 @@
     <color name="orange">#FF5722</color>
     <color name="red">#C52D2D</color>
     <color name="pop_up_background">#70A7FF</color>
+    <color name="navBarButtonUnPressed">#615F5F</color>
+    <color name="navBarButtonPressed">#03A9F4</color>
+    <color name="settingsButtonColor">#36615F5F</color>
+    <color name="settingsBackGroundColor">#C6C6C6</color>
 </resources>

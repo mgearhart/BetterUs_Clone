@@ -7,7 +7,7 @@
 
     <fragment
             android:id="@+id/FirstFragment"
-            android:name="com.example.betterus_tutorial.FirstFragment"
+            android:name="com.example.betterus_tutorial.pages.FirstFragment"
             android:label="Summary"
             tools:layout="@layout/fragment_first">
 
@@ -34,7 +34,7 @@
 
     <fragment
             android:id="@+id/SecondFragment"
-            android:name="com.example.betterus_tutorial.SecondFragment"
+            android:name="com.example.betterus_tutorial.pages.SecondFragment"
             android:label="Fun"
             tools:layout="@layout/fragment_second">
 
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
             android:id="@+id/ThirdFragment"
-            android:name="com.example.betterus_tutorial.ThirdFragment"
+            android:name="com.example.betterus_tutorial.pages.ThirdFragment"
             android:label="Food"
             tools:layout="@layout/fragment_third">
 
@@ -55,7 +55,7 @@
 
     <fragment
             android:id="@+id/FourthFragment"
-            android:name="com.example.betterus_tutorial.FourthFragment"
+            android:name="com.example.betterus_tutorial.pages.FourthFragment"
             android:label="Relax"
             tools:layout="@layout/fragment_fourth">
 
@@ -66,7 +66,7 @@
 
     <fragment
             android:id="@+id/FifthFragment"
-            android:name="com.example.betterus_tutorial.FifthFragment"
+            android:name="com.example.betterus_tutorial.pages.FifthFragment"
             android:label="Food Near You"
             tools:layout="@layout/fragment_fifth">
 
@@ -78,7 +78,7 @@
 
     <fragment
             android:id="@+id/SixthFragment"
-            android:name="com.example.betterus_tutorial.SixthFragment"
+            android:name="com.example.betterus_tutorial.pages.SixthFragment"
             android:label="Food"
             tools:layout="@layout/fragment_sixth">
 
@@ -89,7 +89,7 @@
 
     <fragment
             android:id="@+id/SeventhFragment"
-            android:name="com.example.betterus_tutorial.SeventhFragment"
+            android:name="com.example.betterus_tutorial.pages.SeventhFragment"
             android:label="Fun"
             tools:layout="@layout/fragment_seventh">
 
