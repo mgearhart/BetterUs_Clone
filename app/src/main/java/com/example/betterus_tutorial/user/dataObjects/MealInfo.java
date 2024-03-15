@@ -1,12 +1,10 @@
 package com.example.betterus_tutorial.user.dataObjects;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class MealInfo {
-    private final static DateFormat formatter = SimpleDateFormat.getDateTimeInstance();
     private String name;
     private ArrayList<String> food;
     private String dateTime;
@@ -14,7 +12,7 @@ public class MealInfo {
     public MealInfo(String name, ArrayList<String> foods, Date dateTime){ // GOOD
         this.name = name;
         this.food = foods;
-        this.dateTime = formatter.format(dateTime);
+        this.dateTime = SimpleDateFormat.getDateTimeInstance().format(dateTime);
     }
 
     public MealInfo(){} // GOOD
@@ -27,9 +25,9 @@ public class MealInfo {
         this.food = foods;
     } // GOOD
 
-    public void setDateTime(Date dateTime){
-        this.dateTime = formatter.format(dateTime);
-    } // GOOD
+    public void setDateTime(Date dateTime){ // GOOD
+        this.dateTime = SimpleDateFormat.getDateTimeInstance().format(dateTime);
+    }
 
     public void setDateTme(String dateTimeStr){this.dateTime = dateTimeStr;} // GOOD
 

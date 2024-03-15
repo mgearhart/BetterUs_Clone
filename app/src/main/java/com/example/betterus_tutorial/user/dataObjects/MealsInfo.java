@@ -7,13 +7,14 @@ import com.google.gson.JsonSyntaxException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
+
 import android.content.Context;
 
 // Stores all fixed set of meals
 public class MealsInfo {
     private static MealsInfo instance;
-    private MealInfo meals [];
+    private HashMap<String, MealInfo> meals;
 
     // Converts all meals from JSON files to objects
     private MealsInfo(Context context){ // GOOD
@@ -21,10 +22,12 @@ public class MealsInfo {
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(context.getResources().
                 openRawResource(R.raw.meals)))){
             StringBuilder jsonContent = new StringBuilder();
+            MealInfo temp [];
             String line;
 
             while((line = reader.readLine()) != null) jsonContent.append(line);
-            this.meals = gson.fromJson(jsonContent.toString(), MealInfo[].class);
+            temp = gson.fromJson(jsonContent.toString(), MealInfo[].class);
+            for(MealInfo meal: temp) this.meals.put(meal.getName(), meal);
         } catch(JsonIOException | JsonSyntaxException | IOException e){
             e.printStackTrace();
         }
@@ -36,5 +39,9 @@ public class MealsInfo {
         return instance;
     }
 
-    public MealInfo [] getMeals(){return this.meals;} // GOOD
+    public HashMap<String, MealInfo> getMeals(){return this.meals;} // GOOD
+
+    public MealInfo getMeal(String name){ // GOOD
+        return this.meals.get(name);
+    }
 }

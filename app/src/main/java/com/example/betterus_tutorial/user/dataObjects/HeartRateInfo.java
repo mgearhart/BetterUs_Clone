@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+// Has not been integrated within ActivityHolderLog, do not use
+@Deprecated
 public class HeartRateInfo {
     private final static DateFormat formatter = SimpleDateFormat.getDateTimeInstance();
     private int heartRate;
