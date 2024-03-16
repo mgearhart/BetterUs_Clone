@@ -8,17 +8,17 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.HashMap;
-
 import android.content.Context;
 
 // Stores all fixed set of meals
 public class MealsInfo {
     private static MealsInfo instance;
-    private HashMap<String, MealInfo> meals;
+    private final HashMap<String, MealInfo> meals = new HashMap<>();
 
     // Converts all meals from JSON files to objects
     private MealsInfo(Context context){ // GOOD
         Gson gson = new Gson();
+
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(context.getResources().
                 openRawResource(R.raw.meals)))){
             StringBuilder jsonContent = new StringBuilder();

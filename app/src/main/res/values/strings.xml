@@ -64,7 +64,6 @@
     <string name="caloriesBurned">Calories Burned:</string>
     <string name="ingredients">Ingredients:</string>
     <string name="calories">Calories:</string>
-    <string name="foodInput">Food:</string>
     <string name="heartRateCheck">Let\'s check your heart rate!</string>
     <string name="heartRateGood">Your heart rate looks good!</string>
     <string name="heartRateBad">Your heart rate is abnormally high, seek professional opinion!</string>
@@ -78,4 +77,7 @@
     <string name="dailyGoalsSettings">Daily Goals</string>
     <string name="health">Health</string>
     <string name="sleep">Sleep</string>
+    <string name="meal">Meal: </string>
+    <string name="yourFood">Your Food</string>
+    <string name="eatButtonText">This Is What I Ate</string>
 </resources>

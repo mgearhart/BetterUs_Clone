@@ -1,21 +1,25 @@
 package com.example.betterus_tutorial.user.dataObjects;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class MealInfo {
     private String name;
     private ArrayList<String> food;
     private String dateTime;
 
-    public MealInfo(String name, ArrayList<String> foods, Date dateTime){ // GOOD
+    public MealInfo(String name, ArrayList<String> foods, String dateTime){ // GOOD
         this.name = name;
         this.food = foods;
-        this.dateTime = SimpleDateFormat.getDateTimeInstance().format(dateTime);
+        this.dateTime = dateTime;
     }
 
     public MealInfo(){} // GOOD
+
+    public MealInfo(MealInfo other){ // GOOD
+        this.name = other.getName();
+        this.food = other.getFoods();
+        this.dateTime = other.getDateTime();
+    }
 
     public void setName(String name){
         this.name = name;
@@ -25,11 +29,7 @@ public class MealInfo {
         this.food = foods;
     } // GOOD
 
-    public void setDateTime(Date dateTime){ // GOOD
-        this.dateTime = SimpleDateFormat.getDateTimeInstance().format(dateTime);
-    }
-
-    public void setDateTme(String dateTimeStr){this.dateTime = dateTimeStr;} // GOOD
+    public void setDateTime(String dateTimeStr){this.dateTime = dateTimeStr;} // GOOD
 
     public String getName(){return this.name;} // GOOD
 

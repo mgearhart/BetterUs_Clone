@@ -148,7 +148,9 @@ public class Tutorial1 extends AppCompatActivity {
         genderOptions.add("Male");
 
         ArrayAdapter<String> genderOptionsArrayAdapter =
-                new ArrayAdapter<>(this, R.layout.custom_dropdown_item, R.id.textView1, genderOptions);
+                new ArrayAdapter<>(this, R.layout.custom_dropdown_item,
+                        R.id.textView1,
+                        genderOptions);
 
         this.sexSelect.setAdapter(genderOptionsArrayAdapter);
 

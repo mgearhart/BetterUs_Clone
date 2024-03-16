@@ -1,22 +1,18 @@
 package com.example.betterus_tutorial.user.dataObjects;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class ActivityInfoLog extends ActivityInfo{
     private String startTime;
     private int heartRate;
 
-    public ActivityInfoLog(String name, int calPerHour, Date startTime, int heartRate){ // GOOD
+    public ActivityInfoLog(String name, int calPerHour, String startTime, int heartRate){ // GOOD
         super(name, calPerHour);
-        this.startTime = SimpleDateFormat.getDateInstance().format(startTime);
+        this.startTime = startTime;
         this.heartRate = heartRate;
     }
 
     public ActivityInfoLog(){}
-
-    public void setStartTime(Date startTime){ // GOOD
-        this.startTime = SimpleDateFormat.getDateInstance().format(startTime);
+    public void setStartTime(String startTime){ // GOOD
+        this.startTime = startTime;
     }
 
     public void setHeartRate(int heartRate){ // GODO

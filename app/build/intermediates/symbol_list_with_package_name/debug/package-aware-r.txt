@@ -3557,6 +3557,8 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
+id mealSelect
+id mealText
 id meditationButton
 id message
 id middle
@@ -4001,6 +4003,7 @@ layout design_text_input_start_icon
 layout food_temp
 layout fragment_fifth
 layout fragment_first
+layout fragment_food
 layout fragment_fourth
 layout fragment_heartrate
 layout fragment_second
@@ -4162,6 +4165,7 @@ string dailyGoals
 string dailyGoalsSettings
 string dest_title
 string duration
+string eatButtonText
 string editActivity1
 string editActivity2
 string editActivity3
@@ -4179,7 +4183,6 @@ string fallback_menu_item_share_link
 string finishedTutorialInfo
 string finishedTutorialTitle
 string food
-string foodInput
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id
@@ -4237,6 +4240,7 @@ string material_timepicker_minute
 string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
+string meal
 string meditation
 string meditationActivities
 string mindfulWalking
@@ -4341,6 +4345,7 @@ string twelveDays
 string wakeUpTime
 string weight
 string years
+string yourFood
 string yourHealth
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

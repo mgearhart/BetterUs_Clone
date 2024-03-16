@@ -124,6 +124,8 @@ id info
 id ingredients
 id ingredientsText
 id loginButton
+id mealSelect
+id mealText
 id meditationButton
 id navBar
 id nav_graph
@@ -196,6 +198,7 @@ layout custom_dropdown_item
 layout food_temp
 layout fragment_fifth
 layout fragment_first
+layout fragment_food
 layout fragment_fourth
 layout fragment_heartrate
 layout fragment_second
@@ -235,6 +238,7 @@ string continue_
 string dailyGoals
 string dailyGoalsSettings
 string duration
+string eatButtonText
 string editActivity1
 string editActivity2
 string editActivity3
@@ -244,7 +248,6 @@ string exercises
 string finishedTutorialInfo
 string finishedTutorialTitle
 string food
-string foodInput
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id
@@ -261,6 +264,7 @@ string inches
 string ingredients
 string login
 string logout
+string meal
 string meditation
 string meditationActivities
 string mindfulWalking
@@ -289,6 +293,7 @@ string twelveDays
 string wakeUpTime
 string weight
 string years
+string yourFood
 string yourHealth
 style Base.Theme.BetterUs_Tutorial
 style Theme.BetterUs_Tutorial

@@ -20,10 +20,7 @@ import com.example.betterus_tutorial.tutorial.Tutorial4;
 import com.example.betterus_tutorial.tutorial.Tutorial5;
 import com.example.betterus_tutorial.user.authentication.Login;
 import com.example.betterus_tutorial.user.dataObjects.ActivityHolder;
-import com.example.betterus_tutorial.user.dataObjects.ActivityInfoLog;
-import com.example.betterus_tutorial.user.dataObjects.DailyGoal;
 import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
-import com.example.betterus_tutorial.user.dataObjects.MealInfo;
 import com.example.betterus_tutorial.user.dataObjects.UserLog;
 import com.example.betterus_tutorial.user.settings.Settings;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,7 +37,6 @@ import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -246,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.foodButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View view){
-                replaceFragmentAndChangeColor(new ThirdFragment(),
+                replaceFragmentAndChangeColor(new Food(),
                         prevPageButton = ButtonWhich.FOOD);
             }
         });
