@@ -38,7 +38,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/exercises"
+            android:text="@string/activities"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/white"
@@ -62,7 +62,7 @@
             android:textSize="20sp"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:layout_marginTop="545dp"
+            android:layout_marginTop="435dp"
     />
 
     <Button
@@ -103,16 +103,15 @@
             android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="350dp"
             android:layout_marginStart="90dp"
             android:textColor="@color/white"/>
     <TextView
             android:id="@+id/caloriesText"
-            android:text="Filler Text"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="350dp"
             android:layout_marginStart="250dp"/>
 
 
