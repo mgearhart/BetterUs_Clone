@@ -172,6 +172,14 @@ class SecondFragment : Fragment() {
                 } else if (activityExercises.contains(selectedActivity)) {
                     // This is an activity exercise
                     sharedViewModel.incrementProgress(sharedViewModel.progress1)
+                    val caloriesBurned = if (selectedItemPosition > 3) {
+                        activityExercisePairs[selectedItemPosition - 4].second // Get calories from the pair
+                    } else {
+                        0 // Default value for meditation activities
+                    }
+
+                    // Update the caloriesBurned variable in the shared view model
+                    sharedViewModel.updateCaloriesBurnt(caloriesBurned)
                 }
 
                 //TODO: Send back firebase data, these two include the name, and calories(if it's not meditation)
@@ -189,5 +197,3 @@ class SecondFragment : Fragment() {
             }
         })
     }}
-
-
