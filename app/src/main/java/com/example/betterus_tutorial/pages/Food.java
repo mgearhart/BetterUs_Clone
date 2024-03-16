@@ -32,6 +32,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.fragment.app.FragmentManager;
+
 
 public class Food extends Fragment {
     // ---- VARIABLES ---- \\
@@ -42,6 +45,9 @@ public class Food extends Fragment {
     private Boolean submitEnabled;
     private ArrayList<MealInfo> obtainedMealLog;
     private DatabaseReference userRef;
+
+    private SharedViewModel sharedViewModel;
+
 
     // ---- CONSTRUCTOR ---- \\
     public Food() {} // GOOD
@@ -88,6 +94,13 @@ public class Food extends Fragment {
     private void methodBindDo(Context context){ // GOOD
         this.submitButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+
+                ViewModelProvider viewModelProvider = new ViewModelProvider(requireActivity());
+                SharedViewModel sharedViewModel = viewModelProvider.get(SharedViewModel.class);
+                sharedViewModel.incrementProgress(sharedViewModel.getProgress2());
+
+
+
                 if(submitEnabled){
                     if(obtainedMealLog == null) obtainedMealLog =  new ArrayList<>();
 
@@ -98,7 +111,22 @@ public class Food extends Fragment {
                     obtainedMealLog.add(chosenMealCopy);
                     userRef.child("userLog").child("mealLog")
                             .setValue(obtainedMealLog);
+
+                    int totalCalories = 0; // Initialize total calories for the meal
+                    // Iterate over the foods in the chosen meal and sum up their calories
+                    for(String foodName: chosenMeal.getFoods()){
+                        FoodInfo food = FoodsInfo.getInstance(context).getFood(foodName);
+                        totalCalories += food.getCalories();
+                    }
+                    sharedViewModel.updateCaloriesEaten(totalCalories);
                 }
+
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FirstFragment firstFragmentInstance = new FirstFragment();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentSection, firstFragmentInstance)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
