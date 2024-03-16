@@ -8,14 +8,29 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.betterus_tutorial.R
 import com.example.betterus_tutorial.databinding.FragmentSecondBinding
+import com.example.betterus_tutorial.user.dataObjects.ActivityHolder
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class SecondFragment : Fragment() {
+    val fireDB = FirebaseDatabase.getInstance()
+    val firebaseAuth = FirebaseAuth.getInstance()
+    val firebaseUser = firebaseAuth.currentUser
+    val userRef: DatabaseReference = fireDB.getReference("users").child(firebaseUser!!.uid)
 
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
+    private lateinit var sharedViewModel: SharedViewModel
+
+    val meditationActivities = mutableListOf<String>()
+    val activityExercises = mutableListOf<String>()
+    var allActivities2 = mutableListOf<String>()
+    val activityExercisePairs = mutableListOf<Pair<String, Int>>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,17 +43,55 @@ class SecondFragment : Fragment() {
         val spinner = binding.activityInput
         spinner.prompt = "Select an option"
 
-        // Create ArrayAdapter for spinner
-        val stringArray = arrayOf("None", "Exercise1", "Exercise2", "Exercise3")
-        val adapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_spinner_item,
-            stringArray
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+        // Load meditation exercises
+        userRef.child("meditationInfo").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val meditationInfo: ActivityHolder? = dataSnapshot.getValue(ActivityHolder::class.java)
 
-        // Set listener on spinner to enable/disable submit button based on selection
+                meditationInfo?.let { info ->
+                    for (i in 1..ActivityHolder.NUM_ACTIVITIES) {
+                        info.getActivity(i)?.activityName?.let { meditationActivities.add(it) }
+                    }
+                }
+
+                // Add "Select an option" at the beginning of the meditation list
+                meditationActivities.add(0, "Select an option")
+
+                // Populate spinner after fetching data
+                populateSpinner()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+
+            }
+        })
+
+        // Load activity exercises
+        userRef.child("exerciseInfo").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val activityInfo: ActivityHolder? = dataSnapshot.getValue(ActivityHolder::class.java)
+
+                activityInfo?.let { info ->
+                    for (i in 1..ActivityHolder.NUM_ACTIVITIES) {
+                        val activity = info.getActivity(i)
+                        activity?.let {
+                            val activityName = it.activityName
+                            activityExercises.add(activityName)
+                            val calories = it.calPerHour
+                            activityExercisePairs.add(Pair(activityName, calories)) // Add activity name and calories pair
+                        }
+                    }
+                }
+
+                // Populate spinner after fetching data
+                populateSpinner()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle any errors that occur during the retrieval process
+            }
+        })
+
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 // Enable submit button if an option other than "None" is selected
@@ -50,6 +103,15 @@ class SecondFragment : Fragment() {
                     val customBackground = requireContext().resources.getDrawable(R.drawable.button_soft_enabled_2, null)
                     binding.submitButton.background = customBackground // Change to desired color
                 }
+
+                if (position > 3) {
+                    val selectedActivity = activityExercises[position - 4]
+                    val calories = activityExercisePairs[position - 4].second
+                    binding.caloriesText.text = "$calories"
+                } else {
+                    // Reset caloriesText for meditation activities
+                    binding.caloriesText.text = ""
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -59,25 +121,73 @@ class SecondFragment : Fragment() {
                 binding.submitButton.setBackgroundColor(Color.GRAY)
             }
         }
+
         return view
     }
+
+    private fun populateSpinner() {
+        // Combine both lists
+        val allActivities = mutableListOf<String>().apply {
+            addAll(meditationActivities)
+            addAll(activityExercises)
+        }
+
+        // Create ArrayAdapter for spinner
+        val adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            allActivities.toTypedArray()
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.activityInput.adapter = adapter
+        allActivities2 = allActivities
+    }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // Navigate to previous fragment
         binding.previousButton.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            val fragManager: FragmentManager = requireActivity().supportFragmentManager
+            val firstFragmentInstance = FirstFragment() // Create an instance of FirstFragment
+            fragManager.beginTransaction()
+                .replace(R.id.fragmentSection, firstFragmentInstance)
+                .addToBackStack(null)
+                .commit()
         }
 
-        // Navigate to next fragment
-        binding.submitButton.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-}
+        binding.submitButton.setOnClickListener(View.OnClickListener { view -> //When submit button pressed
+
+            //updates progress bar
+            sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+            val selectedItemPosition = binding.activityInput.selectedItemPosition
+            val selectedActivity = allActivities2[selectedItemPosition]
+            if (selectedItemPosition != 0) {
+                if (meditationActivities.contains(selectedActivity)) {
+                    // This is a meditation activity
+                    sharedViewModel.incrementProgress(sharedViewModel.progress3)
+                } else if (activityExercises.contains(selectedActivity)) {
+                    // This is an activity exercise
+                    sharedViewModel.incrementProgress(sharedViewModel.progress1)
+                }
+
+                //TODO: Send back firebase data, these two include the name, and calories(if it's not meditation)
+                val selectedSpinnerItem = binding.activityInput.selectedItem.toString()
+                val caloriesText = binding.caloriesText.text.toString()
+
+
+                //Navigate back to first fragment
+                val fragManager: FragmentManager = requireActivity().supportFragmentManager
+                val firstFragmentInstance = FirstFragment() // Create an instance of FirstFragment
+                fragManager.beginTransaction()
+                    .replace(R.id.fragmentSection, firstFragmentInstance)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        })
+    }}
+
+
