@@ -3339,9 +3339,6 @@ int id browser_actions_menu_items 0x7f08008c
 int id browser_actions_menu_view 0x7f08008d
 int id button 0x7f08008e
 int id buttonPanel 0x7f08008f
-int id button_first 0x7f080090
-int id button_fourth 0x7f080091
-int id button_second 0x7f080092
 int id cache_measures 0x7f080093
 int id calBurntInput 0x7f080094
 int id calBurntText 0x7f080095
@@ -3503,7 +3500,6 @@ int id ignore 0x7f080130
 int id ignoreRequest 0x7f080131
 int id image 0x7f080132
 int id imageView3 0x7f080133
-int id imageView4 0x7f080134
 int id immediateStop 0x7f080135
 int id included 0x7f080136
 int id indeterminate 0x7f080137
@@ -3664,6 +3660,7 @@ int id progressBar 0x7f0801d0
 int id progressBar1 0x7f0801d1
 int id progressBar4 0x7f0801d2
 int id progressBar5 0x7f0801d3
+int id progressBar6 0x7f08028c
 int id progress_circular 0x7f0801d4
 int id progress_horizontal 0x7f0801d5
 int id radio 0x7f0801d6
@@ -3791,6 +3788,8 @@ int id textView3 0x7f08024f
 int id textView4 0x7f080250
 int id textView5 0x7f080251
 int id textView6 0x7f080252
+int id textView7 0x7f08028d
+int id textView8 0x7f08028e
 int id textView9 0x7f080253
 int id textWatcher 0x7f080254
 int id text_input_end_icon 0x7f080255

@@ -3340,9 +3340,6 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id button
 id buttonPanel
-id button_first
-id button_fourth
-id button_second
 id cache_measures
 id calBurntInput
 id calBurntText
@@ -3504,7 +3501,6 @@ id ignore
 id ignoreRequest
 id image
 id imageView3
-id imageView4
 id immediateStop
 id included
 id indeterminate
@@ -3665,6 +3661,7 @@ id progressBar
 id progressBar1
 id progressBar4
 id progressBar5
+id progressBar6
 id progress_circular
 id progress_horizontal
 id radio
@@ -3792,6 +3789,8 @@ id textView3
 id textView4
 id textView5
 id textView6
+id textView7
+id textView8
 id textView9
 id textWatcher
 id text_input_end_icon

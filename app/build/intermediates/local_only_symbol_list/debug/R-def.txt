@@ -78,9 +78,6 @@ id badHeartRate
 id betterUsTitle
 id blueBlob
 id button
-id button_first
-id button_fourth
-id button_second
 id calBurntInput
 id calBurntText
 id calGainedInput
@@ -119,7 +116,6 @@ id homeButton
 id homeImage
 id homeText
 id imageView3
-id imageView4
 id info
 id ingredients
 id ingredientsText
@@ -141,6 +137,7 @@ id progressBar
 id progressBar1
 id progressBar4
 id progressBar5
+id progressBar6
 id rec1
 id recoImage
 id recoText
@@ -170,6 +167,8 @@ id textView3
 id textView4
 id textView5
 id textView6
+id textView7
+id textView8
 id textView9
 id title
 id wakeUpAmPm
