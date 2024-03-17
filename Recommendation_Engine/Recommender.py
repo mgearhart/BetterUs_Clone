@@ -1,13 +1,13 @@
-import pandas as pd
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-import Meal_recommender
-import Activity_recommender
+import Activity_recommender, Meal_recommender
 import json
 
 
 def recommender(new_logs, goals, current_status):
+    new_logs = json.dumps(testLogs) #Currently have these three hardcoded to practice data sets, remove these for Firebase data
+    goals = json.dumps(goalJson)
+    current_status = json.dumps(statusJson)
+
+
     goals = json.loads(goals)
     current_status = json.loads(current_status)
 
@@ -53,22 +53,22 @@ def recommender(new_logs, goals, current_status):
     meditationRec = ""
     sleepRec = ""
 
-    match recommendation:
-        case 'activity':
-            activityRec = Activity_recommender.Activity_recommender(activities)
-        case 'meal':
-            # Parse out meals and pass it to meal_recommender
-            mealRec = Meal_recommender.Meal_recommender(meals)
-        case 'meditation':
-            meditationRec = 'meditation'
-        case 'sleep':
-            sleepRec = 'sleep'
+    if recommendation == 'activity':
+        activityRec = Activity_recommender.Activity_recommender(activities)
+    elif recommendation == 'meal':
+        mealRec = Meal_recommender.Meal_recommender(meals)
+    elif recommendation == 'meditation':
+        return 'meditation'
+    elif recommendation == 'sleep':
+        return 'sleep'
 
     return json.dumps({
-        "meal": mealRec,
-        "meditationActivity": meditationRec,
-        "exerciseActivity": activityRec
+        "meal": str(mealRec),
+        "meditationActivity": str(meditationRec),
+        "exerciseActivity": str(activityRec)
     })
+
+
 
 
 # local testing
@@ -165,3 +165,4 @@ testLogs = {"exampleList": [
 # I was seeing the different results to understand
 for i in range(1):
     print(recommender(json.dumps(testLogs), json.dumps(goalJson), json.dumps(statusJson)))
+
