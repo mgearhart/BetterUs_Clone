@@ -14,7 +14,6 @@ def mutateData(datum):
     timeStr = newDatum["startTime"]
     time = datetime.strptime(timeStr, '%Y-%m-%d %H:%M:%S')
 
-    # TODO: talk to aaron about how to scale the distances (dist between tuesday - wed =1, noon - 1pm = 60 ???)
     newDatum["dayOfWeek"] = time.weekday()
     newDatum["isWeekday"] = 1 if time.weekday() < 5 else 0
     newDatum["timeOfDay"] = time.hour * 60 + time.minute
@@ -25,6 +24,7 @@ def mutateData(datum):
 # returns one suggestion (activity, meal, meditation, sleep)
 def Activity_recommender(data):
     # get raw data and make it usable (datapoints)
+
     newData = list(map(mutateData, data))
 
     df = pd.DataFrame(newData)
@@ -32,16 +32,6 @@ def Activity_recommender(data):
     # Split data into train and test sets
     X = df[['dayOfWeek', 'isWeekday', 'timeOfDay']]
     y = df['activityName']
-    # test_size
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
-
-    # Initialize and train with the split data set to gauge accuracy of DTC
-    clf = DecisionTreeClassifier()
-    clf.fit(X_train, y_train)
-
-    # Make predictions and test against split test y array
-    # y_pred = clf.predict(X_test)
-    # print("accuracy: " + accuracy_score(y_test, y_pred))
 
     # initialize and train with whole dataset
     clf = DecisionTreeClassifier()
@@ -61,3 +51,4 @@ def Activity_recommender(data):
     recommendation = clf.predict(new_user_data)[0]
     # print(f"Recommendation for the new user: {recommendation}")
     return recommendation
+
