@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.betterus_tutorial.R
 import com.example.betterus_tutorial.databinding.FragmentSecondBinding
 import com.example.betterus_tutorial.user.dataObjects.ActivityHolder
@@ -166,12 +166,10 @@ class SecondFragment : Fragment() {
             val selectedItemPosition = binding.activityInput.selectedItemPosition
             val selectedActivity = allActivities2[selectedItemPosition]
             if (selectedItemPosition != 0) {
-                if (meditationActivities.contains(selectedActivity)) {
-                    // This is a meditation activity
-                    sharedViewModel.incrementProgress(sharedViewModel.progress3)
-                } else if (activityExercises.contains(selectedActivity)) {
-                    // This is an activity exercise
-                    sharedViewModel.incrementProgress(sharedViewModel.progress1)
+                if (meditationActivities.contains(selectedActivity)) { //if Meditation activity
+                    sharedViewModel.updateMedDone(1)
+
+                } else if (activityExercises.contains(selectedActivity)) {//if exercise activity
                     val caloriesBurned = if (selectedItemPosition > 3) {
                         activityExercisePairs[selectedItemPosition - 4].second // Get calories from the pair
                     } else {
@@ -179,6 +177,7 @@ class SecondFragment : Fragment() {
                     }
 
                     // Update the caloriesBurned variable in the shared view model
+                    sharedViewModel.updateExDone(1)
                     sharedViewModel.updateCaloriesBurnt(caloriesBurned)
                 }
 
@@ -187,13 +186,8 @@ class SecondFragment : Fragment() {
                 val caloriesText = binding.caloriesText.text.toString()
 
 
-                //Navigate back to first fragment
-                val fragManager: FragmentManager = requireActivity().supportFragmentManager
-                val firstFragmentInstance = FirstFragment() // Create an instance of FirstFragment
-                fragManager.beginTransaction()
-                    .replace(R.id.fragmentSection, firstFragmentInstance)
-                    .addToBackStack(null)
-                    .commit()
+
+                Toast.makeText(context, "Activity recorded!", Toast.LENGTH_SHORT).show()
             }
         })
     }}
