@@ -48,10 +48,10 @@ def recommender(new_logs, goals, current_status):
     print(activities)
     meals = new_logs['exampleList'][0]['0']['userLog']['mealLog']
     print(meals)
-    activityRec = -1
-    mealRec = -1
-    meditationRec = -1
-    sleepRec = -1
+    activityRec = ""
+    mealRec = ""
+    meditationRec = ""
+    sleepRec = ""
 
     match recommendation:
         case 'activity':
@@ -70,6 +70,8 @@ def recommender(new_logs, goals, current_status):
         "exerciseActivity": activityRec
     })
 
+
+# local testing
 
 goalJson = {"exampleList":
     [
