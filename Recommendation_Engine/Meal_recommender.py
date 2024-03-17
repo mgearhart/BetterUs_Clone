@@ -1,56 +1,62 @@
+import copy
+
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+from datetime import datetime
+
+
+def mutateData(datum):
+    newDatum = copy.copy(datum)
+    del newDatum["food"]
+    timeStr = newDatum["dateTime"]
+    time = datetime.strptime(timeStr, '%Y-%m-%d %H:%M:%S')
+
+    # TODO: talk to aaron about how to scale the distances (dist between tuesday - wed =1, noon - 1pm = 60 ???)
+    newDatum["dayOfWeek"] = time.weekday()
+    newDatum["isWeekday"] = 1 if time.weekday() < 5 else 0
+    newDatum["timeOfDay"] = time.hour * 60 + time.minute
+    return newDatum
 
 
 # this program takes in new logs, and goals
 # returns one suggestion (activity, meal, meditation, sleep)
-def Meal_recommender(new_logs, goals):
-    # Training data
-    # here's how to read it, each key has an array, and each index of that array is a column
+def Meal_recommender(data):
+    # get raw data and make it usable (datapoints)
+    newData = list(map(mutateData, data))
 
-    # this is about the ideal goal states for each time
-    data = {
-        # current state of the user
-        'heart_rate': [50, 70, 80, 190, 80],  # Heart rate in bpm
-        'step_count': [0, 1000, 6000, 10000, 10000],  # Daily step count
-        'calories': [0, 0, 500, 2000, 2000],  # Daily calorie intake
-        'time_of_day': [6, 8, 12, 18, 20],  # Time of day
-        # meal that the user ate.
-        'meals': ['Advocado Toast', 'Salmon Poke', 'Egg Salad Sandwich', 'Steak Tartare', 'GoGurt']  # End State
-    }
-
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(newData)
 
     # Split data into train and test sets
-    X = df[['heart_rate', 'step_count', 'calories', 'time_of_day']]
-    y = df['meals']
-    # setting random state to 0 because it's the ideal state, unsure if that is correct
+    X = df[['dayOfWeek', 'isWeekday', 'timeOfDay']]
+    y = df['name']
+    # test_size
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
 
-    # Initialize and train the decision tree classifier
-    # no clue what this means
+    # Initialize and train with the split data set to gauge accuracy of DTC
     clf = DecisionTreeClassifier()
-
-    # no clue what this means
     clf.fit(X_train, y_train)
-    # Make predictions
-    y_pred = clf.predict(X_test)
+
+    # Make predictions and test against split test y array
+    # y_pred = clf.predict(X_test)
+    # print("accuracy: " + accuracy_score(y_test, y_pred))
+
+    # initialize and train with whole dataset
+    clf = DecisionTreeClassifier()
+    clf.fit(X, y)
 
     # Now use the trained model to make recommendations for a new user
-    # my understanding is I'm putting in the current state of the user, and I'm out putting a recommendation
+
+    today = datetime.today()
+    currentTime = datetime.now()
+
     new_user_data = pd.DataFrame({
-        'heart_rate': [200],
-        'step_count': [6000],
-        'calories': [2000],
-        'time_of_day': [11]
+        "dayOfWeek": [today.weekday()],
+        "isWeekday": [1 if today.weekday() < 5 else 0],
+        "timeOfDay": [currentTime.hour * 60 + currentTime.minute]
     })
 
     recommendation = clf.predict(new_user_data)[0]
-    print(f"Recommendation for the new user: {recommendation}")
-
-
-# I was seeing the different results to understand
-for i in range(1):
-    Meal_recommender()
+    # print(f"Recommendation for the new user: {recommendation}")
+    return recommendation
