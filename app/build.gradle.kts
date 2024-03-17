@@ -4,6 +4,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("com.chaquo.python")
 }
 
 android {
@@ -18,6 +19,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters.add("armeabi-v7a")
+            abiFilters.add("arm64-v8a")
+            abiFilters.add("x86")
+            abiFilters.add("x86_64")
+        }
     }
 
     buildTypes {
@@ -39,6 +46,16 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
+    }
+
+    chaquopy {
+        defaultConfig {
+            version = "3.8"
+            pip {
+                install("pandas")
+                install("scikit-learn")
+            }
+        }
     }
 }
 
