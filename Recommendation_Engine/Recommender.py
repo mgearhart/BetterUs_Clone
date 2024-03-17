@@ -3,6 +3,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import Meal_recommender
+import Activity_recommender
 import json
 
 
@@ -47,25 +48,27 @@ def recommender(new_logs, goals, current_status):
     print(activities)
     meals = new_logs['exampleList'][0]['0']['userLog']['mealLog']
     print(meals)
+    activityRec = -1
+    mealRec = -1
+    meditationRec = -1
+    sleepRec = -1
+
     match recommendation:
         case 'activity':
-            print("Activity_recommender()")
+            activityRec = Activity_recommender.Activity_recommender(activities)
         case 'meal':
             # Parse out meals and pass it to meal_recommender
-            print(Meal_recommender.Meal_recommender(meals))
+            mealRec = Meal_recommender.Meal_recommender(meals)
         case 'meditation':
-            print('meditation')
+            meditationRec = 'meditation'
         case 'sleep':
-            print('sleep')
+            sleepRec = 'sleep'
 
-
-# pack the json
-# json.dump
-# jsonReturn = {
-#  "meal": meal_name,
-#  "meditationActivity": {"activityName": "meditation", "caloriesPerHour": 0},
-#  "exerciseActivity": {"activityName": <name>, "caloriesPerHour": <cal. per hour>}
-# }
+    return json.dumps({
+        "meal": mealRec,
+        "meditationActivity": meditationRec,
+        "exerciseActivity": activityRec
+    })
 
 
 goalJson = {"exampleList":
@@ -77,12 +80,11 @@ goalJson = {"exampleList":
             "numExercise": 2}}
     ]
 }
-
 statusJson = {"exampleList":
     [
         {"0": {
-            "caloriesBurnt": 1000,
-            "caloriesGained": 0,
+            "caloriesBurnt": 100,
+            "caloriesGained": 2000,
             "numMeditation": 2,
             "numExercise": 1}}
     ]
@@ -120,12 +122,31 @@ testMeditations = [{
     "startTime": "2024-03-14 08:05:05",
     "heartRate": -1
 }]
-testActivities = [{
-    "activityName": "<name>",
-    "caloriesPerHour": 100,
-    "startTime": "2024-03-14 08:05:05",
-    "heartRate": -1
-}
+testActivities = [
+    {
+        "activityName": "Jogging",
+        "caloriesPerHour": 100,
+        "startTime": "2024-03-14 08:05:05",
+        "heartRate": -1
+    },
+    {
+        "activityName": "Running",
+        "caloriesPerHour": 100,
+        "startTime": "2024-03-15 09:05:05",
+        "heartRate": -1
+    },
+    {
+        "activityName": "Swimming",
+        "caloriesPerHour": 100,
+        "startTime": "2024-03-16 14:05:05",
+        "heartRate": -1
+    },
+    {
+        "activityName": "Swimming",
+        "caloriesPerHour": 100,
+        "startTime": "2024-03-17 13:05:05",
+        "heartRate": -1
+    }
 ]
 testLogs = {"exampleList": [
     {"0": {
@@ -137,9 +158,8 @@ testLogs = {"exampleList": [
         }
     }
     }
-]
-}
+]}
 
 # I was seeing the different results to understand
 for i in range(1):
-    recommender(json.dumps(testLogs), json.dumps(goalJson), json.dumps(statusJson))
+    print(recommender(json.dumps(testLogs), json.dumps(goalJson), json.dumps(statusJson)))
