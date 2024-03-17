@@ -95,7 +95,7 @@ public class Food extends Fragment {
 
                 ViewModelProvider viewModelProvider = new ViewModelProvider(requireActivity());
                 SharedViewModel sharedViewModel = viewModelProvider.get(SharedViewModel.class);
-                sharedViewModel.incrementProgress(sharedViewModel.getProgress2());
+
 
                 if(submitEnabled){
                     if(obtainedMealLog == null) obtainedMealLog =  new ArrayList<>();
@@ -114,6 +114,7 @@ public class Food extends Fragment {
                         FoodInfo food = FoodsInfo.getInstance(context).getFood(foodName);
                         totalCalories += food.getCalories();
                     }
+
                     sharedViewModel.updateCaloriesEaten(totalCalories);
                 }
 
