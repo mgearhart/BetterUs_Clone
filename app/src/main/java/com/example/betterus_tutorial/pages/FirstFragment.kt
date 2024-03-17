@@ -10,7 +10,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.betterus_tutorial.databinding.FragmentFirstBinding
-import com.example.betterus_tutorial.user.dataObjects.ActivityHolder
 import com.example.betterus_tutorial.user.dataObjects.GoalInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -170,6 +169,11 @@ class SharedViewModel : ViewModel() {
     val progress2 = MutableLiveData<Int>().apply { value = 0 }
     val progress3 = MutableLiveData<Int>().apply { value = 0 }
 
+    val fireDB = FirebaseDatabase.getInstance()
+    val firebaseAuth = FirebaseAuth.getInstance()
+    val firebaseUser = firebaseAuth.currentUser
+    val userRef: DatabaseReference = fireDB.getReference("users").child(firebaseUser!!.uid)
+
 
     val caloriesNeeded: Int
         get() = goalInfo?.caloriesGained ?: 0
@@ -186,8 +190,6 @@ class SharedViewModel : ViewModel() {
     // Locally modified variables
     var caloriesEaten: Int = 0
     var caloriesBurned: Int = 0
-
-
 
 
     // Function to increment progress counters
@@ -207,9 +209,17 @@ class SharedViewModel : ViewModel() {
 
     fun updateCaloriesEaten(calories: Int) {
         caloriesEaten += calories
+        saveUserGoal()
     }
 
     fun updateCaloriesBurnt(calories: Int) {
         caloriesBurned += calories
+        saveUserGoal()
+    }
+
+    fun saveUserGoal(){
+        // Override user's old current goal status upon exiting app
+        userRef.child("currentGoalStatus")
+            .child("currentStatus").setValue(goalInfo);
     }
 }

@@ -20,7 +20,7 @@ public class GoalInfo {
 
     public void setNumMeditation(int numMed){this.numMeditation = numMed;} // GOOD
 
-    public void setNumExercises(int numExer){this.numExercise = numExer;} // GOOD
+    public void setNumExercise(int numExer){this.numExercise = numExer;} // GOOD
 
     public int getCaloriesBurnt(){return this.caloriesBurnt;} // GOOD
 

@@ -20,8 +20,8 @@ import com.example.betterus_tutorial.tutorial.Tutorial4;
 import com.example.betterus_tutorial.tutorial.Tutorial5;
 import com.example.betterus_tutorial.user.authentication.Login;
 import com.example.betterus_tutorial.user.dataObjects.ActivityHolder;
+import com.example.betterus_tutorial.user.dataObjects.CurrentGoalStatus;
 import com.example.betterus_tutorial.user.dataObjects.GoalInfo;
-import com.example.betterus_tutorial.user.dataObjects.UserLog;
 import com.example.betterus_tutorial.user.settings.Settings;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,7 +37,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import java.util.ArrayList;
+import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity {
     // ---- VARIABLES ---- \\
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView recommendImage, exerciseImage, homeImage, foodImage, settingsImage;
     private TextView recommendText, exerciseText, homeText, foodText, settingsText;
     private int PRESSED_COLOR_TINT, UNPRESSED_COLOR_TINT;
-    private ButtonWhich prevPageButton;
     private DatabaseReference userRef;
+    private ButtonWhich prevPageButton;
 
     // ---- METHODS ---- \\
     private void checkLogin(){ // GOOD
@@ -104,16 +104,12 @@ public class MainActivity extends AppCompatActivity {
                                             -1, -1));
 
                     // -- User Log -- \\
-                    /*
-                        TODO:
-                        - Fix this or have be set in the app pages or so!
-                     */
-                    UserLog userLog = new UserLog(new ArrayList<>(),
-                            new ArrayList<>(),
-                            new ArrayList<>(),
-                            new ArrayList<>());
-                    MainActivity.this.userRef.child("userLog")
-                            .setValue(userLog);
+//                    UserLog userLog = new UserLog(new ArrayList<>(),
+//                            new ArrayList<>(),
+//                            new ArrayList<>(),
+//                            new ArrayList<>());
+//                    MainActivity.this.userRef.child("userLog")
+//                            .setValue(userLog);
 
                     // Sending user to tutorial page!
                     startActivity(new Intent(getApplicationContext(), Tutorial0.class));

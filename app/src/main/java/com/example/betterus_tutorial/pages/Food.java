@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.betterus_tutorial.R;
 import com.example.betterus_tutorial.user.dataObjects.FoodInfo;
@@ -33,8 +34,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.fragment.app.FragmentManager;
-
 
 public class Food extends Fragment {
     // ---- VARIABLES ---- \\
@@ -45,7 +44,6 @@ public class Food extends Fragment {
     private Boolean submitEnabled;
     private ArrayList<MealInfo> obtainedMealLog;
     private DatabaseReference userRef;
-
     private SharedViewModel sharedViewModel;
 
 
@@ -99,8 +97,6 @@ public class Food extends Fragment {
                 SharedViewModel sharedViewModel = viewModelProvider.get(SharedViewModel.class);
                 sharedViewModel.incrementProgress(sharedViewModel.getProgress2());
 
-
-
                 if(submitEnabled){
                     if(obtainedMealLog == null) obtainedMealLog =  new ArrayList<>();
 
@@ -121,12 +117,9 @@ public class Food extends Fragment {
                     sharedViewModel.updateCaloriesEaten(totalCalories);
                 }
 
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                FirstFragment firstFragmentInstance = new FirstFragment();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentSection, firstFragmentInstance)
-                        .addToBackStack(null)
-                        .commit();
+                // Replaced with a simple toast since the fragment replacement was sort of messing
+                // up the navigation bar UI
+                Toast.makeText(context, "Meal recorded!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -175,9 +168,8 @@ public class Food extends Fragment {
         ArrayList<String> mealOptions = new ArrayList<>();
         mealOptions.add("None");
 
-        for(MealInfo meal: MealsInfo.getInstance(viewRoot.getContext()).getMeals().values()){
+        for(MealInfo meal: MealsInfo.getInstance(viewRoot.getContext()).getMeals().values())
             mealOptions.add(meal.getName());
-        }
 
         ArrayAdapter<String> mealOptionsArrayAdapter =
                 new ArrayAdapter<>(viewRoot.getContext(), R.layout.custom_dropdown_item,
