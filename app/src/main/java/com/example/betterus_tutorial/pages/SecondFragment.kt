@@ -14,8 +14,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.betterus_tutorial.R
 import com.example.betterus_tutorial.databinding.FragmentSecondBinding
 import com.example.betterus_tutorial.user.dataObjects.ActivityHolder
+import com.example.betterus_tutorial.user.dataObjects.ActivityInfoLog
+import com.example.betterus_tutorial.user.dataObjects.MealInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SecondFragment : Fragment() {
     val fireDB = FirebaseDatabase.getInstance()
@@ -31,6 +35,8 @@ class SecondFragment : Fragment() {
     val activityExercises = mutableListOf<String>()
     var allActivities2 = mutableListOf<String>()
     val activityExercisePairs = mutableListOf<Pair<String, Int>>()
+    private var obtainedExerciseLog: ArrayList<ActivityInfoLog>? = null
+    private var obtainedMeditationLog: ArrayList<ActivityInfoLog>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,16 +59,11 @@ class SecondFragment : Fragment() {
                         info.getActivity(i)?.activityName?.let { meditationActivities.add(it) }
                     }
                 }
-
                 // Add "Select an option" at the beginning of the meditation list
                 meditationActivities.add(0, "Select an option")
-
-                // Populate spinner after fetching data
                 populateSpinner()
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
-
             }
         })
 
@@ -70,7 +71,6 @@ class SecondFragment : Fragment() {
         userRef.child("exerciseInfo").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val activityInfo: ActivityHolder? = dataSnapshot.getValue(ActivityHolder::class.java)
-
                 activityInfo?.let { info ->
                     for (i in 1..ActivityHolder.NUM_ACTIVITIES) {
                         val activity = info.getActivity(i)
@@ -82,7 +82,6 @@ class SecondFragment : Fragment() {
                         }
                     }
                 }
-
                 // Populate spinner after fetching data
                 populateSpinner()
             }
@@ -91,6 +90,45 @@ class SecondFragment : Fragment() {
                 // Handle any errors that occur during the retrieval process
             }
         })
+
+
+
+
+
+
+
+
+        userRef.child("userLog")
+            .child("exerciseLog").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnap: DataSnapshot) {
+                    val typeIndicator = object : GenericTypeIndicator<ArrayList<ActivityInfoLog>>() {}
+                    obtainedExerciseLog = dataSnap.getValue(typeIndicator)
+                }
+
+                override fun onCancelled(dbError: DatabaseError) {
+                    obtainedExerciseLog = null
+                }
+            })
+
+
+        userRef.child("userLog")
+            .child("meditationLog").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnap: DataSnapshot) {
+                    val typeIndicator = object : GenericTypeIndicator<ArrayList<ActivityInfoLog>>() {}
+                    obtainedMeditationLog = dataSnap.getValue(typeIndicator) ?: ArrayList()
+                }
+
+                override fun onCancelled(dbError: DatabaseError) {
+                    obtainedMeditationLog = null
+                }
+            })
+
+
+
+
+
+
+
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -131,7 +169,6 @@ class SecondFragment : Fragment() {
             addAll(meditationActivities)
             addAll(activityExercises)
         }
-
         // Create ArrayAdapter for spinner
         val adapter = ArrayAdapter(
             requireContext(),
@@ -165,8 +202,24 @@ class SecondFragment : Fragment() {
             sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
             val selectedItemPosition = binding.activityInput.selectedItemPosition
             val selectedActivity = allActivities2[selectedItemPosition]
+
+
             if (selectedItemPosition != 0) {
                 if (meditationActivities.contains(selectedActivity)) { //if Meditation activity
+
+
+
+                    val selectedSpinnerItem = binding.activityInput.selectedItem.toString()
+                    val chosenMeditationCopy = ActivityInfoLog(
+                        selectedSpinnerItem,
+                        0,
+                        SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date()),
+                        0
+                    )
+                    obtainedMeditationLog?.add(chosenMeditationCopy)
+                    userRef.child("userLog").child("meditationLog")
+                        .setValue(obtainedMeditationLog)
+
                     sharedViewModel.updateMedDone(1)
 
                 } else if (activityExercises.contains(selectedActivity)) {//if exercise activity
@@ -179,11 +232,24 @@ class SecondFragment : Fragment() {
                     // Update the caloriesBurned variable in the shared view model
                     sharedViewModel.updateExDone(1)
                     sharedViewModel.updateCaloriesBurnt(caloriesBurned)
-                }
 
-                //TODO: Send back firebase data, these two include the name, and calories(if it's not meditation)
-                val selectedSpinnerItem = binding.activityInput.selectedItem.toString()
-                val caloriesText = binding.caloriesText.text.toString()
+
+                    //TODO: Send back firebase data, these two include the name, and calories(if it's not meditation)
+                    val selectedSpinnerItem = binding.activityInput.selectedItem.toString()
+                    val caloriesText = binding.caloriesText.text.toString().toInt()
+
+                    if (obtainedExerciseLog == null) obtainedExerciseLog = ArrayList()
+
+                    val chosenExerciseCopy = ActivityInfoLog(
+                        selectedSpinnerItem,
+                        caloriesText,
+                        SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date()),
+                        0
+                    )
+                    obtainedExerciseLog!!.add(chosenExerciseCopy)
+                    userRef.child("userLog").child("exerciseLog")
+                        .setValue(obtainedExerciseLog)
+                }
 
 
 
