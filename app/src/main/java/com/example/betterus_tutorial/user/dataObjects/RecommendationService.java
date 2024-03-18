@@ -30,8 +30,12 @@ public class RecommendationService {
         this.userRef.child("userLog")
                 .addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
             public void onDataChange(@NonNull DataSnapshot dataSnap){
-                if(dataSnap.exists()) userLog = dataSnap.getValue().toString();
+                if(dataSnap.exists()){
+                    Object object = dataSnap.getValue(Object.class);
+                    userLog = new Gson().toJson(object);
+                }
                 else userLog = null;
+//                System.out.println(userLog);
             }
 
             public void onCancelled(@NonNull DatabaseError dbError){userLog = null;}
@@ -42,8 +46,12 @@ public class RecommendationService {
         this.userRef.child("currentGoalStatus").child("currentStatus")
                 .addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
             public void onDataChange(@NonNull DataSnapshot dataSnap){
-                if(dataSnap.exists()) currentGoalStatus = dataSnap.getValue().toString();
+                if(dataSnap.exists()){
+                    Object object = dataSnap.getValue(Object.class);
+                    currentGoalStatus = new Gson().toJson(object);
+                }
                 else currentGoalStatus = null;
+//                System.out.println(currentGoalStatus);
             }
 
             public void onCancelled(@NonNull DatabaseError dbError){currentGoalStatus = null;}
@@ -54,7 +62,10 @@ public class RecommendationService {
         this.userRef.child("goalInfo")
         .addListenerForSingleValueEvent(new ValueEventListener(){ // GOOD
             public void onDataChange(@NonNull DataSnapshot dataSnap){
-                if(dataSnap.exists()) userGoalInfo = dataSnap.getValue().toString();
+                if(dataSnap.exists()){
+                    Object object = dataSnap.getValue(Object.class);
+                    userGoalInfo = new Gson().toJson(object);
+                }
                 else userGoalInfo = null;
             }
 
@@ -80,7 +91,7 @@ public class RecommendationService {
             Python python = Python.getInstance();
             PyObject script = python.getModule("Recommender");
             String jsonString = script.callAttr("recommender", this.userLog,
-                            this.currentGoalStatus, this.userGoalInfo).toString();
+                    this.userGoalInfo, this.currentGoalStatus).toString();
 
             return gson.fromJson(jsonString, RecommendationInfo.class);
         }

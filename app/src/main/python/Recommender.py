@@ -3,13 +3,15 @@ import json
 
 
 def recommender(new_logs, goals, current_status):
-    new_logs = json.dumps(testLogs) #Currently have these three hardcoded to practice data sets, remove these for Firebase data
-    goals = json.dumps(goalJson)
-    current_status = json.dumps(statusJson)
+#     new_logs = json.dumps(testLogs) #Currently have these three hardcoded to practice data sets, remove these for Firebase data
+#     goals = json.dumps(goalJson)
+#     current_status = json.dumps(statusJson)
 
 
     goals = json.loads(goals)
     current_status = json.loads(current_status)
+
+    # Goals type format: {caloriesBurnt=0, numMeditation=0, numExercise=0, caloriesGained=0}
 
     # loading the data into variables that are more managable to deal with.
     goalCaloriesBurnt = goals['caloriesBurnt']
@@ -40,14 +42,12 @@ def recommender(new_logs, goals, current_status):
         recommendation = 'activity'
         biggest_delta = deltaNumExercise
     if biggest_delta <= 0:
-        recommendation = 'sleep'
+        recommendation = 'meditation'
 
     # loading the appropriate logs
     new_logs = json.loads(new_logs)
-    activities = new_logs['userLog']["exerciseLog"]
-    print(activities)
-    meals = new_logs['userLog']['mealLog']
-    print(meals)
+    activities = new_logs["exerciseLog"]
+    meals = new_logs['mealLog']
     activityRec = ""
     mealRec = ""
     meditationRec = ""
@@ -58,9 +58,9 @@ def recommender(new_logs, goals, current_status):
     elif recommendation == 'meal':
         mealRec = Meal_recommender.Meal_recommender(meals)
     elif recommendation == 'meditation':
-        return 'meditation'
+        meditationRec = 'Recommended'
     elif recommendation == 'sleep':
-        return 'sleep'
+        meditationRec = 'Recommended'
 
     return json.dumps({
         "meal": str(mealRec),
@@ -163,6 +163,6 @@ testLogs = {"exampleList": [
 ]}
 
 # I was seeing the different results to understand
-for i in range(1):
-    print(recommender(json.dumps(testLogs), json.dumps(goalJson), json.dumps(statusJson)))
-
+# for i in range(1):
+#     print(recommender(json.dumps(testLogs), json.dumps(goalJson), json.dumps(statusJson)))
+#

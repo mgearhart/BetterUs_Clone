@@ -9,7 +9,7 @@ from datetime import datetime
 
 def mutateData(datum):
     newDatum = copy.copy(datum)
-    del newDatum["caloriesPerHour"]
+    del newDatum["calPerHour"]
     del newDatum["heartRate"]
     timeStr = newDatum["startTime"]
     time = datetime.strptime(timeStr, '%Y-%m-%d %H:%M:%S')

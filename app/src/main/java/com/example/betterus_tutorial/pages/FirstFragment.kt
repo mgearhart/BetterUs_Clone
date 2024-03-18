@@ -45,25 +45,25 @@ class FirstFragment : Fragment() {
 
 
         userRef.child("currentGoalStatus").child("currentStatus").addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        val currentGoalStatus: GoalInfo? = dataSnapshot.getValue(GoalInfo::class.java)
-                        SharedViewModel.goalInfo2 = currentGoalStatus
-                    }
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val currentGoalStatus: GoalInfo? = dataSnapshot.getValue(GoalInfo::class.java)
+                SharedViewModel.goalInfo2 = currentGoalStatus
+            }
 
-                    override fun onCancelled(databaseError: DatabaseError) {
-            // Handle onCancelled event if necessary
-                    }
-                })
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle onCancelled event if necessary
+            }
+        })
 
-            // Fetch GoalInfo from Firebase
-            userRef.child("goalInfo").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    // Deserialize GoalInfo from the dataSnapshot
-                    val goalInfoFromFirebase: GoalInfo? = dataSnapshot.getValue(GoalInfo::class.java)
+        // Fetch GoalInfo from Firebase
+        userRef.child("goalInfo").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Deserialize GoalInfo from the dataSnapshot
+                val goalInfoFromFirebase: GoalInfo? = dataSnapshot.getValue(GoalInfo::class.java)
 
-                    // Handle the retrieved GoalInfo
-                    goalInfoFromFirebase?.let {
-                        goalInfo = it // Store GoalInfo here
+                // Handle the retrieved GoalInfo
+                goalInfoFromFirebase?.let {
+                    goalInfo = it // Store GoalInfo here
 
 
 
@@ -84,7 +84,7 @@ class FirstFragment : Fragment() {
                     updateProgressText(binding.progressBar5.progress, binding.textView4)
 
 
-                                    //This is the overall progress bar
+                    //This is the overall progress bar
                     val sum = binding.progressBar1.progress + binding.progressBar4.progress + binding.progressBar5.progress
                     binding.progressBar6.progress = if(sum == 0){
                         0
@@ -97,17 +97,17 @@ class FirstFragment : Fragment() {
                         (sum / 3)
                     }
                     updateProgressText(binding.progressBar6.progress, binding.textView8)
-                    }
+                }
 
 
-                    }
+            }
 
-                            override fun onCancelled(databaseError: DatabaseError) {
-                                val currentGoalStatus = CurrentGoalStatus()
-                                userRef.child("currentGoalStatus").child("currentStatus")
-                            }
-                        })
-                     }
+            override fun onCancelled(databaseError: DatabaseError) {
+                val currentGoalStatus = CurrentGoalStatus()
+                userRef.child("currentGoalStatus").child("currentStatus")
+            }
+        })
+    }
 
 
 
@@ -148,7 +148,7 @@ class SharedViewModel : ViewModel() {
     var meditationDone: Int = 0
     //var goalInfo2: GoalInfo? = null
     //init {
-        // Fetch currentGoalStatus from Firebase and update goalInfo2
+    // Fetch currentGoalStatus from Firebase and update goalInfo2
     //    userRef.child("currentGoalStatus").child("currentStatus").addListenerForSingleValueEvent(object : ValueEventListener {
     //        override fun onDataChange(dataSnapshot: DataSnapshot) {
     //            val currentGoalStatus: GoalInfo? = dataSnapshot.getValue(GoalInfo::class.java)
@@ -156,7 +156,7 @@ class SharedViewModel : ViewModel() {
     //        }
 
     //        override fun onCancelled(databaseError: DatabaseError) {
-                // Handle onCancelled event if necessary
+    // Handle onCancelled event if necessary
     //        }
     //    })
     //}
