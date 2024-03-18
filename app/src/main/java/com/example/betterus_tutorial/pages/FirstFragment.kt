@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.betterus_tutorial.databinding.FragmentFirstBinding
+import com.example.betterus_tutorial.user.dataObjects.CurrentGoalStatus
 import com.example.betterus_tutorial.user.dataObjects.GoalInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -90,10 +91,11 @@ class FirstFragment : Fragment() {
                     }
 
                             override fun onCancelled(databaseError: DatabaseError) {
-                                // Handle cancellation, if needed
+                                val currentGoalStatus = CurrentGoalStatus()
+                                userRef.child("currentGoalStatus").child("currentStatus")
                             }
                         })
-    }
+                     }
 
 
 
