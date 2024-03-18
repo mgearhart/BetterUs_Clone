@@ -116,11 +116,11 @@ public class Food extends Fragment {
                     }
 
                     sharedViewModel.updateCaloriesEaten(totalCalories);
-                }
 
-                // Replaced with a simple toast since the fragment replacement was sort of messing
-                // up the navigation bar UI
-                Toast.makeText(context, "Meal recorded!", Toast.LENGTH_SHORT).show();
+                    // Replaced with a simple toast since the fragment replacement was sort of messing
+                    // up the navigation bar UI
+                    Toast.makeText(context, "Meal recorded!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

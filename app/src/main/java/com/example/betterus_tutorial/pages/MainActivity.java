@@ -103,6 +103,12 @@ public class MainActivity extends AppCompatActivity {
                                     .setValue(new GoalInfo(-1, -1,
                                             -1, -1));
 
+                    // -- Current goal info -- \\
+                    MainActivity.this.userRef.child("currentGoalStatus")
+                            .child("currentStatus")
+                            .setValue(new CurrentGoalStatus(0,
+                                    0, 0, 0));
+
                     // -- User Log -- \\
 //                    UserLog userLog = new UserLog(new ArrayList<>(),
 //                            new ArrayList<>(),
@@ -217,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
     private void methodBindDo(){ // GOOD
         this.recommendButton.setOnClickListener(new View.OnClickListener(){ // GOOD
             public void onClick(View view){
-                replaceFragmentAndChangeColor(new SeventhFragment(),
+                replaceFragmentAndChangeColor(new Recommendation(),
                         prevPageButton = ButtonWhich.RECOMMEND);
             }
         });

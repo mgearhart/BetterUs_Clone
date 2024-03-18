@@ -80,4 +80,7 @@
     <string name="meal">Meal: </string>
     <string name="yourFood">Your Food</string>
     <string name="eatButtonText">This Is What I Ate</string>
+    <string name="recommendText">Get recommendation</string>
+    <string name="medText">Meditation:</string>
+    <string name="exerText">Exercise:</string>
 </resources>

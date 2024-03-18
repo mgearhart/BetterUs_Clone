@@ -5,7 +5,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
         android:background="@color/tutorial_page_background"
 >
 
@@ -14,7 +13,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:src="@drawable/blue_blob"
-        android:layout_marginStart="80dp"
+        android:layout_centerHorizontal="true"
         />
 
     <androidx.cardview.widget.CardView
@@ -35,83 +34,83 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/activities"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-10dp"
-            android:layout_below="@+id/blueBlob"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activities"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"
+        android:layout_below="@+id/blueBlob"
     />
 
     <Button
-            android:id="@+id/submitButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="72dp"
-            android:paddingRight="72dp"
-            android:background="@drawable/button_soft_enabled_2"
-            android:layout_marginStart="20dp"
-            android:text="@string/submit"
-            android:textSize="20sp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:layout_marginTop="435dp"
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="72dp"
+        android:paddingRight="72dp"
+        android:background="@drawable/button_soft_enabled_2"
+        android:layout_marginStart="20dp"
+        android:text="@string/submit"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginTop="630dp"
     />
 
     <Button
-            android:id="@+id/previousButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="70dp"
-            android:paddingRight="70dp"
-            android:background="@drawable/button_soft_disabled"
-            android:layout_marginStart="20dp"
-            android:text="@string/previous"
-            android:textSize="20sp"
-            android:textAllCaps="false"
-            android:textColor="@color/button_disabled_text"
-            android:layout_marginTop="600dp"
-            android:visibility="gone"
+        android:id="@+id/previousButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:background="@drawable/button_soft_disabled"
+        android:layout_marginStart="20dp"
+        android:text="@string/previous"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:textColor="@color/button_disabled_text"
+        android:layout_marginTop="600dp"
+        android:visibility="gone"
     />
     <Spinner
-            android:id="@+id/activityInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="310dp"
-            android:layout_marginStart="200dp"/>
+        android:id="@+id/activityInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="200dp"/>
     <TextView
-            android:id="@+id/exerciseQuestion"
-            android:text="@string/activitySelect"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="308dp"
-            android:layout_marginStart="90dp"
-            android:textColor="@color/white"/>
+        android:id="@+id/exerciseQuestion"
+        android:text="@string/activitySelect"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="308dp"
+        android:layout_marginStart="90dp"
+        android:textColor="@color/white"/>
     <TextView
-            android:id="@+id/caloriesBurned"
-            android:text="@string/caloriesBurned"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="350dp"
-            android:layout_marginStart="90dp"
-            android:textColor="@color/white"/>
+        android:id="@+id/caloriesBurned"
+        android:text="@string/caloriesBurned"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="350dp"
+        android:layout_marginStart="90dp"
+        android:textColor="@color/white"/>
     <TextView
-            android:id="@+id/caloriesText"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="350dp"
-            android:layout_marginStart="250dp"/>
+        android:id="@+id/caloriesText"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="350dp"
+        android:layout_marginStart="250dp"/>
 
 
 </RelativeLayout>

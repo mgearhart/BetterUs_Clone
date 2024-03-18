@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".pages.Recommendation"
+    android:background="@color/tutorial_page_background"
+    >
+
+    <ImageView
+        android:id="@+id/blueBlob"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/blue_blob"
+        android:layout_centerHorizontal="true"
+    />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/gifRoundCard"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="160dp"
+        app:cardCornerRadius="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/gifImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/recommend"
+        />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recommendation"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"
+        android:layout_below="@+id/blueBlob"
+    />
+
+    <TextView
+        android:id="@+id/medText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/medText"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_below="@+id/title"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+    />
+
+    <TextView
+        android:id="@+id/medRecoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_below="@+id/title"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="20dp"
+    />
+
+    <TextView
+        android:id="@+id/exerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exerText"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_below="@+id/medText"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+    />
+
+    <TextView
+        android:id="@+id/exerRecoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_below="@+id/medText"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="20dp"
+    />
+
+    <TextView
+        android:id="@+id/mealText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meal"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_below="@+id/exerText"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+    />
+
+    <TextView
+        android:id="@+id/mealRecoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_below="@+id/exerText"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="20dp"
+    />
+
+    <Button
+        android:id="@+id/recommendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:background="@drawable/button_soft_enabled_2"
+        android:layout_marginStart="20dp"
+        android:text="@string/recommendText"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginTop="630dp"
+    />
+</RelativeLayout>
