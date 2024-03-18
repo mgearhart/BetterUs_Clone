@@ -43,6 +43,18 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        userRef.child("currentGoalStatus").child("currentStatus").addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        val currentGoalStatus: GoalInfo? = dataSnapshot.getValue(GoalInfo::class.java)
+                        SharedViewModel.goalInfo2 = currentGoalStatus
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {
+            // Handle onCancelled event if necessary
+                    }
+                })
+
             // Fetch GoalInfo from Firebase
             userRef.child("goalInfo").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -122,8 +134,9 @@ class FirstFragment : Fragment() {
 
 class SharedViewModel : ViewModel() {
 
-    private var goalInfo2: GoalInfo? = null
-
+    companion object {
+        var goalInfo2: GoalInfo?= null
+    }
     val fireDB = FirebaseDatabase.getInstance()
     val firebaseAuth = FirebaseAuth.getInstance()
     val firebaseUser = firebaseAuth.currentUser
@@ -133,34 +146,48 @@ class SharedViewModel : ViewModel() {
     var caloriesBurned: Int = 0
     var exercisesDone: Int = 0
     var meditationDone: Int = 0
+    //var goalInfo2: GoalInfo? = null
+    //init {
+        // Fetch currentGoalStatus from Firebase and update goalInfo2
+    //    userRef.child("currentGoalStatus").child("currentStatus").addListenerForSingleValueEvent(object : ValueEventListener {
+    //        override fun onDataChange(dataSnapshot: DataSnapshot) {
+    //            val currentGoalStatus: GoalInfo? = dataSnapshot.getValue(GoalInfo::class.java)
+    //            goalInfo2 = currentGoalStatus
+    //        }
+
+    //        override fun onCancelled(databaseError: DatabaseError) {
+                // Handle onCancelled event if necessary
+    //        }
+    //    })
+    //}
+
 
     fun updateCaloriesEaten(calories: Int) {
         caloriesEaten += calories
-        saveUserGoal()
+        saveUserGoal(caloriesBurned,caloriesEaten,exercisesDone,meditationDone)
     }
     fun updateCaloriesBurnt(calories: Int) {
         caloriesBurned += calories
-        saveUserGoal()
+        saveUserGoal(caloriesBurned,caloriesEaten,exercisesDone,meditationDone)
     }
     fun updateMedDone(num: Int) {
         meditationDone += num
-        saveUserGoal()
+        saveUserGoal(caloriesBurned,caloriesEaten,exercisesDone,meditationDone)
 
     }fun updateExDone(num: Int) {
         exercisesDone += num
-        saveUserGoal()
+        saveUserGoal(caloriesBurned,caloriesEaten,exercisesDone,meditationDone)
     }
 
 
-    fun saveUserGoal(){
-
-        goalInfo2?.numExercise = exercisesDone
-        goalInfo2?.numMeditation = meditationDone
-        goalInfo2?.caloriesBurnt = caloriesBurned
-        goalInfo2?.caloriesGained = caloriesEaten
-
+    fun saveUserGoal(caloriesBurnt: Int, caloriesGained: Int,numExercise: Int, numMeditation: Int) {
+        val updatedGoalInfo = GoalInfo(caloriesBurnt,caloriesGained,numExercise,numMeditation)
 
         userRef.child("currentGoalStatus")
-            .child("currentStatus").setValue(goalInfo2);
+            .child("currentStatus").setValue(updatedGoalInfo)
     }
+
+    //companion object {
+    //    var goalInfo2: GoalInfo?= null
+    //}
 }
