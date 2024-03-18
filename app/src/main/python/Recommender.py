@@ -12,14 +12,14 @@ def recommender(new_logs, goals, current_status):
     current_status = json.loads(current_status)
 
     # loading the data into variables that are more managable to deal with.
-    goalCaloriesBurnt = goals['exampleList'][0]['0']['caloriesBurnt']
-    goalCaloriesGained = goals['exampleList'][0]['0']['caloriesGained']
-    goalNumMeditation = goals['exampleList'][0]['0']['numMeditation']
-    goalNumExercise = goals['exampleList'][0]['0']['numExercise']
-    currCaloriesBurnt = current_status['exampleList'][0]['0']['caloriesBurnt']
-    currCaloriesGained = current_status['exampleList'][0]['0']['caloriesGained']
-    currNumMeditation = current_status['exampleList'][0]['0']['numMeditation']
-    currNumExercise = current_status['exampleList'][0]['0']['numExercise']
+    goalCaloriesBurnt = goals['caloriesBurnt']
+    goalCaloriesGained = goals['caloriesGained']
+    goalNumMeditation = goals['numMeditation']
+    goalNumExercise = goals['numExercise']
+    currCaloriesBurnt = current_status['caloriesBurnt']
+    currCaloriesGained = current_status['caloriesGained']
+    currNumMeditation = current_status['numMeditation']
+    currNumExercise = current_status['numExercise']
 
     # Calculate deltas
     deltaCaloriesBurnt = (goalCaloriesBurnt - currCaloriesBurnt) / goalCaloriesBurnt
@@ -44,9 +44,9 @@ def recommender(new_logs, goals, current_status):
 
     # loading the appropriate logs
     new_logs = json.loads(new_logs)
-    activities = new_logs['exampleList'][0]['0']['userLog']["exerciseLog"]
+    activities = new_logs['userLog']["exerciseLog"]
     print(activities)
-    meals = new_logs['exampleList'][0]['0']['userLog']['mealLog']
+    meals = new_logs['userLog']['mealLog']
     print(meals)
     activityRec = ""
     mealRec = ""
